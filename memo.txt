@@ -1,0 +1,10 @@
+git clone <ssh>
+git branch -b <name>
+git checkout <branch name>
+git push -u origin <branch name>
+
+
+
+git add *
+git commit -m “<comment>”
+git push
