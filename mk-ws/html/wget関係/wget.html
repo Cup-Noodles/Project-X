@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="iem7"  lang="en" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7"  lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8"  lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"  lang="en" dir="ltr"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+
+<head><!-- pure7-1.x -->
+<title>wgetでサイト（ディレクトリ）を丸ごとダウンロード | 渋谷生活</title>
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="MobileOptimized" content="width" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="next" href="/webmaster/apache_log.html" />
+<link rel="shortcut icon" href="http://ext.omo3.com/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="up" href="/webmaster/index.html" />
+<link rel="shortlink" href="/node/422" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="/webmaster/wget.html" />
+<link rel="prev" href="/webmaster/tar_tips.html" />
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_hn26HJafBdTYEpxYXgpP2XqtZdW1_nIQhyvBdODHpGk.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_bxZxPJEvQEZiLXprv2gJZmxpiLODsh6s8JZ3NO-KKzA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_f02GTtFdf0Y6l02oQOFmZCdd825ARKqOB81lEmN8HYk.css" media="all" />
+
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_LSutHW6YN_eqZVwhPc2vUdKGicjx3_ZSR5_PM985FC4.css" media="all" />
+<![endif]-->
+
+<!--[if gt IE 8]><!-->
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_16OCho5X6EHb4S09Lyo4-dpRvKESywDmNvn_rsKKtcc.css" media="all" />
+<!--<![endif]-->
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_1Z5N-KZWlNMKwu43m3pP80nrXtMXkcmtoSVWIJ9HzxY.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://ext.omo3.com/files/css/css_R8WA97GhsOcu5jdqXoPhYcp8w3LvA61HPOzlBNJ7XPw.css" media="print" />
+<script type="text/javascript" src="http://ext.omo3.com/files/js/js_UWQINlriydSoeSiGQxToOUdv493zEa7dpsXC1OtYlZU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"pure_shibuya","theme_token":"mJR-IkU_0WgJyq0SvbcMIg3TkLn3QbA1if7LZDrh7mE","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1},"css":{"sites\/all\/themes\/pure_css\/css\/drupal\/drupal-system-min.css":1,"sites\/all\/themes\/pure_css\/css\/drupal\/drupal-default-min.css":1,"sites\/all\/themes\/pure_css\/css\/yui\/pure-min.css":1,"sites\/all\/themes\/pure_css\/css\/yui\/grids-responsive-old-ie-min.css":1,"sites\/all\/themes\/pure_css\/css\/yui\/grids-responsive-min.css":1,"sites\/all\/themes\/pure_css\/subthemes\/pure_shibuya\/css\/style.css":1,"sites\/all\/themes\/pure_css\/subthemes\/pure_shibuya\/_custom\/custom-style.css":1,"sites\/all\/themes\/pure_css\/subthemes\/pure_shibuya\/css\/print.css":1}}});
+//--><!]]>
+</script>
+</head>
+
+<body id="pid-webmaster-wget-html" class="html not-front not-logged-in two-sidebars page-node page-node- page-node-422 node-type-book not-admin section-webmaster page-webmaster/wget.html mr nb1 nbl lg-en" >
+  <div id="skip-link">
+    <a href="#main" class="element-invisible element-focusable">Skip to main content</a>
+    <a href="#search-block-form" class="element-invisible element-focusable">Skip to search</a>
+  </div>
+
+<div id="mmenu_bg">
+<div class="sizer0 clearfix" style="max-width:80em;">
+<div class="menuband clearfix">
+  <div id="menu" class="menu-wrapper">
+  <a href="/" class="pure-menu-heading" title=""><img src="http://ext.omo3.com/sites/all/themes/pure_css/subthemes/pure_shibuya/logo.png" alt="Home" class="logomob" />渋谷生活</a>
+    <a href="#" id="toggles" class="menu-toggle"><s class="bars"></s><s class="bars"></s><div class="element-invisible">toggle</div></a>
+    <div class="pure-menu pure-menu-horizontal menu-transform" role="navigation" aria-label="Menu">
+      <div class="element-invisible">Main menu</div>
+      <ul  class="pure-menu-list"><li class="pure-menu-item"><a href="http://ext.omo3.com" title="" class="first leaf pure-menu-link menu-908">ホーム</a></li><li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="/web/index.html" class="last expanded pure-menu-link menu-913">サーバー管理・ウェブ</a><ul  class="pure-menu-children"><li class="pure-menu-item"><a href="/drupal/index.html" class="first leaf pure-menu-link menu-925">Drupal</a></li><li class="pure-menu-item"><a href="/oracle/index.html" class="leaf pure-menu-link menu-920">Oracle</a></li><li class="pure-menu-item"><a href="/php/index.html" title="" class="leaf pure-menu-link menu-917">PHP</a></li><li class="pure-menu-item"><a href="/solaris/index.html" title="" class="leaf pure-menu-link menu-916">Solaris</a></li><li class="pure-menu-item"><a href="/linux/index.html" class="leaf pure-menu-link menu-914">linux</a></li><li class="pure-menu-item"><a href="/vi/index.html" class="last leaf pure-menu-link menu-927">vi</a></li></ul>
+</li></ul>
+    </div>
+    </div>
+</div>
+</div></div>
+
+<div id="smenu_bg">
+<div class="sizer0 clearfix" style="max-width:80em;">
+</div></div>
+
+<div id="top_bg">
+<div class="sizer0 clearfix" style="max-width:80em;">
+<div id="top_left">
+<div id="top_right">
+<div id="headimg">
+
+<div id="header" role="banner">
+  <a href="/" title="Home"><img src="http://ext.omo3.com/sites/all/themes/pure_css/subthemes/pure_shibuya/logo.png" alt="Home" class="logoimg" /></a>  <div id="name-and-slogan">
+            <p id="site-name"><a href="/" title="Home">渋谷生活</a></p>
+          </div>
+</div>
+<div class="clearfix"></div>
+
+</div></div></div></div></div>
+
+<div id="body_bg">
+<div class="sizer0 clearfix" style="max-width:80em;">
+<div id="body_left">
+<div id="body_right">
+
+<div class="element-invisible">You are here</div><ul class="breadcrumb"><li class="breadcrumb-1"><a href="/">Home</a> &raquo; </li><li class="breadcrumb-2"><a href="/webmaster/index.html">Webマスター作業</a> &raquo; </li><li class="breadcrumb-last">wgetでサイト（ディレクトリ）を丸ごとダウンロード</li></ul>
+
+
+<div class="clearfix">
+<div id="middlecontainer" class="pure-g">
+  <div class="pure-u-1 pure-u-md-5-24" role="complementary">  <div class="region region-sidebar-first">
+    <div class="block-wrapper odd block_1">
+  <div id="block-menu-menu-web------------" class="block block-menu">
+      <div class="block-icon"></div>
+              <div class="title block-title">Webのお仕事</div>
+          
+            <div class="content">
+      <ul class="pure-menu-list"><li class="first leaf"><a href="/webmaster/index.html" title="Webマスターな生活">Webマスターな生活</a></li>
+<li class="leaf"><a href="/video/index.html">ビデオ編集</a></li>
+<li class="leaf"><a href="/oracle/index.html">Oracle</a></li>
+<li class="leaf"><a href="/solaris/index.html" title="Solaris2.6, Solaris8, Solaris9, Solaris10での管理">Solaris管理</a></li>
+<li class="leaf"><a href="/vi/index.html" title="viの使い方">vi</a></li>
+<li class="leaf"><a href="/linux/index.html">Linux管理</a></li>
+<li class="leaf"><a href="/php/index.html" title="PHP">PHP</a></li>
+<li class="last leaf"><a href="/drupal/index.html" title="drupalのインストール・設定">drupal</a></li>
+</ul>    </div>
+  </div>
+</div>
+<div class="block-wrapper even block_2">
+  <div id="block-menu-menu-macos-x" class="block block-menu">
+      <div class="block-icon"></div>
+              <div class="title block-title">MacOS X</div>
+          
+            <div class="content">
+      <ul class="pure-menu-list"><li class="first leaf"><a href="/java/index.html">Java練習帳</a></li>
+<li class="leaf"><a href="/mac/index.html" title="Macを使ってシゴトしているときに使う便利なTips">MacでシゴトのTips集</a></li>
+<li class="last leaf"><a href="/tomcat_eclipse/index.html" title="Tomcat + eclipse on Mac">Tomcat + eclipse on Mac</a></li>
+</ul>    </div>
+  </div>
+</div>
+<div class="block-wrapper odd block_3">
+  <div id="block-menu-menu-webobjects" class="block block-menu">
+      <div class="block-icon"></div>
+              <div class="title block-title">WebObjects</div>
+          
+            <div class="content">
+      <ul class="pure-menu-list"><li class="first last collapsed"><a href="/webobjects/index.html">WebObjects 目次</a></li>
+</ul>    </div>
+  </div>
+</div>
+<div class="block-wrapper even block_4">
+  <div id="block-menu-menu----------" class="block block-menu">
+      <div class="block-icon"></div>
+              <div class="title block-title">読み物</div>
+          
+            <div class="content">
+      <ul class="pure-menu-list"><li class="first leaf"><a href="/kafunsho/index.html">花粉症・レーザー治療体験談</a></li>
+<li class="last leaf"><a href="/koyama/index.html" title="小山の身に起きた出来事をありのままにつづった世にも珍しい体験談である。">小山のオハナシ</a></li>
+</ul>    </div>
+  </div>
+</div>
+<div class="block-wrapper odd block_5">
+  <div id="block-statistics-popular" class="block block-statistics">
+      <div class="block-icon"></div>
+              <div class="title block-title">人気のあるコンテンツ</div>
+          
+            <div class="content">
+      <div class="item-list"><h3>Today's:</h3><ul><li class="first"><a href="/solaris/hyper_estraier_use.html">Hyper Estraierを設定する（全文検索システム） | Solaris</a></li>
+<li><a href="/tomcat_eclipse/tomcat_install.html">6. Tomcatをインストールする</a></li>
+<li><a href="/webmaster/apache_version.html">Apacheのバージョンを表示させない</a></li>
+<li><a href="/solaris/ip_address.html">Solaris 複数IPアドレスの追加・変更（ネットワーク関連の設定）</a></li>
+<li><a href="/linux/mysql_character_set.html">MySQL 文字化けを防ぐ、文字コードの確認と設定</a></li>
+<li><a href="/solaris/cron_unavailable.html">Solaris cronがある日を境に突然実行されなくなった</a></li>
+<li><a href="/linux/lynx.html">Lynx をインストールする</a></li>
+<li><a href="/webmaster/apache_mpg.html">Apacheでムービーファイル（mpg, aac, mp4, mov）をダウンロードさせる設定</a></li>
+<li><a href="/linux/mysql_import_export.html">MySQL インポートとエクスポート（テキストデータ）</a></li>
+<li class="last"><a href="/oracle/delete_database.html">データベースを削除して新規データベースを作成したら起動しなくなった</a></li>
+</ul></div><br /><div class="item-list"><h3>All time:</h3><ul><li class="first"><a href="/linux/mysql_character_set.html">MySQL 文字化けを防ぐ、文字コードの確認と設定</a></li>
+<li><a href="/index.html">渋谷生活</a></li>
+<li><a href="/linux/mysql_host.html">MySQL 外部ホストからアクセスする</a></li>
+<li><a href="/oracle/178.html">Oracle 別表（別テーブル）から値をコピーして一括更新する</a></li>
+<li class="last"><a href="/linux/mysql_copy.html">MySQL テーブルの複製（コピー）を作成する</a></li>
+</ul></div><br />    </div>
+  </div>
+</div>
+  </div>
+</div>
+  <div class="pure-u-1 pure-u-md-14-24">
+    <div id="main" role="main">
+                  <h1 class="title">wgetでサイト（ディレクトリ）を丸ごとダウンロード</h1>            <div class="tabs"></div>
+                          <div class="region region-content">
+    <div class="block-wrapper odd block_1">
+  <div id="block-system-main" class="block block-system">
+      <div class="block-icon"></div>
+            <div class="content">
+      <div id="node-422" class="node node-book node-promoted odd   full-node node-type-book clearfix" about="/webmaster/wget.html" typeof="sioc:Item foaf:Document">
+
+  
+      <span property="dc:title" content="wgetでサイト（ディレクトリ）を丸ごとダウンロード" class="rdf-meta element-hidden"></span>
+  <div class="submitted"><span property="dc:date dc:created" content="2007-12-14T17:18:38+09:00" datatype="xsd:dateTime" rel="sioc:has_creator"><span class="username" about="/user/1" typeof="sioc:UserAccount" datatype="" lang="">sasaki</span> - Fri, 2007-12-14 17:18</span></div>
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>自サイトを丸ごとバックアップしたり、あるディレクトリ以下をダウンロードして加工したいときがたまにある。</p>
+<p> </p>
+<h3>■Macにwgetをインストールする</h3>
+<p><a href="http://www.gnu.org/software/wget/" target="_blank" title="GNU Wget">http://www.gnu.org/software/wget/</a></p>
+<p><a href="http://ftp.gnu.org/gnu/wget/" target="_blank" title="wget ダウンロード">http://ftp.gnu.org/gnu/wget/</a></p>
+<pre># cd /usr/local/<br /># tar zxvf wget-1.10.2.tar.gz<br /># cd wget-1.10.2<br /># ./configure<br /># make<br /># make install</pre><p> </p>
+<p>インストールされる場所。 </p>
+<p>/usr/local/bin/wget </p>
+<p> </p>
+<h3>■サイトを丸ごとダウンロードする</h3>
+<pre>$ wget -r -l 0 http://www.mysite.co.jp/index.html</pre><p>-r　　--recursive ということで、再起的に取得する。</p>
+<p>-l　　--level リンクをたどる階層数を指定する。デフォルトは5階層で、0を指定すると全階層。 </p>
+<p> </p>
+<h3>■あるディレクトリ以下を丸ごとダウンロードする</h3>
+<pre>$ wget -r -np http://www.mysite.co.jp/path/to/index.html</pre><p> -np　　--no-parent ということで、親ディレクトリは無視する。</p>
+<p> </p>
+<p> </p>
+<h3>■wgetのその他のオプション</h3>
+<p>素晴らしくわかりやすいオプションの一覧ページ。</p>
+<p><a href="http://members.at.infoseek.co.jp/futora/wget153/option.html" target="_blank" title="wgetのオプション一覧">http://members.at.infoseek.co.jp/futora/wget153/option.html</a></p>
+<p><a href="http://members.at.infoseek.co.jp/futora/wget153/" title="wget構文サンプル">http://members.at.infoseek.co.jp/futora/wget153/</a></p>
+<p> </p>
+<h3>■curlをwgetの代わりに使う</h3>
+<p>Macにデフォルトで入っているので、wgetの代わりにすぐに使える。</p>
+<p>1つのファイルをダウンロードしたいときに便利。 </p>
+<p><a href="http://www.big.or.jp/~crane/cocoa/0800_internet/curl/" target="_blank" title="curlの使い方">http://www.big.or.jp/~crane/cocoa/0800_internet/curl/</a></p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-4" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="/webmaster/tar_tips.html" class="page-previous" title="Go to previous page">‹ tarバックアップから一部のディレクトリ・ファイルを取り出す</a>
+                    <a href="/webmaster/index.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="/webmaster/apache_log.html" class="page-next" title="Go to next page">アクセスログ解析 ログファイルから社内アクセスをgrepで除く ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+  <ul class="links inline"><li class="statistics_counter first last"><span>71525 reads</span></li>
+</ul>
+  
+</div>
+    </div>
+  </div>
+</div>
+  </div>
+          </div>
+  </div>
+  <div class="pure-u-1 pure-u-md-5-24" role="complementary">  <div class="region region-sidebar-second">
+    <div class="block-wrapper odd block_1">
+  <div id="block-book-navigation" class="block block-book">
+      <div class="block-icon"></div>
+              <div class="title block-title">ブックナビゲーション</div>
+          
+            <div class="content">
+        <div id="book-block-menu-170" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/java/index.html">Java練習帳</a></li>
+</ul>  </div>
+  <div id="book-block-menu-358" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last leaf"><a href="/netbeans/index.html">Mac + NetBeans</a></li>
+</ul>  </div>
+  <div id="book-block-menu-33" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/mac/index.html">MacOS X Tips</a></li>
+</ul>  </div>
+  <div id="book-block-menu-101" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/tomcat_eclipse/index.html">Tomcat + Eclipse on Mac</a></li>
+</ul>  </div>
+  <div id="book-block-menu-181" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last leaf"><a href="/vi/index.html">vi</a></li>
+</ul>  </div>
+  <div id="book-block-menu-27" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/webobjects/index.html">WebObjects</a></li>
+</ul>  </div>
+  <div id="book-block-menu-4" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last expanded active-trail"><a href="/webmaster/index.html" class="active-trail">Webマスター作業</a><ul class="pure-menu-list"><li class="first leaf"><a href="/webmaster/20040421.html">2004年04月 検索エンジンのカンファレンス</a></li>
+<li class="leaf"><a href="/webmaster/aptana.html">2007-11 AptanaをPHP開発用に使ってみる</a></li>
+<li class="leaf"><a href="/webmaster/netbeans6_php.html">2007-11 NetBeans6でPHP開発環境を整える</a></li>
+<li class="leaf"><a href="/webmaster/google_insights.html">2008-08 グーグルインサイト</a></li>
+<li class="leaf"><a href="/webmaster/acrobat_pdf_edit.html">Acrobat で PDF を編集する</a></li>
+<li class="leaf"><a href="/webmaster/alexa.html">Alexaでライバルとのトラフィック量を比較する</a></li>
+<li class="leaf"><a href="/webmaster/apache_htaccess.html">Apache .htaccessでアクセス制限</a></li>
+<li class="leaf"><a href="/webmaster/apache_htaccess_ip.html">Apache .htaccessでアクセス制限（特定のIPアドレス・ホスト）</a></li>
+<li class="leaf"><a href="/webmaster/htpasswd.html">Apache .htpasswdでアクセス制限（特定ユーザー）</a></li>
+<li class="leaf"><a href="/webmaster/make_missing.html">Apache 404 Not Found用のmissing.htmlの表示が崩れる原因</a></li>
+<li class="leaf"><a href="/webmaster/apache_too_many_files.html">Apache 「Forbiddenだとぅ？Too many files でつか？」</a></li>
+<li class="leaf"><a href="/webmaster/apache2_mod_deflate.html">Apache2 表示が遅いのでコンテンツの圧縮転送を設定した</a></li>
+<li class="leaf"><a href="/webmaster/apache_mpg.html">Apacheでムービーファイル（mpg, aac, mp4, mov）をダウンロードさせる設定</a></li>
+<li class="leaf"><a href="/webmaster/apache_version.html">Apacheのバージョンを表示させない</a></li>
+<li class="leaf"><a href="/webmaster/apache_log_lotate.html">Apacheのログローテーション</a></li>
+<li class="leaf"><a href="/webmaster/apache.html">Apacheを運用するはめに！</a></li>
+<li class="leaf"><a href="/webmaster/cgi_error2.html">CGIが動かない &quot;Internal Server Error&quot; &quot;Premature end of script headers&quot;</a></li>
+<li class="leaf"><a href="/webmaster/cgi_error.html">CGIが動かない</a></li>
+<li class="leaf"><a href="/webmaster/excel.html">Excel WebページからExcelにテーブル表をコピーする</a></li>
+<li class="leaf"><a href="/webmaster/excel_short_cut.html">Excel 便利なショートカット</a></li>
+<li class="leaf"><a href="/webmaster/firefox_cache.html">Firefoxの動作が遅いので、キャッシュを有効にした</a></li>
+<li class="leaf"><a href="/webmaster/contents_all_change.html">HTMLコンテンツの一括置き換え（シェルスクリプト編）</a></li>
+<li class="leaf"><a href="/webmaster/html_find_xargs.html">HTMLファイルから特定の文字を検索する</a></li>
+<li class="leaf"><a href="/webmaster/html_cp.html">HTMLファイルだけを別のディレクトリにコピーする</a></li>
+<li class="leaf"><a href="/webmaster/all_modify2.html">HTMLファイルを一括で変更する2（perl編）</a></li>
+<li class="leaf"><a href="/webmaster/all_modify.html">HTMLファイルを一括で変更する（シェル・perl編）</a></li>
+<li class="leaf"><a href="/webmaster/285.html">IE6でページ内リンクが効かない！</a></li>
+<li class="leaf"><a href="/webmaster/backup.html">NcFTPでWebサイトやログファイルを自動定期バックアップ</a></li>
+<li class="leaf"><a href="/webmaster/quicktime_web_windows.html">QuickTimeをWebページ内で再生させるJavaScript（Windows IEユーザのために）</a></li>
+<li class="leaf"><a href="/webmaster/sitetracker_error.html">SiteTracker7でセグメント例外エラー</a></li>
+<li class="leaf"><a href="/webmaster/sitetracker8.html">SiteTracker8 ログのインポートに時間がかかる</a></li>
+<li class="leaf"><a href="/webmaster/sitetracker.html">SiteTracker使ってます</a></li>
+<li class="leaf"><a href="/webmaster/unix.html">UNIXを学ぶ</a></li>
+<li class="leaf"><a href="/webmaster/link.html">Webマスターのためのリンク集</a></li>
+<li class="leaf"><a href="/webmaster/chmod.html">find + chmodでパーミッションの一括変更</a></li>
+<li class="leaf"><a href="/webmaster/tar_tips2.html">tarで一部のファイルやディレクトリを除いてバックアップする</a></li>
+<li class="leaf"><a href="/webmaster/tar_tips.html">tarバックアップから一部のディレクトリ・ファイルを取り出す</a></li>
+<li class="leaf active-trail"><a href="/webmaster/wget.html" class="active-trail active">wgetでサイト（ディレクトリ）を丸ごとダウンロード</a></li>
+<li class="leaf"><a href="/webmaster/apache_log.html">アクセスログ解析 ログファイルから社内アクセスをgrepで除く</a></li>
+<li class="leaf"><a href="/webmaster/apache_log_file.html">アクセスログ解析：ログファイルから特定ファイルへのアクセスを取得する</a></li>
+<li class="leaf"><a href="/webmaster/92.html">サイト制作</a></li>
+<li class="leaf"><a href="/webmaster/shell_link.html">シェルスクリプトのリンク集</a></li>
+<li class="leaf"><a href="/webmaster/xss.html">セキュリティチェック クロスサイトスクリプティング</a></li>
+<li class="leaf"><a href="/webmaster/postfix_dns_bind.html">メールを受信できない</a></li>
+<li class="leaf"><a href="/webmaster/delete_html_files.html">リンク切れhtmlファイルを一括削除するスクリプト</a></li>
+<li class="leaf"><a href="/webmaster/all_extract.html">ログファイルをまとめて解凍</a></li>
+<li class="last leaf"><a href="/webmaster/delete_files.html">特定ファイルをまとめて削除する</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-519" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/web/index.html">サーバー管理・ウェブ</a></li>
+</ul>  </div>
+  <div id="book-block-menu-65" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/video/index.html">ビデオ編集</a></li>
+</ul>  </div>
+  <div id="book-block-menu-42" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/koyama/index.html">小山のオハナシ</a></li>
+</ul>  </div>
+  <div id="book-block-menu-1" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/index.html">渋谷生活</a></li>
+</ul>  </div>
+  <div id="book-block-menu-190" class="book-block-menu">
+    <ul class="pure-menu-list"><li class="first last collapsed"><a href="/kafunsho/index.html">花粉症・レーザー治療体験談</a></li>
+</ul>  </div>
+    </div>
+  </div>
+</div>
+<div class="block-wrapper even block_2">
+  <div id="block-block-2" class="block block-block">
+      <div class="block-icon"></div>
+              <div class="title block-title">amazon広告</div>
+          
+            <div class="content">
+      <p><iframe style="border: none;" src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wwwavanttokyo-22&amp;o=9&amp;p=11&amp;l=ur1&amp;category=amazoncampaign&amp;banner=060EED43SRZMYASFN9R2&amp;f=ifr" frameborder="0" marginwidth="0" scrolling="no" width="120" height="600"></iframe></p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="space"></div>
+  <div role="navigation" aria-label="Menu 2">
+  <div class="element-invisible">Main menu</div><ul id="menu2" class="links clearfix"><li class="menu-908 first"><a href="http://ext.omo3.com" title="">ホーム</a></li>
+<li class="menu-913 last"><a href="/web/index.html">サーバー管理・ウェブ</a></li>
+</ul>  </div>
+
+</div></div></div></div>
+
+<div id="bottom_bg">
+<div class="sizer0 clearfix" style="max-width:80em;">
+<div id="bottom_left">
+<div id="bottom_right">
+
+<div id="footer" class="pure-g" role="contentinfo">
+<div class="pure-u-1 pure-u-md-1-5"><div id="soclinks"></div></div>
+<div class="pure-u-1 pure-u-md-3-5"></div>
+<div class="pure-u-1 pure-u-md-1-5"></div>
+</div>
+
+</div></div></div></div>
+
+<!--[if IE 9]>
+<script type="text/javascript" async src="/sites/all/themes/pure_css/js/classList.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" async src="/sites/all/themes/pure_css/js/toggles.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

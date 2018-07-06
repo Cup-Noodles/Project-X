@@ -1,0 +1,778 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>知識0から始めるVim講座</title><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" /><meta content="#55c500" name="theme-color" /><meta content="XWpkTG32-_C4joZoJ_UsmDUi-zaH-hcrjF6ZC_FoFbk" name="google-site-verification" /><link href="/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml" /><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="PYrx12JBlEU4xlascUN4d7Xk8dF30GMivWYrHOmn7rYER2hcjN6gGwbP+0HSrPfj8KoBJMbQyUMIfIy5pIhKoQ==" /><link rel="shortcut icon" type="image/x-icon" href="https://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico" /><link rel="apple-touch-icon" type="image/png" href="https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png" /><link rel="stylesheet" media="all" href="https://cdn.qiita.com/assets/public/style-80141937037b784a0ea23f44be4540ce.min.css" /><script src="https://cdn.qiita.com/assets/public/bundle-78168d958dbf882c3f185b063d5d5fa9.min.js" defer="defer"></script><meta content="summary" name="twitter:card" /><meta content="@Qiita" name="twitter:site" /><meta content="@meltens_" name="twitter:creator" /><meta property="og:type" content="article"><meta property="og:title" content="知識0から始めるVim講座 - Qiita"><meta property="og:image" content="https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png"><meta property="og:description" content="#知識0から始めるVim講座  
+
+ さて、みなさんは「Vim」というエディターをご存知でしょうか？
+もしあなたがサーバー関係やプログラミング関係に携わっているのでしたら名前ぐらいは聞いたことがあるでしょう。
+ ですが実際にはVimが..."><meta content="https://qiita.com/JpnLavender/items/fabcc79b4ab0d52e1f6d" property="og:url" /><meta content="Qiita" property="og:site_name" /><meta content="564524038" property="fb:admins" /></head><body><div class="allWrapper"><div data-hyperapp-app="GlobalHeader" data-hyperapp-props="{&quot;unreadNotificationsCount&quot;:null,&quot;realms&quot;:[{&quot;humanName&quot;:&quot;Qiita&quot;,&quot;isCurrentRealm&quot;:true,&quot;isQiita&quot;:true,&quot;isQiitaTeam&quot;:false,&quot;loggedInUser&quot;:null,&quot;teamId&quot;:null,&quot;url&quot;:&quot;https://qiita.com/&quot;}],&quot;teamFindUrl&quot;:&quot;https://teams-center.qiita.com/find_team&quot;,&quot;isTeamOnlyUser&quot;:null,&quot;currentUser&quot;:null}"><div class="st-Header" id="globalHeader"><div class="st-Header_container"><div class="st-Header_start"><a class="st-Header_logo mr-1" href="/trend"><svg viewBox="0 0 75 25" xmlns="http://www.w3.org/2000/svg"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></a><div><div class="st-Header_realmSelector"><span class="fa fa-fw fa-caret-down"></span></div></div><div><div class="st-Header_community">Community<span class="fa fa-fw fa-caret-down ml-1of2"></span></div></div><form class="st-Header_search"><span class="fa fa-search"></span><input class="st-Header_searchInput" placeholder="Search" type="search" /></form><div class="st-Header_searchButton"><span class="fa fa-serach"></span></div></div><div class="st-Header_end"><a class="st-Header_signupButton" href="/signup">Signup</a><a class="st-Header_loginLink" href="/login">Login</a></div></div></div></div><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/","name":"Qiita"}},{"@type":"ListItem","position":2,"item":{"@id":"/tags/vim","name":"Vim"}}]}</script><script async="" src="https://cdn.bigmining.com/private/js/qiita_bigmining.js"></script><div style="display:none"><div class="TagList__label"><span></span><span>Vim</span></div><div class="TagList__label"><span></span><span>Linux</span></div><div class="TagList__label"><span></span><span>Vimperator</span></div><div class="TagList__label"><span></span><span>shell</span></div><div class="TagList__label"><span></span><span>初心者</span></div></div><div data-hyperapp-app="PersonalPublicArticle" data-hyperapp-props="{&quot;article&quot;:{&quot;body&quot;:&quot;\n\u003ch1\u003e\n\u003cspan id=\&quot;知識0から始めるvim講座\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%9F%A5%E8%AD%980%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8Bvim%E8%AC%9B%E5%BA%A7\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e知識0から始めるVim講座\u003c/h1\u003e\n\n\u003cp\u003eさて、みなさんは「Vim」というエディターをご存知でしょうか？\u003cbr\u003e\nもしあなたがサーバー関係やプログラミング関係に携わっているのでしたら名前ぐらいは聞いたことがあるでしょう。\u003cbr\u003e\n ですが実際にはVimがとういうものかわからない。または難しすぎてVimを使うのを挫折してしまった。\u003cbr\u003e\n 今回はそんな人の為の記事を書いていこうと思います。\u003c/p\u003e\n\n\u003cp\u003eまず、vimにはどんな印象をお持ちでしょうか？\u003cbr\u003e\n少しでもVimというエディターを触ったことのある方ならこう思うでしょう。\u003cstrong\u003e操作がわからない\u003c/strong\u003eと。\u003cbr\u003e\n確かにvimはマウスを一切使わない。言ってしまえばマウスを使う設計をされていないエディターです。\u003c/p\u003e\n\n\u003cp\u003eもともとVimはCUI(コマンド・ユーザー・インターフェース)で使われることを前提に設計されたviというエディター(vimの前世)\u003cbr\u003e\nを超える（改良の）ために作られました。\u003cbr\u003e\nそのため今までの\u003cstrong\u003eAtom SublimeText VisualStudioCode\u003c/strong\u003e などのオーソドックスな高性能エディターとは全くの別物と思っていいでしょう。\u003cbr\u003e\nですが、別物のエディターと言っても高性能なことには変わりありませんし。\u003cbr\u003e\n僕自身Vimは慣れさえしてしまえば’世界一高性能なエディター’だと思っています。\u003cbr\u003e\nしかもIT系をやっていくと大体Unix/Linux系のOSを触れる機会があると思います。それで、Vimでコンフィグを書き換えなければ行けないなんてことも多々あります。\u003cbr\u003e\nなので覚えておいて損はないと思います。\u003c/p\u003e\n\n\u003cp\u003eそれでもVimと言うのは初心者(玄人でも)やはり難しい物は難しいのです。\u003cbr\u003e\nですが、僕はこう思います。\u003cstrong\u003eコマンドを覚える順番さえしっかりしていれば簡単に覚えられるのではないだろうか\u003c/strong\u003eと。\u003c/p\u003e\n\n\u003cp\u003e僕には最初Vimを布教してきた先輩Vimmerがいました。その人は僕に最初に何を覚えてどのようにステップアップしていけば良いのかを教えてくれました。自分がvimmerになった今でも、あのステップアップの仕方は効率が良かったと思います。なのでbashさえわからない人もわかりやすくVimmerに近づくステップアップのやり方を記事にしていこうと思います。\u003c/p\u003e\n\n\u003cp\u003eそして、これを1から10まで1日でマスターしたいんだという方。朝７時に起きて朝シャンして、\u003cbr\u003e\nコンビニでジュースとビーフジャーキー買ってvimに挑みましょう\u003cbr\u003e\nセッションごとにわかりやすく記事をまとめておくので途中途中わからないセッションだけ見ていくのもおすすめです〜。\u003c/p\u003e\n\n\u003col\u003e\n\u003cli\u003eVimを触る前にまず最低限のLinuxコマンドを覚えよう\u003c/li\u003e\n\u003cli\u003eHelloVim!\u003c/li\u003e\n\u003cli\u003eれっつあこーでぃんぐ！(5ステップに分けてます)\u003c/li\u003e\n\u003cli\u003ebrew / tmuxについて\u003c/li\u003e\n\u003cli\u003eVim依存症になってしまった方へのvimperatorとplugin\u003c/li\u003e\n\u003c/ol\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;vimを触る前にまず最低限のlinuxコマンドを覚えよう\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#vim%E3%82%92%E8%A7%A6%E3%82%8B%E5%89%8D%E3%81%AB%E3%81%BE%E3%81%9A%E6%9C%80%E4%BD%8E%E9%99%90%E3%81%AElinux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E8%A6%9A%E3%81%88%E3%82%88%E3%81%86\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eVimを触る前にまず最低限のLinuxコマンドを覚えよう\u003c/h2\u003e\n\n\u003cp\u003evimと言うのは先程も記載しましたが\u003cstrong\u003eCUIで動かすのを前提に作られています\u003c/strong\u003e 。\u003cbr\u003e\nそのため、普段目にするフォルダーやアイコンなどはGUIなので見ることすらありません。\u003cbr\u003e\nでは、どうやってファイルの区別をしたりファイルを選択・開いたりするのでしょうか？\u003cbr\u003e\nこのセッションは、そんなLinux(sh)の知識が無い方向けのセッションです。これを知らないとvimを使っていて、\u003cbr\u003e\n「え？どうやってファイル開くの？」「マジわけわかめだわー」「ふじこーーー〜！」\u003cbr\u003e\nと、なるのでしっかり覚えましょう。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e意味\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ecd\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eChangeDirectory\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eディレクトリの移動\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e2\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003els\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eList\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eディレクトリの一覧表示\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e3\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003epwd\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ePrintWorkingDirectory\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカウントディレクトリーの表示\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e4\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003emkdir\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eMakeDirectory\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eフォルダーの作成\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e5\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e~\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e?\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eホームディレクトリーに移動(追記:設定をしてないとできないです)\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003e\u003ca href=\&quot;https://camo.qiitausercontent.com/525b883b4b7e0f82b378aa49965f8c743d724f58/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f32646164373033342d336437302d353465302d316161612d3534626463663263303931382e676966\&quot; target=\&quot;_blank\&quot; rel=\&quot;nofollow noopener\&quot;\u003e\u003cimg src=\&quot;https://camo.qiitausercontent.com/525b883b4b7e0f82b378aa49965f8c743d724f58/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f32646164373033342d336437302d353465302d316161612d3534626463663263303931382e676966\&quot; alt=\&quot;zero_vim.gif\&quot; data-canonical-src=\&quot;https://qiita-image-store.s3.amazonaws.com/0/105255/2dad7034-3d70-54e0-1aaa-54bdcf2c0918.gif\&quot;\u003e\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003eこのように、紹介したコマンドを使えばGUI無しでもフォルダーを開いたりフォルダーの中を編集したり\u003cbr\u003e\nすることができます。\u003cbr\u003e\nそして予備知識としてVimはエディターだということをしっかりを自覚しましょう。\u003cbr\u003e\nVimはターミナルから起動してターミナル上で動きますが、Vimを開いているときはその開いているターミナルのタブは\u003cbr\u003e\n1つのエディターとして考えてください。\u003cbr\u003e\n\u003cdel\u003eそのためRubyやRails。Node.jsなどを起動する場合はVimの中からは起動できませんので\u003c/del\u003e\u003cbr\u003e\n\u003ca href=\&quot;https://github.com/Shougo/vimshell.vim\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003eVimShell\u003c/a\u003eというPlugin使えばできるようです。\u003cbr\u003e\nControl-tなり何なりで新しいタブを開いてそこでサーバーを起動してください。\u003c/p\u003e\n\n\u003cp\u003eそして新しいタブをターミナルでずらずらと開くのもダサいのでtmuxという物をおすすめします。\u003cbr\u003e\ntmuxのインストールなどは最後に紹介します。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;hellovim\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#hellovim\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eHelloVim!\u003c/h2\u003e\n\n\u003cp\u003eようこそVimの世界へ！\u003cbr\u003e\nでは、はじめに書きましたが。Vimと言うのはしっかりとステップを踏んで進んでいけばさほど難しくは感じないですし、\u003cbr\u003e\nVimの魅力にとらわれていきます。基礎もできていないのにいきなり難しいコマンドを覚えようよしても、前提がなければできるものもできません。\u003cbr\u003e\n数学や理科と一緒です。割り算もできないのに因数分解なんて無理な話です。\u003cbr\u003e\nなのでこのセッションではまずVimの基礎操作となるところからやっていきましょう！！\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eh\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルを左にずらす\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ej\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルを下に下げる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ek\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルを上に上げる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003el\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルを右にずらす\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eまずは基本的にな操作についてです。これをまずは何が何でも覚えなければいけません。\u003cbr\u003e\n出ないとカーソル移動ができないからです。一応十字キーでも操作は可能ですが。それではVimの意味がありません。\u003cbr\u003e\nこれはしっかりと覚えましょう！\u003cbr\u003e\n次に、Vimの入力と保存です。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ea\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルの場所から1文字進めてInsertModeに入る\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ei\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルの場所からInsertModeに入る\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ex\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソル直下の文字を消します\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:w\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eファイルの保存(Control-s)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:q\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e実行中のタブを閉じる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:wq\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e上を組み合わせて保存して閉じることもできる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:w!\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eのように最後に[!]をつけると強制的に処理します\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eここでいきなり、InsertModeという謎の名詞が出てきましたね。これはVimのモードと言う機能です。\u003cbr\u003e\nVimでは一切マウスを使わないため。コマンド入力モード・文字入力モード・選択モードと\u003cbr\u003e\n3つのモードに分かれています。基本Vimはコマンド入力モードに滞在することが多いです。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e名前\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e意味\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e主な機能\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e起動の仕方\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eNormalMode\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eコマンド入力モード\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルの移動。他のモードへの移行。テキストのコピー、カット、ペースト。\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eEsc\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eInsertMode\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e文字入力モード\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eテキストの入力、編集。\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ea/i/A/I/ciw/\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eVisualMode\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e文字選択モード\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eテキストの選択。\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ev\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eさて、Vimのモード事情を覚えたところで、ステップ１はここでおしまいです。\u003cbr\u003e\n実際にVimを少し触ってみてどうだたでしょうか？ 難しかったですか？ ですが、以上のコマンドさえ覚えていれば\u003cbr\u003e\n最低限のファイル操作はできると思います。正直これだけ覚えていれば普通のエディターとして使うことができます。\u003cbr\u003e\nステップ２はさらに覚えることが複雑になっていきますが、ステップ１をできた方なら多分楽勝です。\u003cbr\u003e\nそしてステップ２が終わった頃には「あ、Vimつかいやすい」と思うようになっているはずです。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;れっつこーでぃんぐ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%8C%E3%81%A3%E3%81%A4%E3%81%93%E3%83%BC%E3%81%A7%E3%81%83%E3%82%93%E3%81%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eれっつこーでぃんぐ！\u003c/h2\u003e\n\n\u003cp\u003eさて、少しずつvimがどのようなものかわかってきたところで次はvimの魅力の１つである多彩なコマンドを紹介します。\u003cbr\u003e\nvimには多分150ぐらいのコマンドがあります。そのコマンドを一気に学ぼうとすると、頭が変になりますし意味わかんなくなります。\u003cbr\u003e\nなので、今回は5段階に分けて様々なコマンドを紹介していきたいと思います。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ステップ1\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%971\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eステップ1\u003c/h3\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e基本コマンド\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003edd\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルがある1列削除\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eyy\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1列コピー\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ep\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eペースト\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eu\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e操作を1つ戻す(Control+z)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eJ\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルがある行に1つ下の行を連結する\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eカーソル移動\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003egg\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eページの一番上に行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eG\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eページの一番下に行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eH\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e表示されている画面の一番上に行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eM\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e表示されている画面の真ん中に行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eL\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e表示されている画面の一番下に行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eページ内検索\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e/hoge\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]のあとの文字列を検索する(Control-f的なあれ)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003en\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]で検索した文字列の次の検索候補に飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eN\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]で検索した文字列の前の検索候補に飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003e以上が今より更にステップアップするためのコマンドたちです。\u003cbr\u003e\nこれだけ使えれば普通の高性能エディターぐらいは使えると思います。\u003cbr\u003e\nこれを見て[u]で操作を一つ戻れるのに、すすめることはできないの？ と思う方もいると思います。\u003cbr\u003e\nありますとも、[Control+r]で、[u]の反対のことができます。\u003cbr\u003e\n正直僕自身最初の1ヶ月ぐらい上の表のコマンドぐらいしか覚えてませんでした。（たったこれで十分使えたから）\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ステップ2\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%972\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eステップ2\u003c/h3\u003e\n\n\u003cp\u003eステップ２は文字入力の応用です。[a]や[i]などでもInsertModeに入ることはできますが\u003cbr\u003e\n一番最後から文を書き足したいのに一番最後までカーソル持って行ってInsertModeに入るのは、毎回めんどくさくないですか？\u003cbr\u003e\nですが、今回はそんなあなたにおすすめなコマンドがあるんです！\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e文字入力の応用\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eA\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのある行の最後にInsertModeで飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eI\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのある行の最初にInsertModeで飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e.\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e直前にやったことを繰り返す\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eカーソル移動\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e$\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのある行の最後にNormalModeで飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e^\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのある行の最初にNormalModeで飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eVisualMode\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ev\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eインサートモードに入る\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ev+[移動キー]\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e範囲選択ができる(1)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ev+(1)+y\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e選択した範囲をコピー\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ev+(1)+d\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e選択した範囲を削除\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eステップ２はこれだけです。\u003cbr\u003e\nこれを覚えればVisualModeで範囲選択するときとかも楽になりますし、文字を入力したいところまで、\u003cbr\u003e\nいちいち運ぶ必要が少なくなります。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ステップ3\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%973\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eステップ3\u003c/h3\u003e\n\n\u003cp\u003eステップ２がマスターできたら次はカーソルの移動を捗らせるコマンドです。\u003cbr\u003e\nいちいち[l]や[h]で真ん中の方にカーソルを動かすというと、遅いしだるいしコーヒー冷めちゃいます。\u003cbr\u003e\nですので、手っ取り早くカーソルを動かす方法を紹介します。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ew\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1単語飛ばしてカーソルを右に動かす(文字外)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ee\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1単語飛ばしてカーソルを右に動かす(文字内)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eb\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1単語飛ばしてカーソルを左に動かす(文字外)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e正直こっちは覚えなくてもいいと思うけど\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ege\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e1単語飛ばしてカーソルを左に動かす(文字内)\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eこれをマスターすると[h\u0026amp;l] よりも早くカーソルを動かすことができますが、\u003cbr\u003e\n実際これでカーソル動かすの結構忘れちゃったりするんですよね、\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ステップ4\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%974\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eステップ4\u003c/h3\u003e\n\n\u003cp\u003eステップ4は削除系のコマンドです。これを覚えれば確実に作業効率が格段に上がります。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ec\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eVisualModeで選択した範囲を消してInsertModeで終わる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eci\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e括弧の中身だけを消す(例:[ci\&quot;]  \&quot;この中だけが消えます\&quot;)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eciw\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルの下にある１単語を消してInsertModeに入る(英語・カタカナ・ひらがな・漢字で分けられる)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ecit\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ehtmlのタグに囲まれている中を消します\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003edw\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルから右にある単語を消す（NormalModeで終わる）\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003edaw\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルの下にある単語を消す\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eD\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルから右にある文を全て消す\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eS\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのある１行を全て消してInsertModeにはいる\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003e\u003ca href=\&quot;https://camo.qiitausercontent.com/ab9ec1269c707f2556e8d596ec9be66e7a23665b/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f38376264393665302d383733302d663662372d333061302d6535353535333634636162312e676966\&quot; target=\&quot;_blank\&quot; rel=\&quot;nofollow noopener\&quot;\u003e\u003cimg src=\&quot;https://camo.qiitausercontent.com/ab9ec1269c707f2556e8d596ec9be66e7a23665b/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f38376264393665302d383733302d663662372d333061302d6535353535333634636162312e676966\&quot; alt=\&quot;delete.gif\&quot; data-canonical-src=\&quot;https://qiita-image-store.s3.amazonaws.com/0/105255/87bd96e0-8730-f6b7-30a0-e5555364cab1.gif\&quot;\u003e\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003e*すみませんitermでキーボードの可視化できなかったんでterminal.appでちょっと見づらいですが\u003cbr\u003e\n許してください。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ステップ5\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%975\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eステップ5\u003c/h3\u003e\n\n\u003cp\u003eステップ５はその他役立つコマンドを覚えようって感じです\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eコマンド\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e効果\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:!{shellコマンド}\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003evim内でshellのコマンドが使えます\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003em\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[m]+[a~Z]で好きな行をマークしておいて[`]+[a~Z]でマークしたところに飛べます\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e`\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\&quot;\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e~\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソル直下の文字の大文字小文字を切り替える\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e%\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e括弧がカーソル直下にある場合[括弧終わり -\u0026gt; 括弧初め]に飛ぶ(逆もできる)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eU\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e選択した範囲をの大文字小文字を切り替える\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e* or #\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eカーソルのおいてある単語を検索する(/hogeのhogeにカーソル直下の単語を置き換える感じ)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:n\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[n]に数字を入れるとその行に飛びます\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eggVG\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eすべて選択(Control-a)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eControl+v\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eインサートモード（箱型)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e保存系\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eZZ\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e変更があれば保存して終了\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:x\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e変更があれば保存して終了\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e:xa\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e変更があるタブを保存してすべてのタブを閉じる\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003eステップ５までついに終わりましたね! 実際Vimを触ってみてどうだたでしょうか?\u003cbr\u003e\nやはり難しいと、感じましたか？ ですがもうコマンドを覚えてしまえば、あとは慣れです。\u003cbr\u003e\nステップ５まで諦めずにできたなら、きっと気づいた時には理解し。vimを扱えると思います。\u003cbr\u003e\nおつかれまでした(*^^)\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;brew--tmux-について\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#brew--tmux-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003ebrew / tmux について\u003c/h2\u003e\n\n\u003cp\u003e冒頭でも記事にしていましたが、vimを開きながら他の作業をするには、違うタブでいちいちディレクトリを\u003cbr\u003e\n指定して開いたり閉じたりしていろいろめんどくさいです。そして作業中のタブを誤って閉じてしまったり。\u003cbr\u003e\nそんないろいろめんどくさいことが、スマートに行えるのが[tmux]というものです。\u003cbr\u003e\nこれを使えばいちいち、タブを開き直した時にディレクトリを指定し直す必要もないですし\u003cbr\u003e\n誤ってタブを閉じても復元することができます。\u003cbr\u003e\nしかもターミナル上から時間や、メモリーの使用率充電の残り残量なども表示することができ、\u003cbr\u003e\nターミナルを１つの端末として扱うことができます。\u003c/p\u003e\n\n\u003cp\u003eもしすでにHomeBrewがインストールされているMacなら、以下を実行するだけでインストールできます。\u003cbr\u003e\nまだHomeBrewをインストールしてない方はこちらから(Xcode必須だった気がします)\u003cbr\u003e\n\u003ca href=\&quot;http://brew.sh/index_ja.html\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003eHomeBrew\u003c/a\u003e\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;Shell\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003ebrew \u003cspan class=\&quot;nb\&quot;\u003einstall \u003c/span\u003etmux\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eインストールが完了したら、ターミナルで\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;Shell\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003etmux\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eとやるとtmuxが起動できます。 \u003cbr\u003e\nあとは、僕よりも文章力のある方に任せます。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;vimperator\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#vimperator\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003evimperator\u003c/h3\u003e\n\n\u003cp\u003eさて、最後にvimを実際に使ってみてvimに慣れ、この記事を見てvimが好きになってくれたら嬉しいなと思います。\u003cbr\u003e\nそしてvimが好きになって普段PCを触っている時も出来る限りvimを使いたいと思い、vimに恋をしてしまった方。\u003cbr\u003e\nいいものがあります！！\u003c/p\u003e\n\n\u003cp\u003eブラウザをvimと同じキー操作で使うことのできるaddonがあるんです！\u003cbr\u003e\nその名も！Vimperatorというfirefoxのaddonです。\u003cbr\u003e\nこのaddonを追加すれば、一切マウスを使わないでブラウザを操作することができるようになります。\u003cbr\u003e\n\u003ca href=\&quot;https://addons.mozilla.org/ja/firefox/addon/vimperator/\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003evimperator\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003e一応基本操作も載せておきますね。\u003c/p\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003eキー\u003c/th\u003e\n\u003cth style=\&quot;text-align: left\&quot;\u003e機能\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e基本操作\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ehjkl\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e右・上・下・左\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eH,L\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eひとつ前のページに戻る,ひとつ先のページに進む\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ea\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eブックマーク\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003es\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003er\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eページの更新\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ey\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e現在開いているページのUrlをコピー\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ep\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eクリップボードの内容を検索する\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eb\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e現在開いてるタブ一覧表示\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003egg\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e一番上ページのに行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eG\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e一番下のページに行く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eurl選択(ヒントモード)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ef\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eヒントモードを起動*\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eF\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eヒントモードを起動*(新規タブで開く)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e検索\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003et\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e検索内容を新規タブで開く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eo\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e検索内容をページ内に表示\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ew\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e検索内容を新規ウィンドウで開く\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eタブ移動\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003egt\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e右のタブに移動\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003egT\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e左のタブに移動\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003e検索\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e/hoge\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]のあとの文字列を検索する(Control-f的なあれ)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003en\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]で検索した文字列の次の検索候補に飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eN\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e[/]で検索した文字列の前の検索候補に飛ぶ\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003cstrong\u003eコピー\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003ec\u003c/td\u003e\n\u003ctd style=\&quot;text-align: left\&quot;\u003eインサートモード開始\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003cp\u003e*ヒントモードとは、f or Fを押した時にurlやボタンなどのアクションのある物に番号を振り\u003cbr\u003e\nその番号を指定するとそのurlに飛べるという機能です。\u003c/p\u003e\n\n\u003cp\u003eそして、ターミナルでvimを使うのが嫌とか、ターミナルで起動するのいちいちめんどいって方、\u003cbr\u003e\nAtomというEditorのプラグインで基本操作をvimのキーバインドで使えるようになるものがあります。\u003cbr\u003e\n(今回紹介したコマンドはだいたい使えます)\u003cbr\u003e\nこれなら、Control-sとか基本コマンドや左にディレクトリ一覧を表示したりできます。\u003cbr\u003e\n(Neobundleとかでも入りますけど、その説明はまた今度)\u003cbr\u003e\n\u003ca href=\&quot;https://atom.io/packages/vim-mode\&quot; class=\&quot;autolink\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003ehttps://atom.io/packages/vim-mode\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003eまあ、ざっとこんなものですかね。\u003cbr\u003e\n最後まで読んでいただきありがとうございます！！\u003cbr\u003e\nおつかれまでした。\u003c/p\u003e\n&quot;,&quot;createdAt&quot;:&quot;2016-04-20T04:39:15Z&quot;,&quot;isDeprecated&quot;:true,&quot;isDestroyableByViewer&quot;:false,&quot;isEditRequestSendableByViewer&quot;:true,&quot;isLikableByViewer&quot;:true,&quot;isLikedByViewer&quot;:false,&quot;isPublic&quot;:true,&quot;isSlide&quot;:false,&quot;isStockableByViewer&quot;:true,&quot;isStockedByViewer&quot;:false,&quot;isUpdatableByViewer&quot;:false,&quot;isUpdated&quot;:true,&quot;likesCount&quot;:738,&quot;originalId&quot;:386716,&quot;title&quot;:&quot;知識0から始めるVim講座&quot;,&quot;toc&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%9F%A5%E8%AD%980%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8Bvim%E8%AC%9B%E5%BA%A7\&quot;\u003e知識0から始めるVim講座\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#vim%E3%82%92%E8%A7%A6%E3%82%8B%E5%89%8D%E3%81%AB%E3%81%BE%E3%81%9A%E6%9C%80%E4%BD%8E%E9%99%90%E3%81%AElinux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E8%A6%9A%E3%81%88%E3%82%88%E3%81%86\&quot;\u003eVimを触る前にまず最低限のLinuxコマンドを覚えよう\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#hellovim\&quot;\u003eHelloVim!\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%8C%E3%81%A3%E3%81%A4%E3%81%93%E3%83%BC%E3%81%A7%E3%81%83%E3%82%93%E3%81%90\&quot;\u003eれっつこーでぃんぐ！\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%971\&quot;\u003eステップ1\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%972\&quot;\u003eステップ2\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%973\&quot;\u003eステップ3\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%974\&quot;\u003eステップ4\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B9%E3%83%86%E3%83%83%E3%83%975\&quot;\u003eステップ5\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#brew--tmux-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6\&quot;\u003ebrew / tmux について\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#vimperator\&quot;\u003evimperator\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;totalPv&quot;:33564,&quot;updatedAt&quot;:&quot;2016-07-18T03:55:03Z&quot;,&quot;uuid&quot;:&quot;fabcc79b4ab0d52e1f6d&quot;,&quot;adventCalendarItem&quot;:null,&quot;author&quot;:{&quot;description&quot;:&quot;のらりくらりVimでGoとかRuby時々Jsとか書いてる高校生です。\r\nドイツ語楽しい&quot;,&quot;name&quot;:&quot;&quot;,&quot;profileImageUrl&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/105255/profile-images/1518152850&quot;,&quot;urlName&quot;:&quot;JpnLavender&quot;},&quot;tags&quot;:[{&quot;name&quot;:&quot;Vim&quot;,&quot;urlName&quot;:&quot;vim&quot;},{&quot;name&quot;:&quot;Linux&quot;,&quot;urlName&quot;:&quot;linux&quot;},{&quot;name&quot;:&quot;Vimperator&quot;,&quot;urlName&quot;:&quot;vimperator&quot;},{&quot;name&quot;:&quot;shell&quot;,&quot;urlName&quot;:&quot;shell&quot;},{&quot;name&quot;:&quot;初心者&quot;,&quot;urlName&quot;:&quot;%e5%88%9d%e5%bf%83%e8%80%85&quot;}],&quot;followingLikers&quot;:{&quot;edges&quot;:[]}},&quot;analyticsTrackingId&quot;:null}"><article itemscope="itemscope" itemtype="http://schema.org/Article" class="p-items"><div class="p-items_wrapper"><div class="p-items_container"><div class="p-items_stickyMenu it-Actions"><div class="it-Actions_item it-Actions_item-like likable"><a class="it-Actions_likeCount" href="/JpnLavender/items/fabcc79b4ab0d52e1f6d/likers">738</a><button><i class="fa fa-fw fa-thumbs-up"></i></button></div><div class="it-Actions_item it-Actions_item-stock"><button><i class="fa fa-folder-open"></i></button></div><div class="it-Actions_shareButton it-Actions_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Actions_shareButton it-Actions_shareButton-facebook"><span class="fa fa-facebook"></span></div></div><div class="p-items_main"><div class="p-items_article"><div class="it-Header"><div class="u-flex-center-between mb-3"><div class="it-Header_info"><div class="it-Header_author"><a href="/JpnLavender"><img class="it-Header_authorImage" src="https://qiita-image-store.s3.amazonaws.com/0/105255/profile-images/1518152850" alt="1518152850" /></a><a class="it-Header_authorName" href="/JpnLavender">@JpnLavender</a> </div><div class="it-Header_time"></div><div class="it-Header_meta"><div class="it-Header_manipulate"><div class="dropdown"><span class="dropdown-toggle" tabindex="0"><span class="fa fa-ellipsis-h fa-lg"></span></span></div></div></div></div></div><h1 class="it-Header_title" itemprop="headline">知識0から始めるVim講座</h1><div class="it-Tags"><a class="it-Tags_item" href="/tags/vim"><span>Vim</span></a><a class="it-Tags_item" href="/tags/linux"><span>Linux</span></a><a class="it-Tags_item" href="/tags/vimperator"><span>Vimperator</span></a><a class="it-Tags_item" href="/tags/shell"><span>shell</span></a><a class="it-Tags_item" href="/tags/%25e5%2588%259d%25e5%25bf%2583%25e8%2580%2585"><span>初心者</span></a></div></div><div class="it-ActionsMobile"><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_like likable"><button><span class="fa fa-fw fa-thumbs-up" /><span>738</span></button></div></div><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_stock"><button><div class="fa fa-folder-open"></div></button></div></div></div><div class="it-Alert mb-5 p-2"><span class="fa fa-warning mr-1"></span>More than 1 year has passed since last update.</div><section class="it-MdContent" itemprop="articleBody"><div id="item-fabcc79b4ab0d52e1f6d">
+<h1>
+<span id="知識0から始めるvim講座" class="fragment"></span><a href="#%E7%9F%A5%E8%AD%980%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8Bvim%E8%AC%9B%E5%BA%A7"><i class="fa fa-link"></i></a>知識0から始めるVim講座</h1>
+
+<p>さて、みなさんは「Vim」というエディターをご存知でしょうか？<br>
+もしあなたがサーバー関係やプログラミング関係に携わっているのでしたら名前ぐらいは聞いたことがあるでしょう。<br>
+ ですが実際にはVimがとういうものかわからない。または難しすぎてVimを使うのを挫折してしまった。<br>
+ 今回はそんな人の為の記事を書いていこうと思います。</p>
+
+<p>まず、vimにはどんな印象をお持ちでしょうか？<br>
+少しでもVimというエディターを触ったことのある方ならこう思うでしょう。<strong>操作がわからない</strong>と。<br>
+確かにvimはマウスを一切使わない。言ってしまえばマウスを使う設計をされていないエディターです。</p>
+
+<p>もともとVimはCUI(コマンド・ユーザー・インターフェース)で使われることを前提に設計されたviというエディター(vimの前世)<br>
+を超える（改良の）ために作られました。<br>
+そのため今までの<strong>Atom SublimeText VisualStudioCode</strong> などのオーソドックスな高性能エディターとは全くの別物と思っていいでしょう。<br>
+ですが、別物のエディターと言っても高性能なことには変わりありませんし。<br>
+僕自身Vimは慣れさえしてしまえば’世界一高性能なエディター’だと思っています。<br>
+しかもIT系をやっていくと大体Unix/Linux系のOSを触れる機会があると思います。それで、Vimでコンフィグを書き換えなければ行けないなんてことも多々あります。<br>
+なので覚えておいて損はないと思います。</p>
+
+<p>それでもVimと言うのは初心者(玄人でも)やはり難しい物は難しいのです。<br>
+ですが、僕はこう思います。<strong>コマンドを覚える順番さえしっかりしていれば簡単に覚えられるのではないだろうか</strong>と。</p>
+
+<p>僕には最初Vimを布教してきた先輩Vimmerがいました。その人は僕に最初に何を覚えてどのようにステップアップしていけば良いのかを教えてくれました。自分がvimmerになった今でも、あのステップアップの仕方は効率が良かったと思います。なのでbashさえわからない人もわかりやすくVimmerに近づくステップアップのやり方を記事にしていこうと思います。</p>
+
+<p>そして、これを1から10まで1日でマスターしたいんだという方。朝７時に起きて朝シャンして、<br>
+コンビニでジュースとビーフジャーキー買ってvimに挑みましょう<br>
+セッションごとにわかりやすく記事をまとめておくので途中途中わからないセッションだけ見ていくのもおすすめです〜。</p>
+
+<ol>
+<li>Vimを触る前にまず最低限のLinuxコマンドを覚えよう</li>
+<li>HelloVim!</li>
+<li>れっつあこーでぃんぐ！(5ステップに分けてます)</li>
+<li>brew / tmuxについて</li>
+<li>Vim依存症になってしまった方へのvimperatorとplugin</li>
+</ol>
+
+<h2>
+<span id="vimを触る前にまず最低限のlinuxコマンドを覚えよう" class="fragment"></span><a href="#vim%E3%82%92%E8%A7%A6%E3%82%8B%E5%89%8D%E3%81%AB%E3%81%BE%E3%81%9A%E6%9C%80%E4%BD%8E%E9%99%90%E3%81%AElinux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E8%A6%9A%E3%81%88%E3%82%88%E3%81%86"><i class="fa fa-link"></i></a>Vimを触る前にまず最低限のLinuxコマンドを覚えよう</h2>
+
+<p>vimと言うのは先程も記載しましたが<strong>CUIで動かすのを前提に作られています</strong> 。<br>
+そのため、普段目にするフォルダーやアイコンなどはGUIなので見ることすらありません。<br>
+では、どうやってファイルの区別をしたりファイルを選択・開いたりするのでしょうか？<br>
+このセッションは、そんなLinux(sh)の知識が無い方向けのセッションです。これを知らないとvimを使っていて、<br>
+「え？どうやってファイル開くの？」「マジわけわかめだわー」「ふじこーーー〜！」<br>
+と、なるのでしっかり覚えましょう。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">意味</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">1</td>
+<td style="text-align: left">cd</td>
+<td style="text-align: left">ChangeDirectory</td>
+<td style="text-align: left">ディレクトリの移動</td>
+</tr>
+<tr>
+<td style="text-align: left">2</td>
+<td style="text-align: left">ls</td>
+<td style="text-align: left">List</td>
+<td style="text-align: left">ディレクトリの一覧表示</td>
+</tr>
+<tr>
+<td style="text-align: left">3</td>
+<td style="text-align: left">pwd</td>
+<td style="text-align: left">PrintWorkingDirectory</td>
+<td style="text-align: left">カウントディレクトリーの表示</td>
+</tr>
+<tr>
+<td style="text-align: left">4</td>
+<td style="text-align: left">mkdir</td>
+<td style="text-align: left">MakeDirectory</td>
+<td style="text-align: left">フォルダーの作成</td>
+</tr>
+<tr>
+<td style="text-align: left">5</td>
+<td style="text-align: left">~</td>
+<td style="text-align: left">?</td>
+<td style="text-align: left">ホームディレクトリーに移動(追記:設定をしてないとできないです)</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://camo.qiitausercontent.com/525b883b4b7e0f82b378aa49965f8c743d724f58/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f32646164373033342d336437302d353465302d316161612d3534626463663263303931382e676966" target="_blank" rel="nofollow noopener"><img src="https://camo.qiitausercontent.com/525b883b4b7e0f82b378aa49965f8c743d724f58/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f32646164373033342d336437302d353465302d316161612d3534626463663263303931382e676966" alt="zero_vim.gif" data-canonical-src="https://qiita-image-store.s3.amazonaws.com/0/105255/2dad7034-3d70-54e0-1aaa-54bdcf2c0918.gif"></a></p>
+
+<p>このように、紹介したコマンドを使えばGUI無しでもフォルダーを開いたりフォルダーの中を編集したり<br>
+することができます。<br>
+そして予備知識としてVimはエディターだということをしっかりを自覚しましょう。<br>
+Vimはターミナルから起動してターミナル上で動きますが、Vimを開いているときはその開いているターミナルのタブは<br>
+1つのエディターとして考えてください。<br>
+<del>そのためRubyやRails。Node.jsなどを起動する場合はVimの中からは起動できませんので</del><br>
+<a href="https://github.com/Shougo/vimshell.vim" rel="nofollow noopener" target="_blank">VimShell</a>というPlugin使えばできるようです。<br>
+Control-tなり何なりで新しいタブを開いてそこでサーバーを起動してください。</p>
+
+<p>そして新しいタブをターミナルでずらずらと開くのもダサいのでtmuxという物をおすすめします。<br>
+tmuxのインストールなどは最後に紹介します。</p>
+
+<h2>
+<span id="hellovim" class="fragment"></span><a href="#hellovim"><i class="fa fa-link"></i></a>HelloVim!</h2>
+
+<p>ようこそVimの世界へ！<br>
+では、はじめに書きましたが。Vimと言うのはしっかりとステップを踏んで進んでいけばさほど難しくは感じないですし、<br>
+Vimの魅力にとらわれていきます。基礎もできていないのにいきなり難しいコマンドを覚えようよしても、前提がなければできるものもできません。<br>
+数学や理科と一緒です。割り算もできないのに因数分解なんて無理な話です。<br>
+なのでこのセッションではまずVimの基礎操作となるところからやっていきましょう！！</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">h</td>
+<td style="text-align: left">カーソルを左にずらす</td>
+</tr>
+<tr>
+<td style="text-align: left">j</td>
+<td style="text-align: left">カーソルを下に下げる</td>
+</tr>
+<tr>
+<td style="text-align: left">k</td>
+<td style="text-align: left">カーソルを上に上げる</td>
+</tr>
+<tr>
+<td style="text-align: left">l</td>
+<td style="text-align: left">カーソルを右にずらす</td>
+</tr>
+</tbody>
+</table>
+
+<p>まずは基本的にな操作についてです。これをまずは何が何でも覚えなければいけません。<br>
+出ないとカーソル移動ができないからです。一応十字キーでも操作は可能ですが。それではVimの意味がありません。<br>
+これはしっかりと覚えましょう！<br>
+次に、Vimの入力と保存です。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">a</td>
+<td style="text-align: left">カーソルの場所から1文字進めてInsertModeに入る</td>
+</tr>
+<tr>
+<td style="text-align: left">i</td>
+<td style="text-align: left">カーソルの場所からInsertModeに入る</td>
+</tr>
+<tr>
+<td style="text-align: left">x</td>
+<td style="text-align: left">カーソル直下の文字を消します</td>
+</tr>
+<tr>
+<td style="text-align: left">:w</td>
+<td style="text-align: left">ファイルの保存(Control-s)</td>
+</tr>
+<tr>
+<td style="text-align: left">:q</td>
+<td style="text-align: left">実行中のタブを閉じる</td>
+</tr>
+<tr>
+<td style="text-align: left">:wq</td>
+<td style="text-align: left">上を組み合わせて保存して閉じることもできる</td>
+</tr>
+<tr>
+<td style="text-align: left">:w!</td>
+<td style="text-align: left">のように最後に[!]をつけると強制的に処理します</td>
+</tr>
+</tbody>
+</table>
+
+<p>ここでいきなり、InsertModeという謎の名詞が出てきましたね。これはVimのモードと言う機能です。<br>
+Vimでは一切マウスを使わないため。コマンド入力モード・文字入力モード・選択モードと<br>
+3つのモードに分かれています。基本Vimはコマンド入力モードに滞在することが多いです。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">名前</th>
+<th style="text-align: left">意味</th>
+<th style="text-align: left">主な機能</th>
+<th style="text-align: left">起動の仕方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">NormalMode</td>
+<td style="text-align: left">コマンド入力モード</td>
+<td style="text-align: left">カーソルの移動。他のモードへの移行。テキストのコピー、カット、ペースト。</td>
+<td style="text-align: left">Esc</td>
+</tr>
+<tr>
+<td style="text-align: left">InsertMode</td>
+<td style="text-align: left">文字入力モード</td>
+<td style="text-align: left">テキストの入力、編集。</td>
+<td style="text-align: left">a/i/A/I/ciw/</td>
+</tr>
+<tr>
+<td style="text-align: left">VisualMode</td>
+<td style="text-align: left">文字選択モード</td>
+<td style="text-align: left">テキストの選択。</td>
+<td style="text-align: left">v</td>
+</tr>
+</tbody>
+</table>
+
+<p>さて、Vimのモード事情を覚えたところで、ステップ１はここでおしまいです。<br>
+実際にVimを少し触ってみてどうだたでしょうか？ 難しかったですか？ ですが、以上のコマンドさえ覚えていれば<br>
+最低限のファイル操作はできると思います。正直これだけ覚えていれば普通のエディターとして使うことができます。<br>
+ステップ２はさらに覚えることが複雑になっていきますが、ステップ１をできた方なら多分楽勝です。<br>
+そしてステップ２が終わった頃には「あ、Vimつかいやすい」と思うようになっているはずです。</p>
+
+<h2>
+<span id="れっつこーでぃんぐ" class="fragment"></span><a href="#%E3%82%8C%E3%81%A3%E3%81%A4%E3%81%93%E3%83%BC%E3%81%A7%E3%81%83%E3%82%93%E3%81%90"><i class="fa fa-link"></i></a>れっつこーでぃんぐ！</h2>
+
+<p>さて、少しずつvimがどのようなものかわかってきたところで次はvimの魅力の１つである多彩なコマンドを紹介します。<br>
+vimには多分150ぐらいのコマンドがあります。そのコマンドを一気に学ぼうとすると、頭が変になりますし意味わかんなくなります。<br>
+なので、今回は5段階に分けて様々なコマンドを紹介していきたいと思います。</p>
+
+<h3>
+<span id="ステップ1" class="fragment"></span><a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%971"><i class="fa fa-link"></i></a>ステップ1</h3>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><strong>基本コマンド</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">dd</td>
+<td style="text-align: left">カーソルがある1列削除</td>
+</tr>
+<tr>
+<td style="text-align: left">yy</td>
+<td style="text-align: left">1列コピー</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">ペースト</td>
+</tr>
+<tr>
+<td style="text-align: left">u</td>
+<td style="text-align: left">操作を1つ戻す(Control+z)</td>
+</tr>
+<tr>
+<td style="text-align: left">J</td>
+<td style="text-align: left">カーソルがある行に1つ下の行を連結する</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>カーソル移動</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">gg</td>
+<td style="text-align: left">ページの一番上に行く</td>
+</tr>
+<tr>
+<td style="text-align: left">G</td>
+<td style="text-align: left">ページの一番下に行く</td>
+</tr>
+<tr>
+<td style="text-align: left">H</td>
+<td style="text-align: left">表示されている画面の一番上に行く</td>
+</tr>
+<tr>
+<td style="text-align: left">M</td>
+<td style="text-align: left">表示されている画面の真ん中に行く</td>
+</tr>
+<tr>
+<td style="text-align: left">L</td>
+<td style="text-align: left">表示されている画面の一番下に行く</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>ページ内検索</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">/hoge</td>
+<td style="text-align: left">[/]のあとの文字列を検索する(Control-f的なあれ)</td>
+</tr>
+<tr>
+<td style="text-align: left">n</td>
+<td style="text-align: left">[/]で検索した文字列の次の検索候補に飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left">N</td>
+<td style="text-align: left">[/]で検索した文字列の前の検索候補に飛ぶ</td>
+</tr>
+</tbody>
+</table>
+
+<p>以上が今より更にステップアップするためのコマンドたちです。<br>
+これだけ使えれば普通の高性能エディターぐらいは使えると思います。<br>
+これを見て[u]で操作を一つ戻れるのに、すすめることはできないの？ と思う方もいると思います。<br>
+ありますとも、[Control+r]で、[u]の反対のことができます。<br>
+正直僕自身最初の1ヶ月ぐらい上の表のコマンドぐらいしか覚えてませんでした。（たったこれで十分使えたから）</p>
+
+<h3>
+<span id="ステップ2" class="fragment"></span><a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%972"><i class="fa fa-link"></i></a>ステップ2</h3>
+
+<p>ステップ２は文字入力の応用です。[a]や[i]などでもInsertModeに入ることはできますが<br>
+一番最後から文を書き足したいのに一番最後までカーソル持って行ってInsertModeに入るのは、毎回めんどくさくないですか？<br>
+ですが、今回はそんなあなたにおすすめなコマンドがあるんです！</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><strong>文字入力の応用</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">A</td>
+<td style="text-align: left">カーソルのある行の最後にInsertModeで飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left">I</td>
+<td style="text-align: left">カーソルのある行の最初にInsertModeで飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left">.</td>
+<td style="text-align: left">直前にやったことを繰り返す</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>カーソル移動</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">$</td>
+<td style="text-align: left">カーソルのある行の最後にNormalModeで飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left">^</td>
+<td style="text-align: left">カーソルのある行の最初にNormalModeで飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>VisualMode</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">インサートモードに入る</td>
+</tr>
+<tr>
+<td style="text-align: left">v+[移動キー]</td>
+<td style="text-align: left">範囲選択ができる(1)</td>
+</tr>
+<tr>
+<td style="text-align: left">v+(1)+y</td>
+<td style="text-align: left">選択した範囲をコピー</td>
+</tr>
+<tr>
+<td style="text-align: left">v+(1)+d</td>
+<td style="text-align: left">選択した範囲を削除</td>
+</tr>
+</tbody>
+</table>
+
+<p>ステップ２はこれだけです。<br>
+これを覚えればVisualModeで範囲選択するときとかも楽になりますし、文字を入力したいところまで、<br>
+いちいち運ぶ必要が少なくなります。</p>
+
+<h3>
+<span id="ステップ3" class="fragment"></span><a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%973"><i class="fa fa-link"></i></a>ステップ3</h3>
+
+<p>ステップ２がマスターできたら次はカーソルの移動を捗らせるコマンドです。<br>
+いちいち[l]や[h]で真ん中の方にカーソルを動かすというと、遅いしだるいしコーヒー冷めちゃいます。<br>
+ですので、手っ取り早くカーソルを動かす方法を紹介します。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">w</td>
+<td style="text-align: left">1単語飛ばしてカーソルを右に動かす(文字外)</td>
+</tr>
+<tr>
+<td style="text-align: left">e</td>
+<td style="text-align: left">1単語飛ばしてカーソルを右に動かす(文字内)</td>
+</tr>
+<tr>
+<td style="text-align: left">b</td>
+<td style="text-align: left">1単語飛ばしてカーソルを左に動かす(文字外)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>正直こっちは覚えなくてもいいと思うけど</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ge</td>
+<td style="text-align: left">1単語飛ばしてカーソルを左に動かす(文字内)</td>
+</tr>
+</tbody>
+</table>
+
+<p>これをマスターすると[h&amp;l] よりも早くカーソルを動かすことができますが、<br>
+実際これでカーソル動かすの結構忘れちゃったりするんですよね、</p>
+
+<h3>
+<span id="ステップ4" class="fragment"></span><a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%974"><i class="fa fa-link"></i></a>ステップ4</h3>
+
+<p>ステップ4は削除系のコマンドです。これを覚えれば確実に作業効率が格段に上がります。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">VisualModeで選択した範囲を消してInsertModeで終わる</td>
+</tr>
+<tr>
+<td style="text-align: left">ci</td>
+<td style="text-align: left">括弧の中身だけを消す(例:[ci"]  "この中だけが消えます")</td>
+</tr>
+<tr>
+<td style="text-align: left">ciw</td>
+<td style="text-align: left">カーソルの下にある１単語を消してInsertModeに入る(英語・カタカナ・ひらがな・漢字で分けられる)</td>
+</tr>
+<tr>
+<td style="text-align: left">cit</td>
+<td style="text-align: left">htmlのタグに囲まれている中を消します</td>
+</tr>
+<tr>
+<td style="text-align: left">dw</td>
+<td style="text-align: left">カーソルから右にある単語を消す（NormalModeで終わる）</td>
+</tr>
+<tr>
+<td style="text-align: left">daw</td>
+<td style="text-align: left">カーソルの下にある単語を消す</td>
+</tr>
+<tr>
+<td style="text-align: left">D</td>
+<td style="text-align: left">カーソルから右にある文を全て消す</td>
+</tr>
+<tr>
+<td style="text-align: left">S</td>
+<td style="text-align: left">カーソルのある１行を全て消してInsertModeにはいる</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://camo.qiitausercontent.com/ab9ec1269c707f2556e8d596ec9be66e7a23665b/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f38376264393665302d383733302d663662372d333061302d6535353535333634636162312e676966" target="_blank" rel="nofollow noopener"><img src="https://camo.qiitausercontent.com/ab9ec1269c707f2556e8d596ec9be66e7a23665b/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f3130353235352f38376264393665302d383733302d663662372d333061302d6535353535333634636162312e676966" alt="delete.gif" data-canonical-src="https://qiita-image-store.s3.amazonaws.com/0/105255/87bd96e0-8730-f6b7-30a0-e5555364cab1.gif"></a></p>
+
+<p>*すみませんitermでキーボードの可視化できなかったんでterminal.appでちょっと見づらいですが<br>
+許してください。</p>
+
+<h3>
+<span id="ステップ5" class="fragment"></span><a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%975"><i class="fa fa-link"></i></a>ステップ5</h3>
+
+<p>ステップ５はその他役立つコマンドを覚えようって感じです</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">コマンド</th>
+<th style="text-align: left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left">:!{shellコマンド}</td>
+<td style="text-align: left">vim内でshellのコマンドが使えます</td>
+</tr>
+<tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">[m]+[a~Z]で好きな行をマークしておいて[`]+[a~Z]でマークしたところに飛べます</td>
+</tr>
+<tr>
+<td style="text-align: left">`</td>
+<td style="text-align: left">"</td>
+</tr>
+<tr>
+<td style="text-align: left">~</td>
+<td style="text-align: left">カーソル直下の文字の大文字小文字を切り替える</td>
+</tr>
+<tr>
+<td style="text-align: left">%</td>
+<td style="text-align: left">括弧がカーソル直下にある場合[括弧終わり -&gt; 括弧初め]に飛ぶ(逆もできる)</td>
+</tr>
+<tr>
+<td style="text-align: left">U</td>
+<td style="text-align: left">選択した範囲をの大文字小文字を切り替える</td>
+</tr>
+<tr>
+<td style="text-align: left">* or #</td>
+<td style="text-align: left">カーソルのおいてある単語を検索する(/hogeのhogeにカーソル直下の単語を置き換える感じ)</td>
+</tr>
+<tr>
+<td style="text-align: left">:n</td>
+<td style="text-align: left">[n]に数字を入れるとその行に飛びます</td>
+</tr>
+<tr>
+<td style="text-align: left">ggVG</td>
+<td style="text-align: left">すべて選択(Control-a)</td>
+</tr>
+<tr>
+<td style="text-align: left">Control+v</td>
+<td style="text-align: left">インサートモード（箱型)</td>
+</tr>
+<tr>
+<td style="text-align: left">保存系</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ZZ</td>
+<td style="text-align: left">変更があれば保存して終了</td>
+</tr>
+<tr>
+<td style="text-align: left">:x</td>
+<td style="text-align: left">変更があれば保存して終了</td>
+</tr>
+<tr>
+<td style="text-align: left">:xa</td>
+<td style="text-align: left">変更があるタブを保存してすべてのタブを閉じる</td>
+</tr>
+</tbody>
+</table>
+
+<p>ステップ５までついに終わりましたね! 実際Vimを触ってみてどうだたでしょうか?<br>
+やはり難しいと、感じましたか？ ですがもうコマンドを覚えてしまえば、あとは慣れです。<br>
+ステップ５まで諦めずにできたなら、きっと気づいた時には理解し。vimを扱えると思います。<br>
+おつかれまでした(*^^)</p>
+
+<h2>
+<span id="brew--tmux-について" class="fragment"></span><a href="#brew--tmux-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><i class="fa fa-link"></i></a>brew / tmux について</h2>
+
+<p>冒頭でも記事にしていましたが、vimを開きながら他の作業をするには、違うタブでいちいちディレクトリを<br>
+指定して開いたり閉じたりしていろいろめんどくさいです。そして作業中のタブを誤って閉じてしまったり。<br>
+そんないろいろめんどくさいことが、スマートに行えるのが[tmux]というものです。<br>
+これを使えばいちいち、タブを開き直した時にディレクトリを指定し直す必要もないですし<br>
+誤ってタブを閉じても復元することができます。<br>
+しかもターミナル上から時間や、メモリーの使用率充電の残り残量なども表示することができ、<br>
+ターミナルを１つの端末として扱うことができます。</p>
+
+<p>もしすでにHomeBrewがインストールされているMacなら、以下を実行するだけでインストールできます。<br>
+まだHomeBrewをインストールしてない方はこちらから(Xcode必須だった気がします)<br>
+<a href="http://brew.sh/index_ja.html" rel="nofollow noopener" target="_blank">HomeBrew</a></p>
+
+<div class="code-frame" data-lang="Shell"><div class="highlight"><pre>brew <span class="nb">install </span>tmux
+</pre></div></div>
+
+<p>インストールが完了したら、ターミナルで</p>
+
+<div class="code-frame" data-lang="Shell"><div class="highlight"><pre>tmux
+</pre></div></div>
+
+<p>とやるとtmuxが起動できます。 <br>
+あとは、僕よりも文章力のある方に任せます。</p>
+
+<h3>
+<span id="vimperator" class="fragment"></span><a href="#vimperator"><i class="fa fa-link"></i></a>vimperator</h3>
+
+<p>さて、最後にvimを実際に使ってみてvimに慣れ、この記事を見てvimが好きになってくれたら嬉しいなと思います。<br>
+そしてvimが好きになって普段PCを触っている時も出来る限りvimを使いたいと思い、vimに恋をしてしまった方。<br>
+いいものがあります！！</p>
+
+<p>ブラウザをvimと同じキー操作で使うことのできるaddonがあるんです！<br>
+その名も！Vimperatorというfirefoxのaddonです。<br>
+このaddonを追加すれば、一切マウスを使わないでブラウザを操作することができるようになります。<br>
+<a href="https://addons.mozilla.org/ja/firefox/addon/vimperator/" rel="nofollow noopener" target="_blank">vimperator</a></p>
+
+<p>一応基本操作も載せておきますね。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left">キー</th>
+<th style="text-align: left">機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><strong>基本操作</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">hjkl</td>
+<td style="text-align: left">右・上・下・左</td>
+</tr>
+<tr>
+<td style="text-align: left">H,L</td>
+<td style="text-align: left">ひとつ前のページに戻る,ひとつ先のページに進む</td>
+</tr>
+<tr>
+<td style="text-align: left">a</td>
+<td style="text-align: left">ブックマーク</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">r</td>
+<td style="text-align: left">ページの更新</td>
+</tr>
+<tr>
+<td style="text-align: left">y</td>
+<td style="text-align: left">現在開いているページのUrlをコピー</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">クリップボードの内容を検索する</td>
+</tr>
+<tr>
+<td style="text-align: left">b</td>
+<td style="text-align: left">現在開いてるタブ一覧表示</td>
+</tr>
+<tr>
+<td style="text-align: left">gg</td>
+<td style="text-align: left">一番上ページのに行く</td>
+</tr>
+<tr>
+<td style="text-align: left">G</td>
+<td style="text-align: left">一番下のページに行く</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>url選択(ヒントモード)</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">f</td>
+<td style="text-align: left">ヒントモードを起動*</td>
+</tr>
+<tr>
+<td style="text-align: left">F</td>
+<td style="text-align: left">ヒントモードを起動*(新規タブで開く)</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>検索</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">検索内容を新規タブで開く</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">検索内容をページ内に表示</td>
+</tr>
+<tr>
+<td style="text-align: left">w</td>
+<td style="text-align: left">検索内容を新規ウィンドウで開く</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>タブ移動</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">gt</td>
+<td style="text-align: left">右のタブに移動</td>
+</tr>
+<tr>
+<td style="text-align: left">gT</td>
+<td style="text-align: left">左のタブに移動</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>検索</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">/hoge</td>
+<td style="text-align: left">[/]のあとの文字列を検索する(Control-f的なあれ)</td>
+</tr>
+<tr>
+<td style="text-align: left">n</td>
+<td style="text-align: left">[/]で検索した文字列の次の検索候補に飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left">N</td>
+<td style="text-align: left">[/]で検索した文字列の前の検索候補に飛ぶ</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>コピー</strong></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">インサートモード開始</td>
+</tr>
+</tbody>
+</table>
+
+<p>*ヒントモードとは、f or Fを押した時にurlやボタンなどのアクションのある物に番号を振り<br>
+その番号を指定するとそのurlに飛べるという機能です。</p>
+
+<p>そして、ターミナルでvimを使うのが嫌とか、ターミナルで起動するのいちいちめんどいって方、<br>
+AtomというEditorのプラグインで基本操作をvimのキーバインドで使えるようになるものがあります。<br>
+(今回紹介したコマンドはだいたい使えます)<br>
+これなら、Control-sとか基本コマンドや左にディレクトリ一覧を表示したりできます。<br>
+(Neobundleとかでも入りますけど、その説明はまた今度)<br>
+<a href="https://atom.io/packages/vim-mode" class="autolink" rel="nofollow noopener" target="_blank">https://atom.io/packages/vim-mode</a></p>
+
+<p>まあ、ざっとこんなものですかね。<br>
+最後まで読んでいただきありがとうございます！！<br>
+おつかれまでした。</p>
+</div></section><div class="it-Footer"><div class="it-Footer_actions"><div class="it-Footer_editRequest"><a class="u-link-no-underline" href="/JpnLavender/items/fabcc79b4ab0d52e1f6d/edit"><span class="fa fa-fw fa-send"></span><span>Edit request</span></a></div><div class="it-Footer_stock"><button><span class="fa fa-folder-open"></span><span class="it-Footer_stockLabel">Stock</span></button></div><div class="it-Footer_like"><button><span class="fa fa-fw fa-thumbs-up"></span><span>Like</span></button><a class="it-Footer_likeCount" href="/JpnLavender/items/fabcc79b4ab0d52e1f6d/likers">738</a></div></div><div class="it-Footer_social"><div class="it-Footer_shareButton it-Footer_shareButton-webshare"><span class="fa fa-share-alt"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-facebook"><span class="fa fa-facebook"></span></div></div></div><div class="it-AuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><a href="/JpnLavender"><img class="it-AuthorInfo_image" itemprop="image" alt="JpnLavender" src="https://qiita-image-store.s3.amazonaws.com/0/105255/profile-images/1518152850" /></a><div class="it-AuthorInfo_body"><div class="it-AuthorInfo_header"><a class="it-AuthorInfo_urlname" itemprop="name" href="/JpnLavender">JpnLavender</a></div><div class="it-AuthorInfo_description">のらりくらりVimでGoとかRuby時々Jsとか書いてる高校生です。
+ドイツ語楽しい</div></div></div></div></div><div class="p-items_options"></div><div class="p-items_toc"><div class="it-Toc"><div class="it-Toc_nav"><ul>
+<li>
+<a href="#%E7%9F%A5%E8%AD%980%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8Bvim%E8%AC%9B%E5%BA%A7">知識0から始めるVim講座</a>
+<ul>
+<li>
+<a href="#vim%E3%82%92%E8%A7%A6%E3%82%8B%E5%89%8D%E3%81%AB%E3%81%BE%E3%81%9A%E6%9C%80%E4%BD%8E%E9%99%90%E3%81%AElinux%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%82%92%E8%A6%9A%E3%81%88%E3%82%88%E3%81%86">Vimを触る前にまず最低限のLinuxコマンドを覚えよう</a>
+</li>
+<li>
+<a href="#hellovim">HelloVim!</a>
+</li>
+<li>
+<a href="#%E3%82%8C%E3%81%A3%E3%81%A4%E3%81%93%E3%83%BC%E3%81%A7%E3%81%83%E3%82%93%E3%81%90">れっつこーでぃんぐ！</a>
+<ul>
+<li>
+<a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%971">ステップ1</a>
+</li>
+<li>
+<a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%972">ステップ2</a>
+</li>
+<li>
+<a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%973">ステップ3</a>
+</li>
+<li>
+<a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%974">ステップ4</a>
+</li>
+<li>
+<a href="#%E3%82%B9%E3%83%86%E3%83%83%E3%83%975">ステップ5</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#brew--tmux-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">brew / tmux について</a>
+<ul>
+<li>
+<a href="#vimperator">vimperator</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></div></div></div><div class="p-items_wrapper p-items_wrapper-white"><div class="p-items_container"><div class="p-items_leftDummy"></div><div class="p-items_main"></div><div class="p-items_rightDummy"></div></div></div></article></div><footer id="globalFooter" class="st-Footer px-2 px-1@s pt-1 pt-3@s pb-2"><div class="st-Footer_container"><ul class="st-Footer_start"><li class="st-Footer_link"><a class="st-Footer_copyright" href="https://increments.co.jp">© 2011-2018 Increments Inc.</a></li><li class="st-Footer_link"><a href="/terms">Terms</a></li><li class="st-Footer_link"><a href="/privacy">Privacy</a></li><li class="st-Footer_link"><a href="https://help.qiita.com">Help</a></li><li class="st-Footer_link"><a href="https://increments.zendesk.com/hc/ja/requests/new">Contact</a></li></ul><ul class="st-Footer_end"><li class="st-Footer_link"><a href="/about">About</a></li><li class="st-Footer_link"><a href="/users">Users</a></li><li class="st-Footer_link"><a href="/tags">Tags</a></li><li class="st-Footer_link"><a href="/items">Items</a></li><li class="st-Footer_link"><a href="http://blog.qiita.com">Blog</a></li><li class="st-Footer_link"><a href="/api/v2/docs">API</a></li><li class="st-Footer_link"><a href="https://teams.qiita.com">Qiita:Team</a></li></ul></div></footer></div><div class="p-messages"><div data-hyperapp-app="Message" data-hyperapp-props="{&quot;messages&quot;:[]}"></div></div><div id="dataContainer" style="display: none;" data-config="{&quot;actionPath&quot;:&quot;public/items#show&quot;,&quot;settings&quot;:{&quot;analyticsTrackingId&quot;:&quot;UA-24675221-12&quot;,&quot;mixpanelToken&quot;:&quot;17d24b448ca579c365d2d1057f3a1791&quot;,&quot;assetsMap&quot;:{},&quot;csrfToken&quot;:&quot;cJUjD5P3xJuwLceV+bl+bM8UUwVRdYmd50Gvc8Sp0jtJWLqEfWjwxY4kanhaVvH4ilqj8OB1I/xSWwjWiYZ2LA==&quot;,&quot;locale&quot;:&quot;en&quot;},&quot;currentUser&quot;:null}" /></body></html>

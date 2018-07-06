@@ -1,0 +1,463 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>【Git】基本コマンド</title><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" /><meta content="#55c500" name="theme-color" /><meta content="XWpkTG32-_C4joZoJ_UsmDUi-zaH-hcrjF6ZC_FoFbk" name="google-site-verification" /><link href="/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml" /><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="KR+fqxIxYvxmB881J7puPOW6+a9cDY7y7ry/5RvPK0XBbp3WYIsjYjT5rJ8SjtY9jo/rrMYW5PnQbO+L4le6HA==" /><link rel="shortcut icon" type="image/x-icon" href="https://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico" /><link rel="apple-touch-icon" type="image/png" href="https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png" /><link rel="stylesheet" media="all" href="https://cdn.qiita.com/assets/public/style-80141937037b784a0ea23f44be4540ce.min.css" /><script src="https://cdn.qiita.com/assets/public/bundle-78168d958dbf882c3f185b063d5d5fa9.min.js" defer="defer"></script><meta content="summary" name="twitter:card" /><meta content="@Qiita" name="twitter:site" /><meta content="@konweb" name="twitter:creator" /><meta property="og:type" content="article"><meta property="og:title" content="【Git】基本コマンド - Qiita"><meta property="og:image" content="https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png"><meta property="og:description" content="## 基本コマンド
+###ローカルリポジトリの作成
+初期化して、現在あるファイルを追加して、コミットすればOK   
+ファイルがなければ```git init```のみでOK
+
+```
+git init
+git add *
+git c..."><meta content="https://qiita.com/konweb/items/621722f67fdd8f86a017" property="og:url" /><meta content="Qiita" property="og:site_name" /><meta content="564524038" property="fb:admins" /></head><body><div class="allWrapper"><div data-hyperapp-app="GlobalHeader" data-hyperapp-props="{&quot;unreadNotificationsCount&quot;:null,&quot;realms&quot;:[{&quot;humanName&quot;:&quot;Qiita&quot;,&quot;isCurrentRealm&quot;:true,&quot;isQiita&quot;:true,&quot;isQiitaTeam&quot;:false,&quot;loggedInUser&quot;:null,&quot;teamId&quot;:null,&quot;url&quot;:&quot;https://qiita.com/&quot;}],&quot;teamFindUrl&quot;:&quot;https://teams-center.qiita.com/find_team&quot;,&quot;isTeamOnlyUser&quot;:null,&quot;currentUser&quot;:null}"><div class="st-Header" id="globalHeader"><div class="st-Header_container"><div class="st-Header_start"><a class="st-Header_logo mr-1" href="/trend"><svg viewBox="0 0 75 25" xmlns="http://www.w3.org/2000/svg"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></a><div><div class="st-Header_realmSelector"><span class="fa fa-fw fa-caret-down"></span></div></div><div><div class="st-Header_community">Community<span class="fa fa-fw fa-caret-down ml-1of2"></span></div></div><form class="st-Header_search"><span class="fa fa-search"></span><input class="st-Header_searchInput" placeholder="Search" type="search" /></form><div class="st-Header_searchButton"><span class="fa fa-serach"></span></div></div><div class="st-Header_end"><a class="st-Header_signupButton" href="/signup">Signup</a><a class="st-Header_loginLink" href="/login">Login</a></div></div></div></div><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/","name":"Qiita"}},{"@type":"ListItem","position":2,"item":{"@id":"/tags/git","name":"Git"}}]}</script><script async="" src="https://cdn.bigmining.com/private/js/qiita_bigmining.js"></script><div style="display:none"><div class="TagList__label"><span></span><span>Git</span></div><div class="TagList__label"><span></span><span>GitHub</span></div></div><div data-hyperapp-app="PersonalPublicArticle" data-hyperapp-props="{&quot;article&quot;:{&quot;body&quot;:&quot;\n\u003ch2\u003e\n\u003cspan id=\&quot;基本コマンド\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e基本コマンド\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ローカルリポジトリの作成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eローカルリポジトリの作成\u003c/h3\u003e\n\n\u003cp\u003e初期化して、現在あるファイルを追加して、コミットすればOK\u003cbr\u003e\u003cbr\u003e\nファイルがなければ\u003ccode\u003egit init\u003c/code\u003eのみでOK\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit init\ngit add *\ngit commit -m \&quot;initial commit\&quot;\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;リモートリポジトリからプロジェクトをコピー\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eリモートリポジトリからプロジェクトをコピー\u003c/h3\u003e\n\n\u003cp\u003eターミナルでローカルリポジトリに移動して以下のコマンド\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003ecd [ローカルリポジトリのパス]\ngit clone [リモートリポジトリパス] (例： https://github.com/jquery/jquery.git)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ファイル更新までの基本手順\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%81%BE%E3%81%A7%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%89%8B%E9%A0%86\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eファイル更新までの基本手順\u003c/h3\u003e\n\n\u003cp\u003eざっくりは以下の様な流れ   \u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eファイルを追加\u003cbr\u003e\n\u003c/li\u003e\n\u003cli\u003eファイルをコミット\u003cbr\u003e\n\u003c/li\u003e\n\u003cli\u003eファイルを更新\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit add [ファイル名] //追加\ngit commit -a -m \&quot;任意のコメント\&quot;  //コミット (-aオプションは変更を自動検出してくれる)\ngit push origin master  //masterを更新\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-addの使用例\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-add%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit addの使用例\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit add . //すべてのファイル・ディレクトリ\ngit add *.css //すべてのCSSファイル\ngit add -n //追加されるファイルを調べる\ngit add -u //変更されたファイルを追加する\ngit rm --cached //addしてしまったファイルを除外\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-commitの使用例\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-commit%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit commitの使用例\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit commit -a //変更のあったファイルすべて\ngit commit --amend //直前のコミットを取り消す\ngit commit -v //変更点を表示してコミット\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;コミットの取り消し\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eコミットの取り消し\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit reset --soft HEAD~2 // 最新のコミットから2件分をワークディレクトリの内容を保持し取り消す\ngit reset --hard HEAD~2 // 最新のコミットから2件分のワークディレクトリの内容とコミットを取り消す\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;コミットメッセージの修正\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE%E4%BF%AE%E6%AD%A3\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eコミットメッセージの修正\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit rebase -i HEAD~2 // HEADから2件のコミットメッセージ\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e上記のコマンドを実行するとVimが起動し、最新から過去2件のコミットが表示されます。\u003cbr\u003e\n※ Vimのコマンドはこちらを参考に → \u003ca href=\&quot;http://qiita.com/merrill/items/9c800030333ab4c9408f\&quot;\u003eVimコマンドまとめ\u003c/a\u003e\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003epick {commit_id} {commit_meessage} // 2件目\npick {commit_id} {commit_meessage} // 1件目(最新コミット)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e\u003ccode\u003epick\u003c/code\u003eの部分を\u003ccode\u003eedit\u003c/code\u003eもしくは\u003ccode\u003ee\u003c/code\u003eに変更後ファイルを保存し、\u003cbr\u003e\n修正が完了したら\u003ccode\u003e--amend\u003c/code\u003eオプションを付けてコミットする。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit commit --amend\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e最後に下記のコマンドを実行し完了。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit rebase --continue\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ブランチの作成移動削除変更一覧\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90%E7%A7%BB%E5%8B%95%E5%89%8A%E9%99%A4%E5%A4%89%E6%9B%B4%E4%B8%80%E8%A6%A7\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eブランチの作成/移動/削除/変更/一覧/\u003c/h3\u003e\n\n\u003cp\u003eブランチは変更履歴を記録できる。\u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003e\u003ca href=\&quot;https://camo.qiitausercontent.com/3dbf7c9459e05d3bce4623b0c41a9f811732cb7b/68747470733a2f2f6261636b6c6f672e636f6d2f6a612f6769742d7475746f7269616c2f696d672f706f73742f7374657075702f636170747572655f737465707570315f315f312e706e67\&quot; target=\&quot;_blank\&quot; rel=\&quot;nofollow noopener\&quot;\u003e\u003cimg src=\&quot;https://camo.qiitausercontent.com/3dbf7c9459e05d3bce4623b0c41a9f811732cb7b/68747470733a2f2f6261636b6c6f672e636f6d2f6a612f6769742d7475746f7269616c2f696d672f706f73742f7374657075702f636170747572655f737465707570315f315f312e706e67\&quot; alt=\&quot;ブランチとは\&quot; data-canonical-src=\&quot;https://backlog.com/ja/git-tutorial/img/post/stepup/capture_stepup1_1_1.png\&quot;\u003e\u003c/a\u003e\u003cbr\u003e\u003cbr\u003e\n\u003ca href=\&quot;https://backlog.com/ja/git-tutorial/stepup/stepup1_1.html\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003eブランチとは? サルでも分かるGit入門\u003c/a\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit branch [branch_name]  //ブランチの作成\ngit checkout [branch_name]  //ブランチの移動\ngit branch -d [branch_name]  //ブランチの削除\ngit branch -m [branch_name]  //現在のブランチ名の変更\ngit branch // ローカルブランチの一覧\ngit branch -a //リモートとローカルのブランチの一覧\ngit branch -r //リモートブランチの一覧\ngit checkout -b branch_name origin/branch_name //リモートブランチへチェックアウト\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;編集をマージ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%B7%A8%E9%9B%86%E3%82%92%E3%83%9E%E3%83%BC%E3%82%B8\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e編集をマージ\u003c/h3\u003e\n\n\u003cp\u003emaster以外のブランチで編集した箇所をmasterに反映させる\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit checkout [branch_name]  //ブランチに移動\ngit commit -a -m \&quot;コメント\&quot;  //変更ファイルをコミット\n\ngit checkout master  //masterに移動\ngit merge [branch_name]  //差分をマージ\ngit push origin master  //ファイルの更新\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;マージを取り消す\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%92%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%99\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eマージを取り消す\u003c/h3\u003e\n\n\u003cp\u003eコンフリクトが発生して一旦戻したい場合\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit merge --abort\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;差分を確認する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%B7%AE%E5%88%86%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e差分を確認する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit diff\ngit diff HEAD^ //最後のコミットからの差分を表示\ngit diff --name-only HEAD^ //差分ファイルを表示\ngit diff file1.txt file2.txt //特定フィイルの差分\ngit diff commit1 commit2 //コミットの差分\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ログの表示\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AD%E3%82%B0%E3%81%AE%E8%A1%A8%E7%A4%BA\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eログの表示\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit log //コミットのログが見れる\ngit reflog //いろいろ見れる\ngit reflog origin/branch_name //pushのログが見れる\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eログには色々なオプションがあるけど、おすすめは以下のコマンド。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit log --graph --name-status --pretty=format:\&quot;%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\&quot;\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ファイルの名前変更\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%90%8D%E5%89%8D%E5%A4%89%E6%9B%B4\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eファイルの名前変更\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit mv [変更前のファイル名] [変更後のファイル名]\ngit commit -a -m \&quot;rename\&quot;\ngit push origin master\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;特定ファイルを特定のコミットに戻す\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%89%B9%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AB%E6%88%BB%E3%81%99\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e特定ファイルを特定のコミットに戻す\u003c/h3\u003e\n\n\u003cp\u003e特定のコミットに戻してmasterに反映したい場合は以下のコマンドで。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit checkout [commit_id] [file_name]  //特定ファイルの指定\ngit commit -a -m \&quot;return\&quot; //戻した内容をコミット\ngit push origin master //変更をプッシュ\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;今やってる作業を一時退避する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E4%BB%8A%E3%82%84%E3%81%A3%E3%81%A6%E3%82%8B%E4%BD%9C%E6%A5%AD%E3%82%92%E4%B8%80%E6%99%82%E9%80%80%E9%81%BF%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e今やってる作業を一時退避する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit stash\ngit stash pop //戻す場合\ngit stash list //退避の一覧\ngit stash clear //退避の消去\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;タグ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BF%E3%82%B0\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eタグ\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit tag // タグの一覧表示\ngit tag -l &#39;v1.*&#39; // パターンでタグを検索\ngit tag -a v0.0.0 -m &#39;version 0.0.0&#39; // タグの作成\ngit push origin v0.0.0 // タグの共有\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ファイルの削除\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eファイルの削除\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit rm [name]  //特定のファイルorディレクトリの削除\ngit rm *  //全ファイルorディレクトリ\ngit commit -a -m \&quot;remove\&quot;  //削除をコミット\nchgit push origin master  //削除を反映\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;addの取り消し\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#add%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eaddの取り消し\u003c/h3\u003e\n\n\u003cp\u003e間違えて\u003ccode\u003egit add\u003c/code\u003eしてしまった場合は\u003ccode\u003ereset\u003c/code\u003eでキャンセルできる。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit reset HEAD \ngit reset HEAD {file_name}\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;tips\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#tips\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eTips\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;コンフリクトの解消\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B3%E3%83%B3%E3%83%95%E3%83%AA%E3%82%AF%E3%83%88%E3%81%AE%E8%A7%A3%E6%B6%88\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eコンフリクトの解消\u003c/h3\u003e\n\n\u003ch4\u003e\n\u003cspan id=\&quot;手動で解決する場合\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E6%89%8B%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e手動で解決する場合\u003c/h4\u003e\n\n\u003cp\u003eコンフリクトを解消しファイルを保存後、下記のコマンドを実行\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit add {file_name}\ngit commit {file_name} -m \&quot;コミットメッセージ\&quot;\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch4\u003e\n\u003cspan id=\&quot;自動で解決する場合\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E8%87%AA%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e自動で解決する場合\u003c/h4\u003e\n\n\u003cp\u003e現在のブランチを正とする\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit checkout --ours {fime_name}\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eマージで指定したブランチを正とする\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit checkout --theirs {fime_name}\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eまた、mergetoolを使って解決することもできます。\u003cbr\u003e\n\u003ca href=\&quot;https://www.google.co.jp/url?sa=t\u0026amp;rct=j\u0026amp;q=\u0026amp;esrc=s\u0026amp;source=web\u0026amp;cd=1\u0026amp;cad=rja\u0026amp;uact=8\u0026amp;ved=0ahUKEwjdhfzf7PHKAhXMEpQKHbYpAtAQFggcMAA\u0026amp;url=http%3A%2F%2Fqiita.com%2Fyuya_presto%2Fitems%2F5d99499cf96c0ebb09f8\u0026amp;usg=AFQjCNFOOaTItltq5Fx2nFJDvodk3aAkvw\u0026amp;sig2=tCg4ZXi3CVjmUG_Pf42LOA\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003eGitコンフリクト解消ガイド（git mergetoolの使い方） - Qiita\u003c/a\u003e\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;圧縮ファイルの作成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9C%A7%E7%B8%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e圧縮ファイルの作成\u003c/h3\u003e\n\n\u003cp\u003e詳しくは → \u003ca href=\&quot;http://qiita.com/kaminaly/items/28f9cb4e680deb700833\&quot; id=\&quot;reference-0c67bda606c278ecee2e\&quot;\u003egitで差分ファイルを抽出する\u003c/a\u003e\u003c/p\u003e\n\n\u003ch4\u003e\n\u003cspan id=\&quot;現在のリポジトリのzipファイルを作成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AEzip%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e現在のリポジトリのzipファイルを作成\u003c/h4\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit archive --format=zip HEAD -o ./hoge.zip\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch4\u003e\n\u003cspan id=\&quot;コミット間の差分を取得する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eコミット間の差分を取得する\u003c/h4\u003e\n\n\u003cp\u003e1つ前のコミットから差分を取得し、hoge.zipを作成する例\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit archive --format=zip --prefix=root/ HEAD `git diff --diff-filter=D --name-only HEAD HEAD^` -o hoge.zip\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e特定のコミット間の差分\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit archive --format=zip --prefix=root/ HEAD `git diff [old commit ID] [new commit ID] --name-only | git checkout-index --prefix=./diff_ --stdin` -o hoge.zip\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eなんかうまくいかない場合は、\u003ccode\u003ezip\u003c/code\u003eコマンドを試してみる。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e zip -r archive.zip `git diff --name-only HEAD [old commit ID]`\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch4\u003e\n\u003cspan id=\&quot;タグ間の差分を取得する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BF%E3%82%B0%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eタグ間の差分を取得する\u003c/h4\u003e\n\n\u003cp\u003ev1.0とv2.0間を差分ファイルを取得し、hoge.zipを作成する例\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit archive --format=zip --prefix=root/ v2.0 `git diff --name-only v1.0 v2.0` -o ./hoge.zip\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;無視するファイルの指定方法\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E6%8C%87%E5%AE%9A%E6%96%B9%E6%B3%95\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e無視するファイルの指定方法\u003c/h3\u003e\n\n\u003cp\u003e.gitignoreファイルを使用する\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e#Directory\nnode_modules/\nstyleguide/\n\n#一致するファイルすべて\n*.txt\n\n#aaa.cacheは除く\n*.cache\n!aaa.cache\n\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git管理しているファイルをあえて無視する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git%E7%AE%A1%E7%90%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%81%82%E3%81%88%E3%81%A6%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit管理しているファイルをあえて無視する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit update-index --skip-worktree [ファイル名]\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e取り消す場合\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit update-index --no-skip-worktree [ファイル名]\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e詳しくは→ \u003ca href=\&quot;http://qiita.com/usamik26/items/56d0d3ba7a1300625f92\&quot; id=\&quot;reference-63f2ec31c06780393f3d\&quot;\u003e既に git 管理しているファイルをあえて無視したい\u003c/a\u003e\u003c/p\u003e\n\n\u003chr\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;gitignoreに記述されているファイルを管理対象から外す\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#gitignore%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%AE%A1%E7%90%86%E5%AF%BE%E8%B1%A1%E3%81%8B%E3%82%89%E5%A4%96%E3%81%99\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e.gitignoreに記述されているファイルを管理対象から外す\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n&quot;,&quot;createdAt&quot;:&quot;2014-07-11T18:08:15Z&quot;,&quot;isDeprecated&quot;:false,&quot;isDestroyableByViewer&quot;:false,&quot;isEditRequestSendableByViewer&quot;:true,&quot;isLikableByViewer&quot;:true,&quot;isLikedByViewer&quot;:false,&quot;isPublic&quot;:true,&quot;isSlide&quot;:false,&quot;isStockableByViewer&quot;:true,&quot;isStockedByViewer&quot;:false,&quot;isUpdatableByViewer&quot;:false,&quot;isUpdated&quot;:true,&quot;likesCount&quot;:854,&quot;originalId&quot;:91947,&quot;title&quot;:&quot;【Git】基本コマンド&quot;,&quot;toc&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e基本コマンド\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90\&quot;\u003eローカルリポジトリの作成\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC\&quot;\u003eリモートリポジトリからプロジェクトをコピー\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%81%BE%E3%81%A7%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%89%8B%E9%A0%86\&quot;\u003eファイル更新までの基本手順\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-add%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B\&quot;\u003egit addの使用例\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-commit%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B\&quot;\u003egit commitの使用例\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97\&quot;\u003eコミットの取り消し\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE%E4%BF%AE%E6%AD%A3\&quot;\u003eコミットメッセージの修正\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90%E7%A7%BB%E5%8B%95%E5%89%8A%E9%99%A4%E5%A4%89%E6%9B%B4%E4%B8%80%E8%A6%A7\&quot;\u003eブランチの作成/移動/削除/変更/一覧/\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%B7%A8%E9%9B%86%E3%82%92%E3%83%9E%E3%83%BC%E3%82%B8\&quot;\u003e編集をマージ\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%92%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%99\&quot;\u003eマージを取り消す\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%B7%AE%E5%88%86%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B\&quot;\u003e差分を確認する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AD%E3%82%B0%E3%81%AE%E8%A1%A8%E7%A4%BA\&quot;\u003eログの表示\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%90%8D%E5%89%8D%E5%A4%89%E6%9B%B4\&quot;\u003eファイルの名前変更\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%89%B9%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AB%E6%88%BB%E3%81%99\&quot;\u003e特定ファイルを特定のコミットに戻す\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E4%BB%8A%E3%82%84%E3%81%A3%E3%81%A6%E3%82%8B%E4%BD%9C%E6%A5%AD%E3%82%92%E4%B8%80%E6%99%82%E9%80%80%E9%81%BF%E3%81%99%E3%82%8B\&quot;\u003e今やってる作業を一時退避する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BF%E3%82%B0\&quot;\u003eタグ\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003eファイルの削除\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#add%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97\&quot;\u003eaddの取り消し\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#tips\&quot;\u003eTips\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B3%E3%83%B3%E3%83%95%E3%83%AA%E3%82%AF%E3%83%88%E3%81%AE%E8%A7%A3%E6%B6%88\&quot;\u003eコンフリクトの解消\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E6%89%8B%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88\&quot;\u003e手動で解決する場合\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E8%87%AA%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88\&quot;\u003e自動で解決する場合\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9C%A7%E7%B8%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90\&quot;\u003e圧縮ファイルの作成\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AEzip%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90\&quot;\u003e現在のリポジトリのzipファイルを作成\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B\&quot;\u003eコミット間の差分を取得する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BF%E3%82%B0%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B\&quot;\u003eタグ間の差分を取得する\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E6%8C%87%E5%AE%9A%E6%96%B9%E6%B3%95\&quot;\u003e無視するファイルの指定方法\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git%E7%AE%A1%E7%90%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%81%82%E3%81%88%E3%81%A6%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B\&quot;\u003egit管理しているファイルをあえて無視する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#gitignore%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%AE%A1%E7%90%86%E5%AF%BE%E8%B1%A1%E3%81%8B%E3%82%89%E5%A4%96%E3%81%99\&quot;\u003e.gitignoreに記述されているファイルを管理対象から外す\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;totalPv&quot;:272805,&quot;updatedAt&quot;:&quot;2018-04-18T06:39:32Z&quot;,&quot;uuid&quot;:&quot;621722f67fdd8f86a017&quot;,&quot;adventCalendarItem&quot;:null,&quot;author&quot;:{&quot;description&quot;:null,&quot;name&quot;:&quot;&quot;,&quot;profileImageUrl&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/48677/profile-images/1473691437&quot;,&quot;urlName&quot;:&quot;konweb&quot;},&quot;tags&quot;:[{&quot;name&quot;:&quot;Git&quot;,&quot;urlName&quot;:&quot;git&quot;},{&quot;name&quot;:&quot;GitHub&quot;,&quot;urlName&quot;:&quot;github&quot;}],&quot;followingLikers&quot;:{&quot;edges&quot;:[]}},&quot;analyticsTrackingId&quot;:&quot;UA-52772624-1&quot;}"><article itemscope="itemscope" itemtype="http://schema.org/Article" class="p-items"><div class="p-items_wrapper"><div class="p-items_container"><div class="p-items_stickyMenu it-Actions"><div class="it-Actions_item it-Actions_item-like likable"><a class="it-Actions_likeCount" href="/konweb/items/621722f67fdd8f86a017/likers">854</a><button><i class="fa fa-fw fa-thumbs-up"></i></button></div><div class="it-Actions_item it-Actions_item-stock"><button><i class="fa fa-folder-open"></i></button></div><div class="it-Actions_shareButton it-Actions_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Actions_shareButton it-Actions_shareButton-facebook"><span class="fa fa-facebook"></span></div></div><div class="p-items_main"><div class="p-items_article"><div class="it-Header"><div class="u-flex-center-between mb-3"><div class="it-Header_info"><div class="it-Header_author"><a href="/konweb"><img class="it-Header_authorImage" src="https://qiita-image-store.s3.amazonaws.com/0/48677/profile-images/1473691437" alt="1473691437" /></a><a class="it-Header_authorName" href="/konweb">@konweb</a> </div><div class="it-Header_time"></div><div class="it-Header_meta"><div class="it-Header_manipulate"><div class="dropdown"><span class="dropdown-toggle" tabindex="0"><span class="fa fa-ellipsis-h fa-lg"></span></span></div></div></div></div></div><h1 class="it-Header_title" itemprop="headline">【Git】基本コマンド</h1><div class="it-Tags"><a class="it-Tags_item" href="/tags/git"><span>Git</span></a><a class="it-Tags_item" href="/tags/github"><span>GitHub</span></a></div></div><div class="it-ActionsMobile"><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_like likable"><button><span class="fa fa-fw fa-thumbs-up" /><span>854</span></button></div></div><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_stock"><button><div class="fa fa-folder-open"></div></button></div></div></div><section class="it-MdContent" itemprop="articleBody"><div id="item-621722f67fdd8f86a017">
+<h2>
+<span id="基本コマンド" class="fragment"></span><a href="#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><i class="fa fa-link"></i></a>基本コマンド</h2>
+
+<h3>
+<span id="ローカルリポジトリの作成" class="fragment"></span><a href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>ローカルリポジトリの作成</h3>
+
+<p>初期化して、現在あるファイルを追加して、コミットすればOK<br><br>
+ファイルがなければ<code>git init</code>のみでOK</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git init
+git add *
+git commit -m "initial commit"
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="リモートリポジトリからプロジェクトをコピー" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC"><i class="fa fa-link"></i></a>リモートリポジトリからプロジェクトをコピー</h3>
+
+<p>ターミナルでローカルリポジトリに移動して以下のコマンド</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>cd [ローカルリポジトリのパス]
+git clone [リモートリポジトリパス] (例： https://github.com/jquery/jquery.git)
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="ファイル更新までの基本手順" class="fragment"></span><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%81%BE%E3%81%A7%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%89%8B%E9%A0%86"><i class="fa fa-link"></i></a>ファイル更新までの基本手順</h3>
+
+<p>ざっくりは以下の様な流れ   </p>
+
+<ul>
+<li>ファイルを追加<br>
+</li>
+<li>ファイルをコミット<br>
+</li>
+<li>ファイルを更新</li>
+</ul>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git add [ファイル名] //追加
+git commit -a -m "任意のコメント"  //コミット (-aオプションは変更を自動検出してくれる)
+git push origin master  //masterを更新
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="git-addの使用例" class="fragment"></span><a href="#git-add%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B"><i class="fa fa-link"></i></a>git addの使用例</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git add . //すべてのファイル・ディレクトリ
+git add *.css //すべてのCSSファイル
+git add -n //追加されるファイルを調べる
+git add -u //変更されたファイルを追加する
+git rm --cached //addしてしまったファイルを除外
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="git-commitの使用例" class="fragment"></span><a href="#git-commit%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B"><i class="fa fa-link"></i></a>git commitの使用例</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git commit -a //変更のあったファイルすべて
+git commit --amend //直前のコミットを取り消す
+git commit -v //変更点を表示してコミット
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="コミットの取り消し" class="fragment"></span><a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97"><i class="fa fa-link"></i></a>コミットの取り消し</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git reset --soft HEAD~2 // 最新のコミットから2件分をワークディレクトリの内容を保持し取り消す
+git reset --hard HEAD~2 // 最新のコミットから2件分のワークディレクトリの内容とコミットを取り消す
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="コミットメッセージの修正" class="fragment"></span><a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE%E4%BF%AE%E6%AD%A3"><i class="fa fa-link"></i></a>コミットメッセージの修正</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git rebase -i HEAD~2 // HEADから2件のコミットメッセージ
+</pre></div></div>
+
+<p>上記のコマンドを実行するとVimが起動し、最新から過去2件のコミットが表示されます。<br>
+※ Vimのコマンドはこちらを参考に → <a href="http://qiita.com/merrill/items/9c800030333ab4c9408f">Vimコマンドまとめ</a></p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>pick {commit_id} {commit_meessage} // 2件目
+pick {commit_id} {commit_meessage} // 1件目(最新コミット)
+</pre></div></div>
+
+<p><code>pick</code>の部分を<code>edit</code>もしくは<code>e</code>に変更後ファイルを保存し、<br>
+修正が完了したら<code>--amend</code>オプションを付けてコミットする。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git commit --amend
+</pre></div></div>
+
+<p>最後に下記のコマンドを実行し完了。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git rebase --continue
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="ブランチの作成移動削除変更一覧" class="fragment"></span><a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90%E7%A7%BB%E5%8B%95%E5%89%8A%E9%99%A4%E5%A4%89%E6%9B%B4%E4%B8%80%E8%A6%A7"><i class="fa fa-link"></i></a>ブランチの作成/移動/削除/変更/一覧/</h3>
+
+<p>ブランチは変更履歴を記録できる。</p>
+
+<blockquote>
+<p><a href="https://camo.qiitausercontent.com/3dbf7c9459e05d3bce4623b0c41a9f811732cb7b/68747470733a2f2f6261636b6c6f672e636f6d2f6a612f6769742d7475746f7269616c2f696d672f706f73742f7374657075702f636170747572655f737465707570315f315f312e706e67" target="_blank" rel="nofollow noopener"><img src="https://camo.qiitausercontent.com/3dbf7c9459e05d3bce4623b0c41a9f811732cb7b/68747470733a2f2f6261636b6c6f672e636f6d2f6a612f6769742d7475746f7269616c2f696d672f706f73742f7374657075702f636170747572655f737465707570315f315f312e706e67" alt="ブランチとは" data-canonical-src="https://backlog.com/ja/git-tutorial/img/post/stepup/capture_stepup1_1_1.png"></a><br><br>
+<a href="https://backlog.com/ja/git-tutorial/stepup/stepup1_1.html" rel="nofollow noopener" target="_blank">ブランチとは? サルでも分かるGit入門</a></p>
+</blockquote>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git branch [branch_name]  //ブランチの作成
+git checkout [branch_name]  //ブランチの移動
+git branch -d [branch_name]  //ブランチの削除
+git branch -m [branch_name]  //現在のブランチ名の変更
+git branch // ローカルブランチの一覧
+git branch -a //リモートとローカルのブランチの一覧
+git branch -r //リモートブランチの一覧
+git checkout -b branch_name origin/branch_name //リモートブランチへチェックアウト
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="編集をマージ" class="fragment"></span><a href="#%E7%B7%A8%E9%9B%86%E3%82%92%E3%83%9E%E3%83%BC%E3%82%B8"><i class="fa fa-link"></i></a>編集をマージ</h3>
+
+<p>master以外のブランチで編集した箇所をmasterに反映させる</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git checkout [branch_name]  //ブランチに移動
+git commit -a -m "コメント"  //変更ファイルをコミット
+
+git checkout master  //masterに移動
+git merge [branch_name]  //差分をマージ
+git push origin master  //ファイルの更新
+</pre></div></div>
+
+<h3>
+<span id="マージを取り消す" class="fragment"></span><a href="#%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%92%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%99"><i class="fa fa-link"></i></a>マージを取り消す</h3>
+
+<p>コンフリクトが発生して一旦戻したい場合</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git merge --abort
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="差分を確認する" class="fragment"></span><a href="#%E5%B7%AE%E5%88%86%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>差分を確認する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git diff
+git diff HEAD^ //最後のコミットからの差分を表示
+git diff --name-only HEAD^ //差分ファイルを表示
+git diff file1.txt file2.txt //特定フィイルの差分
+git diff commit1 commit2 //コミットの差分
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="ログの表示" class="fragment"></span><a href="#%E3%83%AD%E3%82%B0%E3%81%AE%E8%A1%A8%E7%A4%BA"><i class="fa fa-link"></i></a>ログの表示</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git log //コミットのログが見れる
+git reflog //いろいろ見れる
+git reflog origin/branch_name //pushのログが見れる
+</pre></div></div>
+
+<p>ログには色々なオプションがあるけど、おすすめは以下のコマンド。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git log --graph --name-status --pretty=format:"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset"
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="ファイルの名前変更" class="fragment"></span><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%90%8D%E5%89%8D%E5%A4%89%E6%9B%B4"><i class="fa fa-link"></i></a>ファイルの名前変更</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git mv [変更前のファイル名] [変更後のファイル名]
+git commit -a -m "rename"
+git push origin master
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="特定ファイルを特定のコミットに戻す" class="fragment"></span><a href="#%E7%89%B9%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AB%E6%88%BB%E3%81%99"><i class="fa fa-link"></i></a>特定ファイルを特定のコミットに戻す</h3>
+
+<p>特定のコミットに戻してmasterに反映したい場合は以下のコマンドで。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git checkout [commit_id] [file_name]  //特定ファイルの指定
+git commit -a -m "return" //戻した内容をコミット
+git push origin master //変更をプッシュ
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="今やってる作業を一時退避する" class="fragment"></span><a href="#%E4%BB%8A%E3%82%84%E3%81%A3%E3%81%A6%E3%82%8B%E4%BD%9C%E6%A5%AD%E3%82%92%E4%B8%80%E6%99%82%E9%80%80%E9%81%BF%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>今やってる作業を一時退避する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git stash
+git stash pop //戻す場合
+git stash list //退避の一覧
+git stash clear //退避の消去
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="タグ" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0"><i class="fa fa-link"></i></a>タグ</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git tag // タグの一覧表示
+git tag -l 'v1.*' // パターンでタグを検索
+git tag -a v0.0.0 -m 'version 0.0.0' // タグの作成
+git push origin v0.0.0 // タグの共有
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="ファイルの削除" class="fragment"></span><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4"><i class="fa fa-link"></i></a>ファイルの削除</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git rm [name]  //特定のファイルorディレクトリの削除
+git rm *  //全ファイルorディレクトリ
+git commit -a -m "remove"  //削除をコミット
+chgit push origin master  //削除を反映
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="addの取り消し" class="fragment"></span><a href="#add%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97"><i class="fa fa-link"></i></a>addの取り消し</h3>
+
+<p>間違えて<code>git add</code>してしまった場合は<code>reset</code>でキャンセルできる。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git reset HEAD 
+git reset HEAD {file_name}
+</pre></div></div>
+
+<hr>
+
+<h2>
+<span id="tips" class="fragment"></span><a href="#tips"><i class="fa fa-link"></i></a>Tips</h2>
+
+<h3>
+<span id="コンフリクトの解消" class="fragment"></span><a href="#%E3%82%B3%E3%83%B3%E3%83%95%E3%83%AA%E3%82%AF%E3%83%88%E3%81%AE%E8%A7%A3%E6%B6%88"><i class="fa fa-link"></i></a>コンフリクトの解消</h3>
+
+<h4>
+<span id="手動で解決する場合" class="fragment"></span><a href="#%E6%89%8B%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88"><i class="fa fa-link"></i></a>手動で解決する場合</h4>
+
+<p>コンフリクトを解消しファイルを保存後、下記のコマンドを実行</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git add {file_name}
+git commit {file_name} -m "コミットメッセージ"
+</pre></div></div>
+
+<h4>
+<span id="自動で解決する場合" class="fragment"></span><a href="#%E8%87%AA%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88"><i class="fa fa-link"></i></a>自動で解決する場合</h4>
+
+<p>現在のブランチを正とする</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git checkout --ours {fime_name}
+</pre></div></div>
+
+<p>マージで指定したブランチを正とする</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git checkout --theirs {fime_name}
+</pre></div></div>
+
+<p>また、mergetoolを使って解決することもできます。<br>
+<a href="https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjdhfzf7PHKAhXMEpQKHbYpAtAQFggcMAA&amp;url=http%3A%2F%2Fqiita.com%2Fyuya_presto%2Fitems%2F5d99499cf96c0ebb09f8&amp;usg=AFQjCNFOOaTItltq5Fx2nFJDvodk3aAkvw&amp;sig2=tCg4ZXi3CVjmUG_Pf42LOA" rel="nofollow noopener" target="_blank">Gitコンフリクト解消ガイド（git mergetoolの使い方） - Qiita</a></p>
+
+<h3>
+<span id="圧縮ファイルの作成" class="fragment"></span><a href="#%E5%9C%A7%E7%B8%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>圧縮ファイルの作成</h3>
+
+<p>詳しくは → <a href="http://qiita.com/kaminaly/items/28f9cb4e680deb700833" id="reference-0c67bda606c278ecee2e">gitで差分ファイルを抽出する</a></p>
+
+<h4>
+<span id="現在のリポジトリのzipファイルを作成" class="fragment"></span><a href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AEzip%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>現在のリポジトリのzipファイルを作成</h4>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git archive --format=zip HEAD -o ./hoge.zip
+</pre></div></div>
+
+<h4>
+<span id="コミット間の差分を取得する" class="fragment"></span><a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>コミット間の差分を取得する</h4>
+
+<p>1つ前のコミットから差分を取得し、hoge.zipを作成する例</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git archive --format=zip --prefix=root/ HEAD `git diff --diff-filter=D --name-only HEAD HEAD^` -o hoge.zip
+</pre></div></div>
+
+<p>特定のコミット間の差分</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git archive --format=zip --prefix=root/ HEAD `git diff [old commit ID] [new commit ID] --name-only | git checkout-index --prefix=./diff_ --stdin` -o hoge.zip
+</pre></div></div>
+
+<p>なんかうまくいかない場合は、<code>zip</code>コマンドを試してみる。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre> zip -r archive.zip `git diff --name-only HEAD [old commit ID]`
+</pre></div></div>
+
+<h4>
+<span id="タグ間の差分を取得する" class="fragment"></span><a href="#%E3%82%BF%E3%82%B0%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>タグ間の差分を取得する</h4>
+
+<p>v1.0とv2.0間を差分ファイルを取得し、hoge.zipを作成する例</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git archive --format=zip --prefix=root/ v2.0 `git diff --name-only v1.0 v2.0` -o ./hoge.zip
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="無視するファイルの指定方法" class="fragment"></span><a href="#%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E6%8C%87%E5%AE%9A%E6%96%B9%E6%B3%95"><i class="fa fa-link"></i></a>無視するファイルの指定方法</h3>
+
+<p>.gitignoreファイルを使用する</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>#Directory
+node_modules/
+styleguide/
+
+#一致するファイルすべて
+*.txt
+
+#aaa.cacheは除く
+*.cache
+!aaa.cache
+
+</pre></div></div>
+
+<hr>
+
+<h3>
+<span id="git管理しているファイルをあえて無視する" class="fragment"></span><a href="#git%E7%AE%A1%E7%90%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%81%82%E3%81%88%E3%81%A6%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>git管理しているファイルをあえて無視する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git update-index --skip-worktree [ファイル名]
+</pre></div></div>
+
+<p>取り消す場合</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git update-index --no-skip-worktree [ファイル名]
+</pre></div></div>
+
+<p>詳しくは→ <a href="http://qiita.com/usamik26/items/56d0d3ba7a1300625f92" id="reference-63f2ec31c06780393f3d">既に git 管理しているファイルをあえて無視したい</a></p>
+
+<hr>
+
+<h3>
+<span id="gitignoreに記述されているファイルを管理対象から外す" class="fragment"></span><a href="#gitignore%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%AE%A1%E7%90%86%E5%AF%BE%E8%B1%A1%E3%81%8B%E3%82%89%E5%A4%96%E3%81%99"><i class="fa fa-link"></i></a>.gitignoreに記述されているファイルを管理対象から外す</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
+</pre></div></div>
+</div></section><div class="it-Footer"><div class="it-Footer_actions"><div class="it-Footer_editRequest"><a class="u-link-no-underline" href="/konweb/items/621722f67fdd8f86a017/edit"><span class="fa fa-fw fa-send"></span><span>Edit request</span></a></div><div class="it-Footer_stock"><button><span class="fa fa-folder-open"></span><span class="it-Footer_stockLabel">Stock</span></button></div><div class="it-Footer_like"><button><span class="fa fa-fw fa-thumbs-up"></span><span>Like</span></button><a class="it-Footer_likeCount" href="/konweb/items/621722f67fdd8f86a017/likers">854</a></div></div><div class="it-Footer_social"><div class="it-Footer_shareButton it-Footer_shareButton-webshare"><span class="fa fa-share-alt"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-facebook"><span class="fa fa-facebook"></span></div></div></div><div class="it-AuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><a href="/konweb"><img class="it-AuthorInfo_image" itemprop="image" alt="konweb" src="https://qiita-image-store.s3.amazonaws.com/0/48677/profile-images/1473691437" /></a><div class="it-AuthorInfo_body"><div class="it-AuthorInfo_header"><a class="it-AuthorInfo_urlname" itemprop="name" href="/konweb">konweb</a></div><div class="it-AuthorInfo_description"></div></div></div></div></div><div class="p-items_options"></div><div class="p-items_toc"><div class="it-Toc"><div class="it-Toc_nav"><ul>
+<li>
+<a href="#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">基本コマンド</a>
+<ul>
+<li>
+<a href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90">ローカルリポジトリの作成</a>
+</li>
+<li>
+<a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC">リモートリポジトリからプロジェクトをコピー</a>
+</li>
+<li>
+<a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%9B%B4%E6%96%B0%E3%81%BE%E3%81%A7%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%89%8B%E9%A0%86">ファイル更新までの基本手順</a>
+</li>
+<li>
+<a href="#git-add%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B">git addの使用例</a>
+</li>
+<li>
+<a href="#git-commit%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B">git commitの使用例</a>
+</li>
+<li>
+<a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97">コミットの取り消し</a>
+</li>
+<li>
+<a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE%E4%BF%AE%E6%AD%A3">コミットメッセージの修正</a>
+</li>
+<li>
+<a href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E4%BD%9C%E6%88%90%E7%A7%BB%E5%8B%95%E5%89%8A%E9%99%A4%E5%A4%89%E6%9B%B4%E4%B8%80%E8%A6%A7">ブランチの作成/移動/削除/変更/一覧/</a>
+</li>
+<li>
+<a href="#%E7%B7%A8%E9%9B%86%E3%82%92%E3%83%9E%E3%83%BC%E3%82%B8">編集をマージ</a>
+</li>
+<li>
+<a href="#%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%92%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%99">マージを取り消す</a>
+</li>
+<li>
+<a href="#%E5%B7%AE%E5%88%86%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">差分を確認する</a>
+</li>
+<li>
+<a href="#%E3%83%AD%E3%82%B0%E3%81%AE%E8%A1%A8%E7%A4%BA">ログの表示</a>
+</li>
+<li>
+<a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%90%8D%E5%89%8D%E5%A4%89%E6%9B%B4">ファイルの名前変更</a>
+</li>
+<li>
+<a href="#%E7%89%B9%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%81%AB%E6%88%BB%E3%81%99">特定ファイルを特定のコミットに戻す</a>
+</li>
+<li>
+<a href="#%E4%BB%8A%E3%82%84%E3%81%A3%E3%81%A6%E3%82%8B%E4%BD%9C%E6%A5%AD%E3%82%92%E4%B8%80%E6%99%82%E9%80%80%E9%81%BF%E3%81%99%E3%82%8B">今やってる作業を一時退避する</a>
+</li>
+<li>
+<a href="#%E3%82%BF%E3%82%B0">タグ</a>
+</li>
+<li>
+<a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%89%8A%E9%99%A4">ファイルの削除</a>
+</li>
+<li>
+<a href="#add%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97">addの取り消し</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#tips">Tips</a>
+<ul>
+<li>
+<a href="#%E3%82%B3%E3%83%B3%E3%83%95%E3%83%AA%E3%82%AF%E3%83%88%E3%81%AE%E8%A7%A3%E6%B6%88">コンフリクトの解消</a>
+<ul>
+<li>
+<a href="#%E6%89%8B%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88">手動で解決する場合</a>
+</li>
+<li>
+<a href="#%E8%87%AA%E5%8B%95%E3%81%A7%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88">自動で解決する場合</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E5%9C%A7%E7%B8%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90">圧縮ファイルの作成</a>
+<ul>
+<li>
+<a href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AEzip%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%BD%9C%E6%88%90">現在のリポジトリのzipファイルを作成</a>
+</li>
+<li>
+<a href="#%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">コミット間の差分を取得する</a>
+</li>
+<li>
+<a href="#%E3%82%BF%E3%82%B0%E9%96%93%E3%81%AE%E5%B7%AE%E5%88%86%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">タグ間の差分を取得する</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E6%8C%87%E5%AE%9A%E6%96%B9%E6%B3%95">無視するファイルの指定方法</a>
+</li>
+<li>
+<a href="#git%E7%AE%A1%E7%90%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%81%82%E3%81%88%E3%81%A6%E7%84%A1%E8%A6%96%E3%81%99%E3%82%8B">git管理しているファイルをあえて無視する</a>
+</li>
+<li>
+<a href="#gitignore%E3%81%AB%E8%A8%98%E8%BF%B0%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%AE%A1%E7%90%86%E5%AF%BE%E8%B1%A1%E3%81%8B%E3%82%89%E5%A4%96%E3%81%99">.gitignoreに記述されているファイルを管理対象から外す</a>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></div></div></div><div class="p-items_wrapper p-items_wrapper-white"><div class="p-items_container"><div class="p-items_leftDummy"></div><div class="p-items_main"></div><div class="p-items_rightDummy"></div></div></div></article></div><footer id="globalFooter" class="st-Footer px-2 px-1@s pt-1 pt-3@s pb-2"><div class="st-Footer_container"><ul class="st-Footer_start"><li class="st-Footer_link"><a class="st-Footer_copyright" href="https://increments.co.jp">© 2011-2018 Increments Inc.</a></li><li class="st-Footer_link"><a href="/terms">Terms</a></li><li class="st-Footer_link"><a href="/privacy">Privacy</a></li><li class="st-Footer_link"><a href="https://help.qiita.com">Help</a></li><li class="st-Footer_link"><a href="https://increments.zendesk.com/hc/ja/requests/new">Contact</a></li></ul><ul class="st-Footer_end"><li class="st-Footer_link"><a href="/about">About</a></li><li class="st-Footer_link"><a href="/users">Users</a></li><li class="st-Footer_link"><a href="/tags">Tags</a></li><li class="st-Footer_link"><a href="/items">Items</a></li><li class="st-Footer_link"><a href="http://blog.qiita.com">Blog</a></li><li class="st-Footer_link"><a href="/api/v2/docs">API</a></li><li class="st-Footer_link"><a href="https://teams.qiita.com">Qiita:Team</a></li></ul></div></footer></div><div class="p-messages"><div data-hyperapp-app="Message" data-hyperapp-props="{&quot;messages&quot;:[]}"></div></div><div id="dataContainer" style="display: none;" data-config="{&quot;actionPath&quot;:&quot;public/items#show&quot;,&quot;settings&quot;:{&quot;analyticsTrackingId&quot;:&quot;UA-24675221-12&quot;,&quot;mixpanelToken&quot;:&quot;17d24b448ca579c365d2d1057f3a1791&quot;,&quot;assetsMap&quot;:{},&quot;csrfToken&quot;:&quot;HZVL/kgVSoK+TtvbKlMR1nGFP2cdApOH9AoEuI1rXkj15EmDOq8LHOywuHEfZ6nXGrAtZIcZ+YzK2lTWdPPPEQ==&quot;,&quot;locale&quot;:&quot;en&quot;},&quot;currentUser&quot;:null}" /></body></html>
