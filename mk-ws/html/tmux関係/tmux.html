@@ -1,0 +1,334 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>tmuxの使い方</title><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" /><meta content="#55c500" name="theme-color" /><meta content="XWpkTG32-_C4joZoJ_UsmDUi-zaH-hcrjF6ZC_FoFbk" name="google-site-verification" /><link href="/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml" /><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="SqNpjaoQCFbRz5t+tp2QnwZjpC2KzUM9bLx9xT64HMoY6JKVdiQGsLKgI5aqOqTfdhoKOL/lIK9XnBheVhiiMw==" /><link rel="shortcut icon" type="image/x-icon" href="https://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico" /><link rel="apple-touch-icon" type="image/png" href="https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png" /><link rel="stylesheet" media="all" href="https://cdn.qiita.com/assets/public/style-80141937037b784a0ea23f44be4540ce.min.css" /><script src="https://cdn.qiita.com/assets/public/bundle-78168d958dbf882c3f185b063d5d5fa9.min.js" defer="defer"></script><meta content="summary" name="twitter:card" /><meta content="@Qiita" name="twitter:site" /><meta content="@vintersn0w" name="twitter:creator" /><meta property="og:type" content="article"><meta property="og:title" content="tmuxの使い方 - Qiita"><meta property="og:image" content="https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png"><meta property="og:description" content="
+
+##参照
+[tmuxを使い始めたので基本的な機能の使い方とかを整理してみた](http://kanjuku-tomato.blogspot.jp/2014/02/tmux.html)
+基本的に上記のサイトの劣化版  
+上記サイトの..."><meta content="https://qiita.com/vintersnow/items/be4b29652ff665c45198" property="og:url" /><meta content="Qiita" property="og:site_name" /><meta content="564524038" property="fb:admins" /></head><body><div class="allWrapper"><div data-hyperapp-app="GlobalHeader" data-hyperapp-props="{&quot;unreadNotificationsCount&quot;:null,&quot;realms&quot;:[{&quot;humanName&quot;:&quot;Qiita&quot;,&quot;isCurrentRealm&quot;:true,&quot;isQiita&quot;:true,&quot;isQiitaTeam&quot;:false,&quot;loggedInUser&quot;:null,&quot;teamId&quot;:null,&quot;url&quot;:&quot;https://qiita.com/&quot;}],&quot;teamFindUrl&quot;:&quot;https://teams-center.qiita.com/find_team&quot;,&quot;isTeamOnlyUser&quot;:null,&quot;currentUser&quot;:null}"><div class="st-Header" id="globalHeader"><div class="st-Header_container"><div class="st-Header_start"><a class="st-Header_logo mr-1" href="/trend"><svg viewBox="0 0 75 25" xmlns="http://www.w3.org/2000/svg"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></a><div><div class="st-Header_realmSelector"><span class="fa fa-fw fa-caret-down"></span></div></div><div><div class="st-Header_community">Community<span class="fa fa-fw fa-caret-down ml-1of2"></span></div></div><form class="st-Header_search"><span class="fa fa-search"></span><input class="st-Header_searchInput" placeholder="Search" type="search" /></form><div class="st-Header_searchButton"><span class="fa fa-serach"></span></div></div><div class="st-Header_end"><a class="st-Header_signupButton" href="/signup">Signup</a><a class="st-Header_loginLink" href="/login">Login</a></div></div></div></div><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/","name":"Qiita"}},{"@type":"ListItem","position":2,"item":{"@id":"/tags/mac","name":"Mac"}}]}</script><script async="" src="https://cdn.bigmining.com/private/js/qiita_bigmining.js"></script><div style="display:none"><div class="TagList__label"><span></span><span>Mac</span></div><div class="TagList__label"><span></span><span>tmux</span></div></div><div data-hyperapp-app="PersonalPublicArticle" data-hyperapp-props="{&quot;article&quot;:{&quot;body&quot;:&quot;\n\u003ch2\u003e\n\u003cspan id=\&quot;参照\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%8F%82%E7%85%A7\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e参照\u003c/h2\u003e\n\n\u003cp\u003e\u003ca href=\&quot;http://kanjuku-tomato.blogspot.jp/2014/02/tmux.html\&quot; rel=\&quot;nofollow noopener\&quot; target=\&quot;_blank\&quot;\u003etmuxを使い始めたので基本的な機能の使い方とかを整理してみた\u003c/a\u003e\u003cbr\u003e\n基本的に上記のサイトの劣化版\u003cbr\u003e\u003cbr\u003e\n上記サイトのほうが詳しい。ただ見返す分には少し不便なので、必要な分だけ抜き取ってみた。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;tmuxの概要\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#tmux%E3%81%AE%E6%A6%82%E8%A6%81\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003etmuxの概要\u003c/h2\u003e\n\n\u003cp\u003etmuxは端末多重化ソフトウェアである。\u003cbr\u003e\u003cbr\u003e\nこれを使うことでターミナルを複数開くことなく、プログラムを走らせたり出来るし、ペインを使うことで作業の効率化が計れる。\u003cbr\u003e\u003cbr\u003e\n(iterm2だとそこまで複数のターミナルを開くことは辛くないんだが、たぶんまだわかっていない利点があるのだろう。)\u003cbr\u003e\u003cbr\u003e\ntmuxはバックグラウンドでも働くので、ネットワークが切れても再開可能なのが一番の利点かな。もしくはやりたいことごとに使い分けが可能か。\u003cbr\u003e\u003cbr\u003e\nサーバーに入れておくと一つのssh接続で複数の端末が扱えれるし切断しても大丈夫。\u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003etmuxを使うことによるメリット\u003cbr\u003e\u003cbr\u003e\n    1つの端末で複数の擬似端末を起動可能\u003cbr\u003e\u003cbr\u003e\n    複数の端末を立ち上げずに、tmux上の擬似端末を切り替えてオペレーション可能\u003cbr\u003e\u003cbr\u003e\n    起動した仮想端末を画面分割して使用可能\u003cbr\u003e\u003cbr\u003e\n    他のファイルを参照したりログ出力を参照しながらオペレーション可能\u003cbr\u003e\u003cbr\u003e\n    起動した仮想端末上でコピペが可能\u003cbr\u003e\u003cbr\u003e\n    マウスを使わず、tmux内でキーボードのみでのコピペが可能\u003cbr\u003e\u003cbr\u003e\n    起動した仮想端末のデタッチ(切り離し)/アタッチ(接続)が可能\u003cbr\u003e\u003cbr\u003e\n    tmux実行端末とのネットワークが切れても問題なく、異なる環境から同じtmuxセッションへ接続可能  \u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003cp\u003eとのこと\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;tmuxの構成要素\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#tmux%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003etmuxの構成要素\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;設定ファイル\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e設定ファイル\u003c/h3\u003e\n\n\u003cp\u003e設定ファイルは\u003ccode\u003e~/.tmux.conf\u003c/code\u003eにある。なければ作成。\u003cbr\u003e\u003cbr\u003e\n新規セッションの時に呼び込まれる。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;プロセス構成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E6%A7%8B%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eプロセス構成\u003c/h3\u003e\n\n\u003cp\u003etmuxにはサーバーとクライアントがある。  \u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003etmuxサーバ(セッション)\n\n\u003cul\u003e\n\u003cli\u003etmux起動時に生成される、tmuxセッションを管理しているプロセス\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003etmuxクライアント(pty/仮想端末)\n\n\u003cul\u003e\n\u003cli\u003etmuxセッションへ接続(アタッチ)しているプロセス(pty)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;画面構成要素\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e画面構成要素\u003c/h3\u003e\n\n\u003cul\u003e\n\u003cli\u003eセッション(Session)\n\n\u003cul\u003e\n\u003cli\u003etmuxに管理される仮想端末全体を指す\u003c/li\u003e\n\u003cli\u003e各セッションは1つ以上のウィンドウを持つ\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eウィンドウ(Window)\n\n\u003cul\u003e\n\u003cli\u003etmuxセッション内に開かれている1つの仮想端末の画面全体を指す\u003c/li\u003e\n\u003cli\u003eウィンドウは1つ以上のペインを持つ\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eペイン(Pane)\n\n\u003cul\u003e\n\u003cli\u003e分割されたウィンドウの単位を指す\u003c/li\u003e\n\u003cli\u003eペインそれぞれが独立した擬似端末となる\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;インストール\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eインストール\u003c/h2\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% brew install tmux\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;基本操作\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e基本操作\u003c/h2\u003e\n\n\u003cp\u003eどのキーがどの操作に対応しているかは \u003ccode\u003eprefix + ?\u003c/code\u003e を入力することで確認できる。（もしくはターミナルで \u003ccode\u003etmux list-keys\u003c/code\u003e）\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;prefixキー\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#prefix%E3%82%AD%E3%83%BC\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003ePrefixキー\u003c/h3\u003e\n\n\u003cp\u003e起動中のtmuxを操作するには、多くの場合tmuxの制御を行うことを示すためのプレフィックスキー\u003ccode\u003eprefix\u003c/code\u003e(デフォルト設定値)を入力し、それに続いて実行したい操作に対応するコマンドキーを入力する形でtmuxの内部コマンドを実行することになる。\u003cbr\u003e\u003cbr\u003e\nprefixと書いてあったら\u003ccode\u003eprefix\u003c/code\u003eを入力していると読み替えて良い。(prefixは変えることが出来、自分の場合\u003ccode\u003ectrl-t\u003c/code\u003eにしている。tmux使いは常により良いprefixキーを探していると言っても良い。\u003ca href=\&quot;http://qiita.com/hnw/items/02113da3476f29df768b\&quot; id=\&quot;reference-78510c01bbedf2bfc8c6\&quot;\u003eこんな記事\u003c/a\u003eがあるので気に入ったprefixを探そう!)\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;起動\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E8%B5%B7%E5%8B%95\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e起動\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% tmux\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eor\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;terminal\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e\u003cspan class=\&quot;go\&quot;\u003e% tmux new-session\n\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;セッションの確認\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eセッションの確認\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% tmux ls\n0: 1 windows (created Wed Oct  1 09:24:15 2014) [102x31]\n1: 2 windows (created Wed Oct  1 09:24:44 2014) [126x32] (attached)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;セッションのデタッチ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%87%E3%82%BF%E3%83%83%E3%83%81\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eセッションのデタッチ\u003c/h3\u003e\n\n\u003cp\u003etmuxから抜ける場合これを使う。\u003cbr\u003e\u003cbr\u003e\n\u003ccode\u003eprefix\u003c/code\u003e+\u003ccode\u003ed\u003c/code\u003e\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;セッションのアタッチ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eセッションのアタッチ\u003c/h3\u003e\n\n\u003cp\u003eデタッチしたセッションをもう一度使う場合  \u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% tmux attach  #直近のセッションにアタッチする。\nor\n% tmux attach -t 0\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e-tオプションで任意のセッションをアタッチすることが出来る。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;セッションの削除\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eセッションの削除\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% tmux kill-session (-t 0)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eすべて削除するには\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e% tmux kill-server\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;セッションのリネーム\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%8D%E3%83%BC%E3%83%A0\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eセッションのリネーム\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003e$\u003c/code\u003e  \u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;ウィンドウの操作\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E6%93%8D%E4%BD%9C\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eウィンドウの操作\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;新規ウィンドウ\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E6%96%B0%E8%A6%8F%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e新規ウィンドウ\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003ec\u003c/code\u003e\u003cbr\u003e\u003cbr\u003e\n画面下に0:zsh- に続いて 1:zsh*と表示されますが、これがそれぞれウィンドウを示す。\u003cbr\u003e\u003cbr\u003e\n現在選択されているウィンドウには * と表示されており、それ以外のウィンドウには - と表示される。\u003cbr\u003e\u003cbr\u003e\nウィンドウ名は \u003ccode\u003eprefix + :rename-window [window name]\u003c/code\u003e で指定できる。\u003cbr\u003e\nもしくは\u003ccode\u003eprefix+,\u003c/code\u003e\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ウィンドウの切り替え\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eウィンドウの切り替え\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003eウィンドウ番号\u003c/code\u003eで切り替え可能。\u003cbr\u003e\nまた、\u003ccode\u003eprefix\u003c/code\u003e+\u003ccode\u003en\u003c/code\u003eで次の番号、\u003ccode\u003eprefix\u003c/code\u003e+\u003ccode\u003ep\u003c/code\u003eで前の番号にいける。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ウィンドウの一覧表示\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eウィンドウの一覧表示\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003ew\u003c/code\u003e\u003cbr\u003e\u003cbr\u003e\nここで選択することで切り替えることも可能\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ウィンドウの削除\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eウィンドウの削除\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003e\u0026amp;\u003c/code\u003e\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;ペインの操作\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E6%93%8D%E4%BD%9C\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eペインの操作\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;水平分割\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e水平分割\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003e\&quot;\u003c/code\u003e\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;垂直分割\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9E%82%E7%9B%B4%E5%88%86%E5%89%B2\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e垂直分割\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003e%\u003c/code\u003e\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ペイン間の移動\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eペイン間の移動\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003eo\u003c/code\u003e\u003cbr\u003e\u003cbr\u003e\nまた、\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003eq\u003c/code\u003eでペイン上に数字が表示されるのでその間に数字を入力すると移動できる。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ペインの分割解除\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E5%88%86%E5%89%B2%E8%A7%A3%E9%99%A4\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eペインの分割解除\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eprefix\u003c/code\u003e+ \u003ccode\u003ex\u003c/code\u003e\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;tmuxconfの設定\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#tmuxconf%E3%81%AE%E8%A8%AD%E5%AE%9A\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003etmux.confの設定\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;ウィンドウの移動\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E7%A7%BB%E5%8B%95\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eウィンドウの移動\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003eC-t\u003c/code\u003e+space+[ウィンドウ番号] で移動できるようにする。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003enbind space\nbind space command-prompt \&quot;select-window -t &#39;%%&#39;\&quot;\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;その他\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%81%9D%E3%81%AE%E4%BB%96\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eその他\u003c/h2\u003e\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\&quot;http://qiita.com/vintersnow/items/4e1eb42c08cc2bfd77dd\&quot; id=\&quot;reference-d99c2c95b1f86fd87320\&quot;\u003eこれで再起動しても大丈夫！tmux-resurrectの導入\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\&quot;http://qiita.com/vintersnow/items/b5803876a1de279b201a\&quot; id=\&quot;reference-486c25def648eb744bc9\&quot;\u003etmuxのmouseオプションが2.1で変更されていた\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;createdAt&quot;:&quot;2014-10-02T10:00:45Z&quot;,&quot;isDeprecated&quot;:false,&quot;isDestroyableByViewer&quot;:false,&quot;isEditRequestSendableByViewer&quot;:true,&quot;isLikableByViewer&quot;:true,&quot;isLikedByViewer&quot;:false,&quot;isPublic&quot;:true,&quot;isSlide&quot;:false,&quot;isStockableByViewer&quot;:true,&quot;isStockedByViewer&quot;:false,&quot;isUpdatableByViewer&quot;:false,&quot;isUpdated&quot;:true,&quot;likesCount&quot;:375,&quot;originalId&quot;:145087,&quot;title&quot;:&quot;tmuxの使い方&quot;,&quot;toc&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%8F%82%E7%85%A7\&quot;\u003e参照\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#tmux%E3%81%AE%E6%A6%82%E8%A6%81\&quot;\u003etmuxの概要\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#tmux%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0\&quot;\u003etmuxの構成要素\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB\&quot;\u003e設定ファイル\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E6%A7%8B%E6%88%90\&quot;\u003eプロセス構成\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0\&quot;\u003e画面構成要素\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB\&quot;\u003eインストール\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C\&quot;\u003e基本操作\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#prefix%E3%82%AD%E3%83%BC\&quot;\u003ePrefixキー\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E8%B5%B7%E5%8B%95\&quot;\u003e起動\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D\&quot;\u003eセッションの確認\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%87%E3%82%BF%E3%83%83%E3%83%81\&quot;\u003eセッションのデタッチ\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81\&quot;\u003eセッションのアタッチ\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003eセッションの削除\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%8D%E3%83%BC%E3%83%A0\&quot;\u003eセッションのリネーム\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E6%93%8D%E4%BD%9C\&quot;\u003eウィンドウの操作\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E6%96%B0%E8%A6%8F%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6\&quot;\u003e新規ウィンドウ\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88\&quot;\u003eウィンドウの切り替え\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA\&quot;\u003eウィンドウの一覧表示\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%89%8A%E9%99%A4\&quot;\u003eウィンドウの削除\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E6%93%8D%E4%BD%9C\&quot;\u003eペインの操作\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2\&quot;\u003e水平分割\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9E%82%E7%9B%B4%E5%88%86%E5%89%B2\&quot;\u003e垂直分割\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95\&quot;\u003eペイン間の移動\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E5%88%86%E5%89%B2%E8%A7%A3%E9%99%A4\&quot;\u003eペインの分割解除\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#tmuxconf%E3%81%AE%E8%A8%AD%E5%AE%9A\&quot;\u003etmux.confの設定\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E7%A7%BB%E5%8B%95\&quot;\u003eウィンドウの移動\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%81%9D%E3%81%AE%E4%BB%96\&quot;\u003eその他\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;totalPv&quot;:78396,&quot;updatedAt&quot;:&quot;2017-09-19T09:21:23Z&quot;,&quot;uuid&quot;:&quot;be4b29652ff665c45198&quot;,&quot;adventCalendarItem&quot;:null,&quot;author&quot;:{&quot;description&quot;:&quot;しがない大学生  \r\n\r\nまったりとスキルアップ中、だといいな&quot;,&quot;name&quot;:&quot;&quot;,&quot;profileImageUrl&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/34727/profile-images/1473686465&quot;,&quot;urlName&quot;:&quot;vintersnow&quot;},&quot;tags&quot;:[{&quot;name&quot;:&quot;Mac&quot;,&quot;urlName&quot;:&quot;mac&quot;},{&quot;name&quot;:&quot;tmux&quot;,&quot;urlName&quot;:&quot;tmux&quot;}],&quot;followingLikers&quot;:{&quot;edges&quot;:[]}},&quot;analyticsTrackingId&quot;:&quot;UA-48110254-1&quot;}"><article itemscope="itemscope" itemtype="http://schema.org/Article" class="p-items"><div class="p-items_wrapper"><div class="p-items_container"><div class="p-items_stickyMenu it-Actions"><div class="it-Actions_item it-Actions_item-like likable"><a class="it-Actions_likeCount" href="/vintersnow/items/be4b29652ff665c45198/likers">375</a><button><i class="fa fa-fw fa-thumbs-up"></i></button></div><div class="it-Actions_item it-Actions_item-stock"><button><i class="fa fa-folder-open"></i></button></div><div class="it-Actions_shareButton it-Actions_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Actions_shareButton it-Actions_shareButton-facebook"><span class="fa fa-facebook"></span></div></div><div class="p-items_main"><div class="p-items_article"><div class="it-Header"><div class="u-flex-center-between mb-3"><div class="it-Header_info"><div class="it-Header_author"><a href="/vintersnow"><img class="it-Header_authorImage" src="https://qiita-image-store.s3.amazonaws.com/0/34727/profile-images/1473686465" alt="1473686465" /></a><a class="it-Header_authorName" href="/vintersnow">@vintersnow</a> </div><div class="it-Header_time"></div><div class="it-Header_meta"><div class="it-Header_manipulate"><div class="dropdown"><span class="dropdown-toggle" tabindex="0"><span class="fa fa-ellipsis-h fa-lg"></span></span></div></div></div></div></div><h1 class="it-Header_title" itemprop="headline">tmuxの使い方</h1><div class="it-Tags"><a class="it-Tags_item" href="/tags/mac"><span>Mac</span></a><a class="it-Tags_item" href="/tags/tmux"><span>tmux</span></a></div></div><div class="it-ActionsMobile"><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_like likable"><button><span class="fa fa-fw fa-thumbs-up" /><span>375</span></button></div></div><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_stock"><button><div class="fa fa-folder-open"></div></button></div></div></div><section class="it-MdContent" itemprop="articleBody"><div id="item-be4b29652ff665c45198">
+<h2>
+<span id="参照" class="fragment"></span><a href="#%E5%8F%82%E7%85%A7"><i class="fa fa-link"></i></a>参照</h2>
+
+<p><a href="http://kanjuku-tomato.blogspot.jp/2014/02/tmux.html" rel="nofollow noopener" target="_blank">tmuxを使い始めたので基本的な機能の使い方とかを整理してみた</a><br>
+基本的に上記のサイトの劣化版<br><br>
+上記サイトのほうが詳しい。ただ見返す分には少し不便なので、必要な分だけ抜き取ってみた。</p>
+
+<h2>
+<span id="tmuxの概要" class="fragment"></span><a href="#tmux%E3%81%AE%E6%A6%82%E8%A6%81"><i class="fa fa-link"></i></a>tmuxの概要</h2>
+
+<p>tmuxは端末多重化ソフトウェアである。<br><br>
+これを使うことでターミナルを複数開くことなく、プログラムを走らせたり出来るし、ペインを使うことで作業の効率化が計れる。<br><br>
+(iterm2だとそこまで複数のターミナルを開くことは辛くないんだが、たぶんまだわかっていない利点があるのだろう。)<br><br>
+tmuxはバックグラウンドでも働くので、ネットワークが切れても再開可能なのが一番の利点かな。もしくはやりたいことごとに使い分けが可能か。<br><br>
+サーバーに入れておくと一つのssh接続で複数の端末が扱えれるし切断しても大丈夫。</p>
+
+<blockquote>
+<p>tmuxを使うことによるメリット<br><br>
+    1つの端末で複数の擬似端末を起動可能<br><br>
+    複数の端末を立ち上げずに、tmux上の擬似端末を切り替えてオペレーション可能<br><br>
+    起動した仮想端末を画面分割して使用可能<br><br>
+    他のファイルを参照したりログ出力を参照しながらオペレーション可能<br><br>
+    起動した仮想端末上でコピペが可能<br><br>
+    マウスを使わず、tmux内でキーボードのみでのコピペが可能<br><br>
+    起動した仮想端末のデタッチ(切り離し)/アタッチ(接続)が可能<br><br>
+    tmux実行端末とのネットワークが切れても問題なく、異なる環境から同じtmuxセッションへ接続可能  </p>
+</blockquote>
+
+<p>とのこと</p>
+
+<h2>
+<span id="tmuxの構成要素" class="fragment"></span><a href="#tmux%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0"><i class="fa fa-link"></i></a>tmuxの構成要素</h2>
+
+<h3>
+<span id="設定ファイル" class="fragment"></span><a href="#%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><i class="fa fa-link"></i></a>設定ファイル</h3>
+
+<p>設定ファイルは<code>~/.tmux.conf</code>にある。なければ作成。<br><br>
+新規セッションの時に呼び込まれる。</p>
+
+<h3>
+<span id="プロセス構成" class="fragment"></span><a href="#%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E6%A7%8B%E6%88%90"><i class="fa fa-link"></i></a>プロセス構成</h3>
+
+<p>tmuxにはサーバーとクライアントがある。  </p>
+
+<ul>
+<li>tmuxサーバ(セッション)
+
+<ul>
+<li>tmux起動時に生成される、tmuxセッションを管理しているプロセス</li>
+</ul>
+</li>
+<li>tmuxクライアント(pty/仮想端末)
+
+<ul>
+<li>tmuxセッションへ接続(アタッチ)しているプロセス(pty)</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<span id="画面構成要素" class="fragment"></span><a href="#%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0"><i class="fa fa-link"></i></a>画面構成要素</h3>
+
+<ul>
+<li>セッション(Session)
+
+<ul>
+<li>tmuxに管理される仮想端末全体を指す</li>
+<li>各セッションは1つ以上のウィンドウを持つ</li>
+</ul>
+</li>
+<li>ウィンドウ(Window)
+
+<ul>
+<li>tmuxセッション内に開かれている1つの仮想端末の画面全体を指す</li>
+<li>ウィンドウは1つ以上のペインを持つ</li>
+</ul>
+</li>
+<li>ペイン(Pane)
+
+<ul>
+<li>分割されたウィンドウの単位を指す</li>
+<li>ペインそれぞれが独立した擬似端末となる</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<span id="インストール" class="fragment"></span><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><i class="fa fa-link"></i></a>インストール</h2>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% brew install tmux
+</pre></div></div>
+
+<h2>
+<span id="基本操作" class="fragment"></span><a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><i class="fa fa-link"></i></a>基本操作</h2>
+
+<p>どのキーがどの操作に対応しているかは <code>prefix + ?</code> を入力することで確認できる。（もしくはターミナルで <code>tmux list-keys</code>）</p>
+
+<h3>
+<span id="prefixキー" class="fragment"></span><a href="#prefix%E3%82%AD%E3%83%BC"><i class="fa fa-link"></i></a>Prefixキー</h3>
+
+<p>起動中のtmuxを操作するには、多くの場合tmuxの制御を行うことを示すためのプレフィックスキー<code>prefix</code>(デフォルト設定値)を入力し、それに続いて実行したい操作に対応するコマンドキーを入力する形でtmuxの内部コマンドを実行することになる。<br><br>
+prefixと書いてあったら<code>prefix</code>を入力していると読み替えて良い。(prefixは変えることが出来、自分の場合<code>ctrl-t</code>にしている。tmux使いは常により良いprefixキーを探していると言っても良い。<a href="http://qiita.com/hnw/items/02113da3476f29df768b" id="reference-78510c01bbedf2bfc8c6">こんな記事</a>があるので気に入ったprefixを探そう!)</p>
+
+<h3>
+<span id="起動" class="fragment"></span><a href="#%E8%B5%B7%E5%8B%95"><i class="fa fa-link"></i></a>起動</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% tmux
+</pre></div></div>
+
+<p>or</p>
+
+<div class="code-frame" data-lang="terminal"><div class="highlight"><pre><span class="go">% tmux new-session
+</span></pre></div></div>
+
+<h3>
+<span id="セッションの確認" class="fragment"></span><a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D"><i class="fa fa-link"></i></a>セッションの確認</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% tmux ls
+0: 1 windows (created Wed Oct  1 09:24:15 2014) [102x31]
+1: 2 windows (created Wed Oct  1 09:24:44 2014) [126x32] (attached)
+</pre></div></div>
+
+<h3>
+<span id="セッションのデタッチ" class="fragment"></span><a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%87%E3%82%BF%E3%83%83%E3%83%81"><i class="fa fa-link"></i></a>セッションのデタッチ</h3>
+
+<p>tmuxから抜ける場合これを使う。<br><br>
+<code>prefix</code>+<code>d</code></p>
+
+<h3>
+<span id="セッションのアタッチ" class="fragment"></span><a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81"><i class="fa fa-link"></i></a>セッションのアタッチ</h3>
+
+<p>デタッチしたセッションをもう一度使う場合  </p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% tmux attach  #直近のセッションにアタッチする。
+or
+% tmux attach -t 0
+</pre></div></div>
+
+<p>-tオプションで任意のセッションをアタッチすることが出来る。</p>
+
+<h3>
+<span id="セッションの削除" class="fragment"></span><a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%89%8A%E9%99%A4"><i class="fa fa-link"></i></a>セッションの削除</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% tmux kill-session (-t 0)
+</pre></div></div>
+
+<p>すべて削除するには</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>% tmux kill-server
+</pre></div></div>
+
+<h3>
+<span id="セッションのリネーム" class="fragment"></span><a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%8D%E3%83%BC%E3%83%A0"><i class="fa fa-link"></i></a>セッションのリネーム</h3>
+
+<p><code>prefix</code>+ <code>$</code>  </p>
+
+<h2>
+<span id="ウィンドウの操作" class="fragment"></span><a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E6%93%8D%E4%BD%9C"><i class="fa fa-link"></i></a>ウィンドウの操作</h2>
+
+<h3>
+<span id="新規ウィンドウ" class="fragment"></span><a href="#%E6%96%B0%E8%A6%8F%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6"><i class="fa fa-link"></i></a>新規ウィンドウ</h3>
+
+<p><code>prefix</code>+ <code>c</code><br><br>
+画面下に0:zsh- に続いて 1:zsh*と表示されますが、これがそれぞれウィンドウを示す。<br><br>
+現在選択されているウィンドウには * と表示されており、それ以外のウィンドウには - と表示される。<br><br>
+ウィンドウ名は <code>prefix + :rename-window [window name]</code> で指定できる。<br>
+もしくは<code>prefix+,</code></p>
+
+<h3>
+<span id="ウィンドウの切り替え" class="fragment"></span><a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88"><i class="fa fa-link"></i></a>ウィンドウの切り替え</h3>
+
+<p><code>prefix</code>+ <code>ウィンドウ番号</code>で切り替え可能。<br>
+また、<code>prefix</code>+<code>n</code>で次の番号、<code>prefix</code>+<code>p</code>で前の番号にいける。</p>
+
+<h3>
+<span id="ウィンドウの一覧表示" class="fragment"></span><a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA"><i class="fa fa-link"></i></a>ウィンドウの一覧表示</h3>
+
+<p><code>prefix</code>+ <code>w</code><br><br>
+ここで選択することで切り替えることも可能</p>
+
+<h3>
+<span id="ウィンドウの削除" class="fragment"></span><a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%89%8A%E9%99%A4"><i class="fa fa-link"></i></a>ウィンドウの削除</h3>
+
+<p><code>prefix</code>+ <code>&amp;</code></p>
+
+<h2>
+<span id="ペインの操作" class="fragment"></span><a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E6%93%8D%E4%BD%9C"><i class="fa fa-link"></i></a>ペインの操作</h2>
+
+<h3>
+<span id="水平分割" class="fragment"></span><a href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2"><i class="fa fa-link"></i></a>水平分割</h3>
+
+<p><code>prefix</code>+ <code>"</code></p>
+
+<h3>
+<span id="垂直分割" class="fragment"></span><a href="#%E5%9E%82%E7%9B%B4%E5%88%86%E5%89%B2"><i class="fa fa-link"></i></a>垂直分割</h3>
+
+<p><code>prefix</code>+ <code>%</code></p>
+
+<h3>
+<span id="ペイン間の移動" class="fragment"></span><a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95"><i class="fa fa-link"></i></a>ペイン間の移動</h3>
+
+<p><code>prefix</code>+ <code>o</code><br><br>
+また、<code>prefix</code>+ <code>q</code>でペイン上に数字が表示されるのでその間に数字を入力すると移動できる。</p>
+
+<h3>
+<span id="ペインの分割解除" class="fragment"></span><a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E5%88%86%E5%89%B2%E8%A7%A3%E9%99%A4"><i class="fa fa-link"></i></a>ペインの分割解除</h3>
+
+<p><code>prefix</code>+ <code>x</code></p>
+
+<h2>
+<span id="tmuxconfの設定" class="fragment"></span><a href="#tmuxconf%E3%81%AE%E8%A8%AD%E5%AE%9A"><i class="fa fa-link"></i></a>tmux.confの設定</h2>
+
+<h3>
+<span id="ウィンドウの移動" class="fragment"></span><a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E7%A7%BB%E5%8B%95"><i class="fa fa-link"></i></a>ウィンドウの移動</h3>
+
+<p><code>C-t</code>+space+[ウィンドウ番号] で移動できるようにする。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>nbind space
+bind space command-prompt "select-window -t '%%'"
+</pre></div></div>
+
+<h2>
+<span id="その他" class="fragment"></span><a href="#%E3%81%9D%E3%81%AE%E4%BB%96"><i class="fa fa-link"></i></a>その他</h2>
+
+<ul>
+<li><a href="http://qiita.com/vintersnow/items/4e1eb42c08cc2bfd77dd" id="reference-d99c2c95b1f86fd87320">これで再起動しても大丈夫！tmux-resurrectの導入</a></li>
+<li><a href="http://qiita.com/vintersnow/items/b5803876a1de279b201a" id="reference-486c25def648eb744bc9">tmuxのmouseオプションが2.1で変更されていた</a></li>
+</ul>
+</div></section><div class="it-Footer"><div class="it-Footer_actions"><div class="it-Footer_editRequest"><a class="u-link-no-underline" href="/vintersnow/items/be4b29652ff665c45198/edit"><span class="fa fa-fw fa-send"></span><span>Edit request</span></a></div><div class="it-Footer_stock"><button><span class="fa fa-folder-open"></span><span class="it-Footer_stockLabel">Stock</span></button></div><div class="it-Footer_like"><button><span class="fa fa-fw fa-thumbs-up"></span><span>Like</span></button><a class="it-Footer_likeCount" href="/vintersnow/items/be4b29652ff665c45198/likers">375</a></div></div><div class="it-Footer_social"><div class="it-Footer_shareButton it-Footer_shareButton-webshare"><span class="fa fa-share-alt"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-facebook"><span class="fa fa-facebook"></span></div></div></div><div class="it-AuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><a href="/vintersnow"><img class="it-AuthorInfo_image" itemprop="image" alt="vintersnow" src="https://qiita-image-store.s3.amazonaws.com/0/34727/profile-images/1473686465" /></a><div class="it-AuthorInfo_body"><div class="it-AuthorInfo_header"><a class="it-AuthorInfo_urlname" itemprop="name" href="/vintersnow">vintersnow</a></div><div class="it-AuthorInfo_description">しがない大学生  
+
+まったりとスキルアップ中、だといいな</div></div></div></div></div><div class="p-items_options"></div><div class="p-items_toc"><div class="it-Toc"><div class="it-Toc_nav"><ul>
+<li>
+<a href="#%E5%8F%82%E7%85%A7">参照</a>
+</li>
+<li>
+<a href="#tmux%E3%81%AE%E6%A6%82%E8%A6%81">tmuxの概要</a>
+</li>
+<li>
+<a href="#tmux%E3%81%AE%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0">tmuxの構成要素</a>
+<ul>
+<li>
+<a href="#%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">設定ファイル</a>
+</li>
+<li>
+<a href="#%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E6%A7%8B%E6%88%90">プロセス構成</a>
+</li>
+<li>
+<a href="#%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90%E8%A6%81%E7%B4%A0">画面構成要素</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a>
+</li>
+<li>
+<a href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">基本操作</a>
+<ul>
+<li>
+<a href="#prefix%E3%82%AD%E3%83%BC">Prefixキー</a>
+</li>
+<li>
+<a href="#%E8%B5%B7%E5%8B%95">起動</a>
+</li>
+<li>
+<a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D">セッションの確認</a>
+</li>
+<li>
+<a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%87%E3%82%BF%E3%83%83%E3%83%81">セッションのデタッチ</a>
+</li>
+<li>
+<a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81">セッションのアタッチ</a>
+</li>
+<li>
+<a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E5%89%8A%E9%99%A4">セッションの削除</a>
+</li>
+<li>
+<a href="#%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%AA%E3%83%8D%E3%83%BC%E3%83%A0">セッションのリネーム</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E6%93%8D%E4%BD%9C">ウィンドウの操作</a>
+<ul>
+<li>
+<a href="#%E6%96%B0%E8%A6%8F%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6">新規ウィンドウ</a>
+</li>
+<li>
+<a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88">ウィンドウの切り替え</a>
+</li>
+<li>
+<a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA">ウィンドウの一覧表示</a>
+</li>
+<li>
+<a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E5%89%8A%E9%99%A4">ウィンドウの削除</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E6%93%8D%E4%BD%9C">ペインの操作</a>
+<ul>
+<li>
+<a href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2">水平分割</a>
+</li>
+<li>
+<a href="#%E5%9E%82%E7%9B%B4%E5%88%86%E5%89%B2">垂直分割</a>
+</li>
+<li>
+<a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95">ペイン間の移動</a>
+</li>
+<li>
+<a href="#%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%AE%E5%88%86%E5%89%B2%E8%A7%A3%E9%99%A4">ペインの分割解除</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#tmuxconf%E3%81%AE%E8%A8%AD%E5%AE%9A">tmux.confの設定</a>
+<ul>
+<li>
+<a href="#%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%81%AE%E7%A7%BB%E5%8B%95">ウィンドウの移動</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E3%81%9D%E3%81%AE%E4%BB%96">その他</a>
+</li>
+</ul>
+</div></div></div></div></div><div class="p-items_wrapper p-items_wrapper-white"><div class="p-items_container"><div class="p-items_leftDummy"></div><div class="p-items_main"></div><div class="p-items_rightDummy"></div></div></div></article></div><footer id="globalFooter" class="st-Footer px-2 px-1@s pt-1 pt-3@s pb-2"><div class="st-Footer_container"><ul class="st-Footer_start"><li class="st-Footer_link"><a class="st-Footer_copyright" href="https://increments.co.jp">© 2011-2018 Increments Inc.</a></li><li class="st-Footer_link"><a href="/terms">Terms</a></li><li class="st-Footer_link"><a href="/privacy">Privacy</a></li><li class="st-Footer_link"><a href="https://help.qiita.com">Help</a></li><li class="st-Footer_link"><a href="https://increments.zendesk.com/hc/ja/requests/new">Contact</a></li></ul><ul class="st-Footer_end"><li class="st-Footer_link"><a href="/about">About</a></li><li class="st-Footer_link"><a href="/users">Users</a></li><li class="st-Footer_link"><a href="/tags">Tags</a></li><li class="st-Footer_link"><a href="/items">Items</a></li><li class="st-Footer_link"><a href="http://blog.qiita.com">Blog</a></li><li class="st-Footer_link"><a href="/api/v2/docs">API</a></li><li class="st-Footer_link"><a href="https://teams.qiita.com">Qiita:Team</a></li></ul></div></footer></div><div class="p-messages"><div data-hyperapp-app="Message" data-hyperapp-props="{&quot;messages&quot;:[]}"></div></div><div id="dataContainer" style="display: none;" data-config="{&quot;actionPath&quot;:&quot;public/items#show&quot;,&quot;settings&quot;:{&quot;analyticsTrackingId&quot;:&quot;UA-24675221-12&quot;,&quot;mixpanelToken&quot;:&quot;17d24b448ca579c365d2d1057f3a1791&quot;,&quot;assetsMap&quot;:{},&quot;csrfToken&quot;:&quot;GovbcrEmofs5y6eoqRDZinZt2b9JYGlts2dK3oYLRsFIwCBqbRKvHVqkH0C1t+3KBhR3qnxICv+IRy9F7qv4OA==&quot;,&quot;locale&quot;:&quot;en&quot;},&quot;currentUser&quot;:null}" /></body></html>
