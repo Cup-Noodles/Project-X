@@ -1,0 +1,425 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title>gitコマンドまとめ</title><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" /><meta content="#55c500" name="theme-color" /><meta content="XWpkTG32-_C4joZoJ_UsmDUi-zaH-hcrjF6ZC_FoFbk" name="google-site-verification" /><link href="/opensearch.xml" rel="search" title="Qiita" type="application/opensearchdescription+xml" /><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="TAr2PqNNIL5wDi+hyxxb7vuCPneXkKakeaLU5LjC3Gn2HReA7B6Rug5C9d68ZZdYrQ8OkhNJugVw4r5gCHCcbg==" /><link rel="shortcut icon" type="image/x-icon" href="https://cdn.qiita.com/assets/favicons/public/production-4ff10c1e1e2b5fcb353ff9cafdd56c70.ico" /><link rel="apple-touch-icon" type="image/png" href="https://cdn.qiita.com/assets/favicons/public/apple-touch-icon-f9a6afad761ec2306e10db2736187c8b.png" /><link rel="stylesheet" media="all" href="https://cdn.qiita.com/assets/public/style-80141937037b784a0ea23f44be4540ce.min.css" /><script src="https://cdn.qiita.com/assets/public/bundle-78168d958dbf882c3f185b063d5d5fa9.min.js" defer="defer"></script><meta content="summary" name="twitter:card" /><meta content="@Qiita" name="twitter:site" /><meta property="og:type" content="article"><meta property="og:title" content="gitコマンドまとめ - Qiita"><meta property="og:image" content="https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png"><meta property="og:description" content="# 1.初級編 基本的な用語とコマンド
+
+## 基本用語
+
+| 用語 | 説明(イメージ) |
+|:-:|:-:|
+| **ブランチ**  | 枝。大元の枝から切り分けることで、作業ごとまたは作業人ごとで、複数の作業や履歴を並列に管理..."><meta content="https://qiita.com/non0311/items/369eecea3456dbcbe26e" property="og:url" /><meta content="Qiita" property="og:site_name" /><meta content="564524038" property="fb:admins" /></head><body><div class="allWrapper"><div data-hyperapp-app="GlobalHeader" data-hyperapp-props="{&quot;unreadNotificationsCount&quot;:null,&quot;realms&quot;:[{&quot;humanName&quot;:&quot;Qiita&quot;,&quot;isCurrentRealm&quot;:true,&quot;isQiita&quot;:true,&quot;isQiitaTeam&quot;:false,&quot;loggedInUser&quot;:null,&quot;teamId&quot;:null,&quot;url&quot;:&quot;https://qiita.com/&quot;}],&quot;teamFindUrl&quot;:&quot;https://teams-center.qiita.com/find_team&quot;,&quot;isTeamOnlyUser&quot;:null,&quot;currentUser&quot;:null}"><div class="st-Header" id="globalHeader"><div class="st-Header_container"><div class="st-Header_start"><a class="st-Header_logo mr-1" href="/trend"><svg viewBox="0 0 75 25" xmlns="http://www.w3.org/2000/svg"><title>Qiita</title><path d="M24.6 12.2C24.6 6.2 20 0 12.2 0 6.2 0 0 4.6 0 12.4c0 6 4.6 12.2 12.4 12.2 2.5 0 5-.8 7.1-2.3l3.6 3.6 1.6-1.6-3.4-3.4c2.1-2.3 3.3-5.3 3.3-8.7zm-12.4-10c5.7 0 10.2 4.4 10.2 10.1 0 4.9-3.8 10.1-10.1 10.1s-10.1-5.1-10.1-10c0-6.4 5.1-10.2 10-10.2zM30.5 7.1h2.1v17h-2.1zM31.5 4.8c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zM40 4.8c-1 0-1.8-.8-1.8-1.8S39 1.2 40 1.2s1.8.8 1.8 1.8S41 4.8 40 4.8zM39 7.1h2.1v17H39zM53.7 24.4c-3.9 0-6.2-3-6.2-6v-16h2.1v4.7H57v2.1h-7.4v9.3c0 1.9 1.5 3.9 4.1 3.9.7 0 1.4-.2 2-.6l.2-.1 1 1.8-.2.1c-.9.5-2 .8-3 .8zM67.6 24.5c-5.7 0-9.1-4.5-9.1-8.9 0-5.7 4.5-9.1 8.9-9.1 2.3 0 4.1.8 5.4 2.3V7.1h2.1v17h-2.1v-1.9c-1.2 1.5-3 2.3-5.2 2.3zm-.2-15.9c-3.4 0-6.8 2.6-6.8 7 0 3.4 2.6 6.8 7 6.8 2 0 4-.9 5.3-2.5v-8.8c-1.4-1.6-3.3-2.5-5.5-2.5z"></path></svg></a><div><div class="st-Header_realmSelector"><span class="fa fa-fw fa-caret-down"></span></div></div><div><div class="st-Header_community">Community<span class="fa fa-fw fa-caret-down ml-1of2"></span></div></div><form class="st-Header_search"><span class="fa fa-search"></span><input class="st-Header_searchInput" placeholder="Search" type="search" /></form><div class="st-Header_searchButton"><span class="fa fa-serach"></span></div></div><div class="st-Header_end"><a class="st-Header_signupButton" href="/signup">Signup</a><a class="st-Header_loginLink" href="/login">Login</a></div></div></div></div><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/","name":"Qiita"}},{"@type":"ListItem","position":2,"item":{"@id":"/tags/git","name":"Git"}}]}</script><script async="" src="https://cdn.bigmining.com/private/js/qiita_bigmining.js"></script><div style="display:none"><div class="TagList__label"><span></span><span>Git</span></div><div class="TagList__label"><span></span><span>GitHub</span></div><div class="TagList__label"><span></span><span>初心者</span></div><div class="TagList__label"><span></span><span>新人プログラマ応援</span></div></div><div data-hyperapp-app="PersonalPublicArticle" data-hyperapp-props="{&quot;article&quot;:{&quot;body&quot;:&quot;\n\u003ch1\u003e\n\u003cspan id=\&quot;1初級編-基本的な用語とコマンド\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#1%E5%88%9D%E7%B4%9A%E7%B7%A8-%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%94%A8%E8%AA%9E%E3%81%A8%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e1.初級編 基本的な用語とコマンド\u003c/h1\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;基本用語\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E7%94%A8%E8%AA%9E\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e基本用語\u003c/h2\u003e\n\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\&quot;text-align: center\&quot;\u003e用語\u003c/th\u003e\n\u003cth style=\&quot;text-align: center\&quot;\u003e説明(イメージ)\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eブランチ\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e枝。大元の枝から切り分けることで、作業ごとまたは作業人ごとで、複数の作業や履歴を並列に管理できる\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eレポジトリ\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e履歴管理を行う場所\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eクローン(clone)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003eダウンロードのイメージ。リモートのレポジトリをそのまま全てローカルに持ってくること\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eアド(add)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003eコミットする前に仮にセーブするイメージ。addしないとコミットできない\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eコミット(commit)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e変更対象をセーブするイメージ。コミットは全て履歴として残る\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eプッシュ(push)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003eアップロードに近いイメージ。ローカルでコミットしたものをリモートにあげること\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003e\u003cstrong\u003eプル(pull)\u003c/strong\u003e\u003c/td\u003e\n\u003ctd style=\&quot;text-align: center\&quot;\u003eリモートリポジトリの最新状態をローカルリポジトリに反映させる。ダウンロードのイメージだが、cloneとは違いpullはすでにローカルにリポジトリがある状態(clone済みの状態)でしか行えない\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;基本コマンド\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e基本コマンド\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-clone-gitgithubcom-or-httpsgithubcom\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-clone-gitgithubcom-or-httpsgithubcom\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit clone \u003ccode\u003egit@github.com:〜 or https://github.com/〜\u003c/code\u003e\n\u003c/h3\u003e\n\n\u003cp\u003eリモートのレポジトリをクローンしてきます。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-checkout-存在しているブランチ名\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-checkout-%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit checkout 存在しているブランチ名\u003c/h3\u003e\n\n\u003cp\u003eローカルに存在しているブランチに切り替えます\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-checkout--b-新しいブランチ名\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-checkout--b-%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit checkout -b 新しいブランチ名\u003c/h3\u003e\n\n\u003cp\u003e現在のブランチから新しくブランチを作成します。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-add-作業パス変更したファイル\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-add-%E4%BD%9C%E6%A5%AD%E3%83%91%E3%82%B9%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit add 作業パス(変更したファイル)\u003c/h3\u003e\n\n\u003cp\u003e変更したファイルをcommitする前に取り込みます。(仮にセーブするイメージ)\u003c/p\u003e\n\n\u003cp\u003e変更したファイルのパスがわからない場合が、\u003ccode\u003egit status\u003c/code\u003e で確認できます。\u003cbr\u003e\n全部addしたいときなどによく使うのは、\u003ccode\u003egit add .\u003c/code\u003e です。\u003c/p\u003e\n\n\u003cp\u003e取り消す際は、\u003ccode\u003egit reset HEAD 作業パス(変更したファイル)\u003c/code\u003e で取り消せます。\u003cbr\u003e\nファイルの内容は元のままなので、せっかくここまでやったのに消えてしまうという心配も不要です。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-commit\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-commit\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit commit\u003c/h3\u003e\n\n\u003cp\u003eaddしてある箇所をコミットします。\u003cbr\u003e\nセーブに近いイメージです。セーブに履歴を付けれることがgitの特徴でしょうか。\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003egit commit -m \&quot;コメント\&quot;\u003c/code\u003e\u003c/p\u003e\n\n\u003cp\u003eこれだとvimを開かないで済みます。\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003egit commit -m \&quot;コメント\&quot; -m \&quot;コメント\&quot;\u003c/code\u003e\u003c/p\u003e\n\n\u003cp\u003eと2行以上書くことも可能です。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-push-origin-hogepushしたいブランチ名\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-push-origin-hogepush%E3%81%97%E3%81%9F%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit push origin hoge(pushしたいブランチ名)\u003c/h3\u003e\n\n\u003cp\u003eプッシュします。これによりローカルからリモートにコミットが反映されます。\u003cbr\u003e\nアップロードに近いイメージです。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-status\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-status\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit status\u003c/h3\u003e\n\n\u003cp\u003egit addがきちんとされているか否かも確認できます。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-revert-コミット番号\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-revert-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%95%AA%E5%8F%B7\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit revert コミット番号\u003c/h3\u003e\n\n\u003cp\u003eコミット履歴は残しつつ、あくまでコミットによる変更のみを打ち消すコマンドです。\u003cbr\u003e\nコミット番号については、\u003ccode\u003egit log\u003c/code\u003e で調べられます。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;git-pull-origin-ローカルブランチ名\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#git-pull-origin-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003egit pull origin ローカルブランチ名\u003c/h3\u003e\n\n\u003cp\u003eリモートの最新状態を取得します。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;origin-とは何か\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#origin-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eorigin とは何か\u003c/h2\u003e\n\n\u003cp\u003eレポジトリの場所(URL)の別名です。\u003cbr\u003e\n最初にcloneしたときに、設定されます。\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003egit config --list\u003c/code\u003e で確認できます。\u003c/p\u003e\n\n\u003ch1\u003e\n\u003cspan id=\&quot;2中級編-やりたいことから逆引き\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#2%E4%B8%AD%E7%B4%9A%E7%B7%A8-%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E9%80%86%E5%BC%95%E3%81%8D\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e2.中級編 やりたいことから逆引き\u003c/h1\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;リモートで特定のブランチをクローンしてくる方法\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8B%E6%96%B9%E6%B3%95\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eリモートで特定のブランチをクローンしてくる方法\u003c/h2\u003e\n\n\u003cp\u003e\u003ccode\u003egit clone -b リモートで落としたいブランチ名 https://github.com/〜\u003c/code\u003e\u003c/p\u003e\n\n\u003cp\u003e-b でリモートのブランチ名を指定することがポイント\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;強制的にローカルブランチをリモートブランチに合わせる\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E5%BC%B7%E5%88%B6%E7%9A%84%E3%81%AB%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e強制的にローカルブランチをリモートブランチに合わせる\u003c/h2\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit fetch origin\ngit reset --hard origin/master(現在のブランチ名)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eリモートの最新の状態をもってくることができる。\u003cbr\u003e\nローカルとリモートの整合性が取れなくなった時に使うと良いと思います。\u003cbr\u003e\nもしくは一度ローカルブランチを削除して、リモートブランチを持ってくるかです。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;リモートブランチを持ってくる\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eリモートブランチを持ってくる\u003c/h2\u003e\n\n\u003cp\u003eまずはリモートにあるブランチの情報を取得して表示する\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit fetch (リモートブランチの最新の情報を取得)\ngit branch -a (ローカルブランチとリモートブランチの一覧を表示)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit branch -a\n* master\n  remotes/origin/master\n  remotes/origin/hoge_branch\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e上記で、remotes/origin/hoge_branchをリモートからもってきて、ローカルでhoge_branchとして作業する場合に下記のようなコマンドを打つ\u003c/p\u003e\n\n\u003cp\u003e\u003ccode\u003egit checkout -b hoge_branch origin/hoge_branch\u003c/code\u003e\u003c/p\u003e\n\n\u003ch1\u003e\n\u003cspan id=\&quot;3上級編\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#3%E4%B8%8A%E7%B4%9A%E7%B7%A8\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e3.上級編\u003c/h1\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;既存ブランチは残しつつ全く新しく0からのブランチを作る\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E6%97%A2%E5%AD%98%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AF%E6%AE%8B%E3%81%97%E3%81%A4%E3%81%A4%E5%85%A8%E3%81%8F%E6%96%B0%E3%81%97%E3%81%8F0%E3%81%8B%E3%82%89%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e既存ブランチは残しつつ、全く新しく0からのブランチを作る\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;まずはローカルにディレクトリを作成\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%81%BE%E3%81%9A%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eまずはローカルにディレクトリを作成\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e$ mkdir hogeDir\n$ cd hogeDir/\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;作成したディレクトリ内でinitしリモートのレポジトリを持ってくる\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%86%85%E3%81%A7init%E3%81%97%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e作成したディレクトリ内でinitし、リモートのレポジトリを持ってくる\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e$ git init\nInitialized empty Git repository in /Users/user_name_hoge/hogeDir/.git/\n$\n$ git remote add origin git@github.com:hogehoge/hogehoge.git\n$\n$ git status\nOn branch master\n\nInitial commit\n\nnothing to commit (create/copy files and use \&quot;git add\&quot; to track)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;マスターからブランチを切って新しいブランチを作成し\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%8B%E3%82%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E5%88%87%E3%81%A3%E3%81%A6%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eマスターからブランチを切って新しいブランチを作成し、\u003c/h3\u003e\n\n\u003cp\u003eファーストコミット、プッシュまでを行う\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e$ git checkout -b hoge_branch\nSwitched to a new branch &#39;hoge_branch&#39;\n$\n$ vi README.md\n$ git add .\n$ git commit -m \&quot;First commit\&quot; -m \&quot;READMEファイル作成\&quot;\n[hogeDir (root-commit) 26tey74] First commit\n 1 file changed, 11 insertions(+)\n create mode 100644 README.md\n$\n$ git push origin hoge_branch\nCounting objects: 3, done.\nDelta compression using up to 4 threads.\nCompressing objects: 100% (2/2), done.\nWriting objects: 100% (3/3), 521 bytes | 0 bytes/s, done.\nTotal 3 (delta 0), reused 0 (delta 0)\nTo git@github.com:hogehoge/hogehoge.git\n * [new branch]      hoge_branch -\u0026gt; hoge_branch\n$\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eこれでリモートに全く新しいブランチ『hoge_branch』ができました。\u003cbr\u003e\nこのブランチをデフォブランチ(リモートで設定可能)に設定すると、他のブランチに手をつけず、作業をすることができます。\u003c/p\u003e\n\n\u003ch2\u003e\n\u003cspan id=\&quot;異なるレポジトリから差分をコピーして持ってくる\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%95%B0%E3%81%AA%E3%82%8B%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E5%B7%AE%E5%88%86%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e異なるレポジトリから差分をコピーして持ってくる\u003c/h2\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;まずはaaaレポジトリをクローンする\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%81%BE%E3%81%9A%E3%81%AFaaa%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eまずはAAAレポジトリをクローンする\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit clone git@github.com:hoge/AAA.git\ncd AAA\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;確認する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e確認する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit config --list\n\n(中略)\nremote.origin.url=git@github.com:hoge/AAA.git\nremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\nbranch.master.remote=origin\nbranch.master.merge=refs/heads/master\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;コピーしてきたいbbbのレポジトリを登録する\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%84bbb%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eコピーしてきたいBBBのレポジトリを登録する\u003c/h3\u003e\n\n\u003cp\u003e※作業ディレクトリは変更しなくてよい\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit remote add BBB git@github.com:hoge/BBB.git\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e※BBBの名前は何でも良い、この後呼び出すのに使います。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;確認する-1\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-1\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e確認する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit config --list\n\n中略\nremote.origin.url=git@github.com:hoge/AAA.git\nremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\nbranch.master.remote=origin\nbranch.master.merge=refs/heads/master\nremote.BBB.url=git@github.com:hoge/BBB.git\nremote.BBB.fetch=+refs/heads/*:refs/remotes/BBB/*\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;bbbレポジトリのブランチ情報を取得\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#bbb%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eBBBレポジトリのブランチ情報を取得\u003c/h3\u003e\n\n\u003cp\u003eremoteのレポジトリを登録した後に、必ずfetchしてあげることがポイントです。\u003cbr\u003e\nこれをしないとBBBレポジトリのブランチを指定できません。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit fetch BBB\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003eこれにより、BBBのレポジトリのブランチの情報が取得できる。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;確認する-2\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-2\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e確認する\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003e$ git branch -a\n* master\n  remotes/BBB/hogehoge\n  remotes/BBB/error-fix\n  remotes/BBB/fix-sass\n  remotes/BBB/master\n  remotes/origin/hogehoge\n  remotes/origin/HEAD -\u0026gt; origin/master\n  remotes/origin/hogetest\n  remotes/origin/master\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;リモートのレポジトリを指定してaaaのローカルブランチにマージする\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6aaa%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E3%83%9E%E3%83%BC%E3%82%B8%E3%81%99%E3%82%8B\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003eリモートのレポジトリを指定して、AAAのローカルブランチにマージする\u003c/h3\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit merge BBB/master\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n\n\u003cp\u003e※現在作業中のブランチにマージされるため、masterから切ったブランチにマージして、pushしてリモートで差分を確認するのが良いと思います。\u003c/p\u003e\n\n\u003ch3\u003e\n\u003cspan id=\&quot;二回目以降に上記作業を行うケース\&quot; class=\&quot;fragment\&quot;\u003e\u003c/span\u003e\u003ca href=\&quot;#%E4%BA%8C%E5%9B%9E%E7%9B%AE%E4%BB%A5%E9%99%8D%E3%81%AB%E4%B8%8A%E8%A8%98%E4%BD%9C%E6%A5%AD%E3%82%92%E8%A1%8C%E3%81%86%E3%82%B1%E3%83%BC%E3%82%B9\&quot;\u003e\u003ci class=\&quot;fa fa-link\&quot;\u003e\u003c/i\u003e\u003c/a\u003e二回目以降に上記作業を行うケース\u003c/h3\u003e\n\n\u003cp\u003e一度remoteでaddしてあれば、下記だけでいつでもコピーや差分が取り込めます。\u003c/p\u003e\n\n\u003cdiv class=\&quot;code-frame\&quot; data-lang=\&quot;text\&quot;\u003e\u003cdiv class=\&quot;highlight\&quot;\u003e\u003cpre\u003egit checkout master\ngit pull (AAAレポジトリの最新の状態を持ってくる)\ngit checkout -b AAA_2018xxxx (BBBをマージするためブランチを切っておく)\ngit fetch BBB (BBBレポジトリの最新のブランチを取得)\ngit merge BBB/master (AAA_2018xxxxへBBBレポジトリのmasterブランチをマージ)\n\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\n&quot;,&quot;createdAt&quot;:&quot;2018-04-06T08:56:30Z&quot;,&quot;isDeprecated&quot;:false,&quot;isDestroyableByViewer&quot;:false,&quot;isEditRequestSendableByViewer&quot;:true,&quot;isLikableByViewer&quot;:true,&quot;isLikedByViewer&quot;:false,&quot;isPublic&quot;:true,&quot;isSlide&quot;:false,&quot;isStockableByViewer&quot;:true,&quot;isStockedByViewer&quot;:false,&quot;isUpdatableByViewer&quot;:false,&quot;isUpdated&quot;:true,&quot;likesCount&quot;:2,&quot;originalId&quot;:627155,&quot;title&quot;:&quot;gitコマンドまとめ&quot;,&quot;toc&quot;:&quot;\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#1%E5%88%9D%E7%B4%9A%E7%B7%A8-%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%94%A8%E8%AA%9E%E3%81%A8%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e1.初級編 基本的な用語とコマンド\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E7%94%A8%E8%AA%9E\&quot;\u003e基本用語\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89\&quot;\u003e基本コマンド\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-clone-gitgithubcom-or-httpsgithubcom\&quot;\u003egit clone git@github.com:〜 or https://github.com/〜\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-checkout-%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003egit checkout 存在しているブランチ名\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-checkout--b-%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003egit checkout -b 新しいブランチ名\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-add-%E4%BD%9C%E6%A5%AD%E3%83%91%E3%82%B9%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB\&quot;\u003egit add 作業パス(変更したファイル)\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-commit\&quot;\u003egit commit\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-push-origin-hogepush%E3%81%97%E3%81%9F%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003egit push origin hoge(pushしたいブランチ名)\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-status\&quot;\u003egit status\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-revert-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%95%AA%E5%8F%B7\&quot;\u003egit revert コミット番号\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#git-pull-origin-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D\&quot;\u003egit pull origin ローカルブランチ名\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#origin-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B\&quot;\u003eorigin とは何か\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#2%E4%B8%AD%E7%B4%9A%E7%B7%A8-%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E9%80%86%E5%BC%95%E3%81%8D\&quot;\u003e2.中級編 やりたいことから逆引き\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8B%E6%96%B9%E6%B3%95\&quot;\u003eリモートで特定のブランチをクローンしてくる方法\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E5%BC%B7%E5%88%B6%E7%9A%84%E3%81%AB%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B\&quot;\u003e強制的にローカルブランチをリモートブランチに合わせる\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003eリモートブランチを持ってくる\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#3%E4%B8%8A%E7%B4%9A%E7%B7%A8\&quot;\u003e3.上級編\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E6%97%A2%E5%AD%98%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AF%E6%AE%8B%E3%81%97%E3%81%A4%E3%81%A4%E5%85%A8%E3%81%8F%E6%96%B0%E3%81%97%E3%81%8F0%E3%81%8B%E3%82%89%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E3%82%8B\&quot;\u003e既存ブランチは残しつつ、全く新しく0からのブランチを作る\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%81%BE%E3%81%9A%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90\&quot;\u003eまずはローカルにディレクトリを作成\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%86%85%E3%81%A7init%E3%81%97%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003e作成したディレクトリ内でinitし、リモートのレポジトリを持ってくる\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%8B%E3%82%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E5%88%87%E3%81%A3%E3%81%A6%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97\&quot;\u003eマスターからブランチを切って新しいブランチを作成し、\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%95%B0%E3%81%AA%E3%82%8B%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E5%B7%AE%E5%88%86%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B\&quot;\u003e異なるレポジトリから差分をコピーして持ってくる\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%81%BE%E3%81%9A%E3%81%AFaaa%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B\&quot;\u003eまずはAAAレポジトリをクローンする\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B\&quot;\u003e確認する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%84bbb%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B\&quot;\u003eコピーしてきたいBBBのレポジトリを登録する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-1\&quot;\u003e確認する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#bbb%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97\&quot;\u003eBBBレポジトリのブランチ情報を取得\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-2\&quot;\u003e確認する\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6aaa%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E3%83%9E%E3%83%BC%E3%82%B8%E3%81%99%E3%82%8B\&quot;\u003eリモートのレポジトリを指定して、AAAのローカルブランチにマージする\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\&quot;#%E4%BA%8C%E5%9B%9E%E7%9B%AE%E4%BB%A5%E9%99%8D%E3%81%AB%E4%B8%8A%E8%A8%98%E4%BD%9C%E6%A5%AD%E3%82%92%E8%A1%8C%E3%81%86%E3%82%B1%E3%83%BC%E3%82%B9\&quot;\u003e二回目以降に上記作業を行うケース\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;totalPv&quot;:517,&quot;updatedAt&quot;:&quot;2018-04-07T09:56:20Z&quot;,&quot;uuid&quot;:&quot;369eecea3456dbcbe26e&quot;,&quot;adventCalendarItem&quot;:null,&quot;author&quot;:{&quot;description&quot;:&quot;東日本大震災から7年\r\nCakephp3 / Github / Vagrant / AWS&quot;,&quot;name&quot;:&quot;&quot;,&quot;profileImageUrl&quot;:&quot;https://qiita-image-store.s3.amazonaws.com/0/117024/profile-images/1516206793&quot;,&quot;urlName&quot;:&quot;non0311&quot;},&quot;tags&quot;:[{&quot;name&quot;:&quot;Git&quot;,&quot;urlName&quot;:&quot;git&quot;},{&quot;name&quot;:&quot;GitHub&quot;,&quot;urlName&quot;:&quot;github&quot;},{&quot;name&quot;:&quot;初心者&quot;,&quot;urlName&quot;:&quot;%e5%88%9d%e5%bf%83%e8%80%85&quot;},{&quot;name&quot;:&quot;新人プログラマ応援&quot;,&quot;urlName&quot;:&quot;%e6%96%b0%e4%ba%ba%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9e%e5%bf%9c%e6%8f%b4&quot;}],&quot;followingLikers&quot;:{&quot;edges&quot;:[]}},&quot;analyticsTrackingId&quot;:null}"><article itemscope="itemscope" itemtype="http://schema.org/Article" class="p-items"><div class="p-items_wrapper"><div class="p-items_container"><div class="p-items_stickyMenu it-Actions"><div class="it-Actions_item it-Actions_item-like likable"><a class="it-Actions_likeCount" href="/non0311/items/369eecea3456dbcbe26e/likers">2</a><button><i class="fa fa-fw fa-thumbs-up"></i></button></div><div class="it-Actions_item it-Actions_item-stock"><button><i class="fa fa-folder-open"></i></button></div><div class="it-Actions_shareButton it-Actions_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Actions_shareButton it-Actions_shareButton-facebook"><span class="fa fa-facebook"></span></div></div><div class="p-items_main"><div class="p-items_article"><div class="it-Header"><div class="u-flex-center-between mb-3"><div class="it-Header_info"><div class="it-Header_author"><a href="/non0311"><img class="it-Header_authorImage" src="https://qiita-image-store.s3.amazonaws.com/0/117024/profile-images/1516206793" alt="1516206793" /></a><a class="it-Header_authorName" href="/non0311">@non0311</a> </div><div class="it-Header_time"></div><div class="it-Header_meta"><div class="it-Header_manipulate"><div class="dropdown"><span class="dropdown-toggle" tabindex="0"><span class="fa fa-ellipsis-h fa-lg"></span></span></div></div></div></div></div><h1 class="it-Header_title" itemprop="headline">gitコマンドまとめ</h1><div class="it-Tags"><a class="it-Tags_item" href="/tags/git"><span>Git</span></a><a class="it-Tags_item" href="/tags/github"><span>GitHub</span></a><a class="it-Tags_item" href="/tags/%25e5%2588%259d%25e5%25bf%2583%25e8%2580%2585"><span>初心者</span></a><a class="it-Tags_item" href="/tags/%25e6%2596%25b0%25e4%25ba%25ba%25e3%2583%2597%25e3%2583%25ad%25e3%2582%25b0%25e3%2583%25a9%25e3%2583%259e%25e5%25bf%259c%25e6%258f%25b4"><span>新人プログラマ応援</span></a></div></div><div class="it-ActionsMobile"><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_like likable"><button><span class="fa fa-fw fa-thumbs-up" /><span>2</span></button></div></div><div class="it-ActionsMobile_item"><div class="it-ActionsMobile_stock"><button><div class="fa fa-folder-open"></div></button></div></div></div><section class="it-MdContent" itemprop="articleBody"><div id="item-369eecea3456dbcbe26e">
+<h1>
+<span id="1初級編-基本的な用語とコマンド" class="fragment"></span><a href="#1%E5%88%9D%E7%B4%9A%E7%B7%A8-%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%94%A8%E8%AA%9E%E3%81%A8%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><i class="fa fa-link"></i></a>1.初級編 基本的な用語とコマンド</h1>
+
+<h2>
+<span id="基本用語" class="fragment"></span><a href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E8%AA%9E"><i class="fa fa-link"></i></a>基本用語</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">用語</th>
+<th style="text-align: center">説明(イメージ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center"><strong>ブランチ</strong></td>
+<td style="text-align: center">枝。大元の枝から切り分けることで、作業ごとまたは作業人ごとで、複数の作業や履歴を並列に管理できる</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>レポジトリ</strong></td>
+<td style="text-align: center">履歴管理を行う場所</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>クローン(clone)</strong></td>
+<td style="text-align: center">ダウンロードのイメージ。リモートのレポジトリをそのまま全てローカルに持ってくること</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>アド(add)</strong></td>
+<td style="text-align: center">コミットする前に仮にセーブするイメージ。addしないとコミットできない</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>コミット(commit)</strong></td>
+<td style="text-align: center">変更対象をセーブするイメージ。コミットは全て履歴として残る</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>プッシュ(push)</strong></td>
+<td style="text-align: center">アップロードに近いイメージ。ローカルでコミットしたものをリモートにあげること</td>
+</tr>
+<tr>
+<td style="text-align: center"><strong>プル(pull)</strong></td>
+<td style="text-align: center">リモートリポジトリの最新状態をローカルリポジトリに反映させる。ダウンロードのイメージだが、cloneとは違いpullはすでにローカルにリポジトリがある状態(clone済みの状態)でしか行えない</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<span id="基本コマンド" class="fragment"></span><a href="#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><i class="fa fa-link"></i></a>基本コマンド</h2>
+
+<h3>
+<span id="git-clone-gitgithubcom-or-httpsgithubcom" class="fragment"></span><a href="#git-clone-gitgithubcom-or-httpsgithubcom"><i class="fa fa-link"></i></a>git clone <code>git@github.com:〜 or https://github.com/〜</code>
+</h3>
+
+<p>リモートのレポジトリをクローンしてきます。</p>
+
+<h3>
+<span id="git-checkout-存在しているブランチ名" class="fragment"></span><a href="#git-checkout-%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D"><i class="fa fa-link"></i></a>git checkout 存在しているブランチ名</h3>
+
+<p>ローカルに存在しているブランチに切り替えます</p>
+
+<h3>
+<span id="git-checkout--b-新しいブランチ名" class="fragment"></span><a href="#git-checkout--b-%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D"><i class="fa fa-link"></i></a>git checkout -b 新しいブランチ名</h3>
+
+<p>現在のブランチから新しくブランチを作成します。</p>
+
+<h3>
+<span id="git-add-作業パス変更したファイル" class="fragment"></span><a href="#git-add-%E4%BD%9C%E6%A5%AD%E3%83%91%E3%82%B9%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><i class="fa fa-link"></i></a>git add 作業パス(変更したファイル)</h3>
+
+<p>変更したファイルをcommitする前に取り込みます。(仮にセーブするイメージ)</p>
+
+<p>変更したファイルのパスがわからない場合が、<code>git status</code> で確認できます。<br>
+全部addしたいときなどによく使うのは、<code>git add .</code> です。</p>
+
+<p>取り消す際は、<code>git reset HEAD 作業パス(変更したファイル)</code> で取り消せます。<br>
+ファイルの内容は元のままなので、せっかくここまでやったのに消えてしまうという心配も不要です。</p>
+
+<h3>
+<span id="git-commit" class="fragment"></span><a href="#git-commit"><i class="fa fa-link"></i></a>git commit</h3>
+
+<p>addしてある箇所をコミットします。<br>
+セーブに近いイメージです。セーブに履歴を付けれることがgitの特徴でしょうか。</p>
+
+<p><code>git commit -m "コメント"</code></p>
+
+<p>これだとvimを開かないで済みます。</p>
+
+<p><code>git commit -m "コメント" -m "コメント"</code></p>
+
+<p>と2行以上書くことも可能です。</p>
+
+<h3>
+<span id="git-push-origin-hogepushしたいブランチ名" class="fragment"></span><a href="#git-push-origin-hogepush%E3%81%97%E3%81%9F%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D"><i class="fa fa-link"></i></a>git push origin hoge(pushしたいブランチ名)</h3>
+
+<p>プッシュします。これによりローカルからリモートにコミットが反映されます。<br>
+アップロードに近いイメージです。</p>
+
+<h3>
+<span id="git-status" class="fragment"></span><a href="#git-status"><i class="fa fa-link"></i></a>git status</h3>
+
+<p>git addがきちんとされているか否かも確認できます。</p>
+
+<h3>
+<span id="git-revert-コミット番号" class="fragment"></span><a href="#git-revert-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%95%AA%E5%8F%B7"><i class="fa fa-link"></i></a>git revert コミット番号</h3>
+
+<p>コミット履歴は残しつつ、あくまでコミットによる変更のみを打ち消すコマンドです。<br>
+コミット番号については、<code>git log</code> で調べられます。</p>
+
+<h3>
+<span id="git-pull-origin-ローカルブランチ名" class="fragment"></span><a href="#git-pull-origin-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D"><i class="fa fa-link"></i></a>git pull origin ローカルブランチ名</h3>
+
+<p>リモートの最新状態を取得します。</p>
+
+<h2>
+<span id="origin-とは何か" class="fragment"></span><a href="#origin-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B"><i class="fa fa-link"></i></a>origin とは何か</h2>
+
+<p>レポジトリの場所(URL)の別名です。<br>
+最初にcloneしたときに、設定されます。</p>
+
+<p><code>git config --list</code> で確認できます。</p>
+
+<h1>
+<span id="2中級編-やりたいことから逆引き" class="fragment"></span><a href="#2%E4%B8%AD%E7%B4%9A%E7%B7%A8-%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E9%80%86%E5%BC%95%E3%81%8D"><i class="fa fa-link"></i></a>2.中級編 やりたいことから逆引き</h1>
+
+<h2>
+<span id="リモートで特定のブランチをクローンしてくる方法" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8B%E6%96%B9%E6%B3%95"><i class="fa fa-link"></i></a>リモートで特定のブランチをクローンしてくる方法</h2>
+
+<p><code>git clone -b リモートで落としたいブランチ名 https://github.com/〜</code></p>
+
+<p>-b でリモートのブランチ名を指定することがポイント</p>
+
+<h2>
+<span id="強制的にローカルブランチをリモートブランチに合わせる" class="fragment"></span><a href="#%E5%BC%B7%E5%88%B6%E7%9A%84%E3%81%AB%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B"><i class="fa fa-link"></i></a>強制的にローカルブランチをリモートブランチに合わせる</h2>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git fetch origin
+git reset --hard origin/master(現在のブランチ名)
+</pre></div></div>
+
+<p>リモートの最新の状態をもってくることができる。<br>
+ローカルとリモートの整合性が取れなくなった時に使うと良いと思います。<br>
+もしくは一度ローカルブランチを削除して、リモートブランチを持ってくるかです。</p>
+
+<h2>
+<span id="リモートブランチを持ってくる" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B"><i class="fa fa-link"></i></a>リモートブランチを持ってくる</h2>
+
+<p>まずはリモートにあるブランチの情報を取得して表示する</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git fetch (リモートブランチの最新の情報を取得)
+git branch -a (ローカルブランチとリモートブランチの一覧を表示)
+</pre></div></div>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git branch -a
+* master
+  remotes/origin/master
+  remotes/origin/hoge_branch
+</pre></div></div>
+
+<p>上記で、remotes/origin/hoge_branchをリモートからもってきて、ローカルでhoge_branchとして作業する場合に下記のようなコマンドを打つ</p>
+
+<p><code>git checkout -b hoge_branch origin/hoge_branch</code></p>
+
+<h1>
+<span id="3上級編" class="fragment"></span><a href="#3%E4%B8%8A%E7%B4%9A%E7%B7%A8"><i class="fa fa-link"></i></a>3.上級編</h1>
+
+<h2>
+<span id="既存ブランチは残しつつ全く新しく0からのブランチを作る" class="fragment"></span><a href="#%E6%97%A2%E5%AD%98%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AF%E6%AE%8B%E3%81%97%E3%81%A4%E3%81%A4%E5%85%A8%E3%81%8F%E6%96%B0%E3%81%97%E3%81%8F0%E3%81%8B%E3%82%89%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E3%82%8B"><i class="fa fa-link"></i></a>既存ブランチは残しつつ、全く新しく0からのブランチを作る</h2>
+
+<h3>
+<span id="まずはローカルにディレクトリを作成" class="fragment"></span><a href="#%E3%81%BE%E3%81%9A%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90"><i class="fa fa-link"></i></a>まずはローカルにディレクトリを作成</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>$ mkdir hogeDir
+$ cd hogeDir/
+</pre></div></div>
+
+<h3>
+<span id="作成したディレクトリ内でinitしリモートのレポジトリを持ってくる" class="fragment"></span><a href="#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%86%85%E3%81%A7init%E3%81%97%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B"><i class="fa fa-link"></i></a>作成したディレクトリ内でinitし、リモートのレポジトリを持ってくる</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>$ git init
+Initialized empty Git repository in /Users/user_name_hoge/hogeDir/.git/
+$
+$ git remote add origin git@github.com:hogehoge/hogehoge.git
+$
+$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+</pre></div></div>
+
+<h3>
+<span id="マスターからブランチを切って新しいブランチを作成し" class="fragment"></span><a href="#%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%8B%E3%82%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E5%88%87%E3%81%A3%E3%81%A6%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97"><i class="fa fa-link"></i></a>マスターからブランチを切って新しいブランチを作成し、</h3>
+
+<p>ファーストコミット、プッシュまでを行う</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>$ git checkout -b hoge_branch
+Switched to a new branch 'hoge_branch'
+$
+$ vi README.md
+$ git add .
+$ git commit -m "First commit" -m "READMEファイル作成"
+[hogeDir (root-commit) 26tey74] First commit
+ 1 file changed, 11 insertions(+)
+ create mode 100644 README.md
+$
+$ git push origin hoge_branch
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 521 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:hogehoge/hogehoge.git
+ * [new branch]      hoge_branch -&gt; hoge_branch
+$
+</pre></div></div>
+
+<p>これでリモートに全く新しいブランチ『hoge_branch』ができました。<br>
+このブランチをデフォブランチ(リモートで設定可能)に設定すると、他のブランチに手をつけず、作業をすることができます。</p>
+
+<h2>
+<span id="異なるレポジトリから差分をコピーして持ってくる" class="fragment"></span><a href="#%E7%95%B0%E3%81%AA%E3%82%8B%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E5%B7%AE%E5%88%86%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B"><i class="fa fa-link"></i></a>異なるレポジトリから差分をコピーして持ってくる</h2>
+
+<h3>
+<span id="まずはaaaレポジトリをクローンする" class="fragment"></span><a href="#%E3%81%BE%E3%81%9A%E3%81%AFaaa%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>まずはAAAレポジトリをクローンする</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git clone git@github.com:hoge/AAA.git
+cd AAA
+</pre></div></div>
+
+<h3>
+<span id="確認する" class="fragment"></span><a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>確認する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git config --list
+
+(中略)
+remote.origin.url=git@github.com:hoge/AAA.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+</pre></div></div>
+
+<h3>
+<span id="コピーしてきたいbbbのレポジトリを登録する" class="fragment"></span><a href="#%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%84bbb%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>コピーしてきたいBBBのレポジトリを登録する</h3>
+
+<p>※作業ディレクトリは変更しなくてよい</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git remote add BBB git@github.com:hoge/BBB.git
+</pre></div></div>
+
+<p>※BBBの名前は何でも良い、この後呼び出すのに使います。</p>
+
+<h3>
+<span id="確認する-1" class="fragment"></span><a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-1"><i class="fa fa-link"></i></a>確認する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git config --list
+
+中略
+remote.origin.url=git@github.com:hoge/AAA.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+remote.BBB.url=git@github.com:hoge/BBB.git
+remote.BBB.fetch=+refs/heads/*:refs/remotes/BBB/*
+</pre></div></div>
+
+<h3>
+<span id="bbbレポジトリのブランチ情報を取得" class="fragment"></span><a href="#bbb%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97"><i class="fa fa-link"></i></a>BBBレポジトリのブランチ情報を取得</h3>
+
+<p>remoteのレポジトリを登録した後に、必ずfetchしてあげることがポイントです。<br>
+これをしないとBBBレポジトリのブランチを指定できません。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git fetch BBB
+</pre></div></div>
+
+<p>これにより、BBBのレポジトリのブランチの情報が取得できる。</p>
+
+<h3>
+<span id="確認する-2" class="fragment"></span><a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-2"><i class="fa fa-link"></i></a>確認する</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>$ git branch -a
+* master
+  remotes/BBB/hogehoge
+  remotes/BBB/error-fix
+  remotes/BBB/fix-sass
+  remotes/BBB/master
+  remotes/origin/hogehoge
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/hogetest
+  remotes/origin/master
+</pre></div></div>
+
+<h3>
+<span id="リモートのレポジトリを指定してaaaのローカルブランチにマージする" class="fragment"></span><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6aaa%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E3%83%9E%E3%83%BC%E3%82%B8%E3%81%99%E3%82%8B"><i class="fa fa-link"></i></a>リモートのレポジトリを指定して、AAAのローカルブランチにマージする</h3>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git merge BBB/master
+</pre></div></div>
+
+<p>※現在作業中のブランチにマージされるため、masterから切ったブランチにマージして、pushしてリモートで差分を確認するのが良いと思います。</p>
+
+<h3>
+<span id="二回目以降に上記作業を行うケース" class="fragment"></span><a href="#%E4%BA%8C%E5%9B%9E%E7%9B%AE%E4%BB%A5%E9%99%8D%E3%81%AB%E4%B8%8A%E8%A8%98%E4%BD%9C%E6%A5%AD%E3%82%92%E8%A1%8C%E3%81%86%E3%82%B1%E3%83%BC%E3%82%B9"><i class="fa fa-link"></i></a>二回目以降に上記作業を行うケース</h3>
+
+<p>一度remoteでaddしてあれば、下記だけでいつでもコピーや差分が取り込めます。</p>
+
+<div class="code-frame" data-lang="text"><div class="highlight"><pre>git checkout master
+git pull (AAAレポジトリの最新の状態を持ってくる)
+git checkout -b AAA_2018xxxx (BBBをマージするためブランチを切っておく)
+git fetch BBB (BBBレポジトリの最新のブランチを取得)
+git merge BBB/master (AAA_2018xxxxへBBBレポジトリのmasterブランチをマージ)
+</pre></div></div>
+</div></section><div class="it-Footer"><div class="it-Footer_actions"><div class="it-Footer_editRequest"><a class="u-link-no-underline" href="/non0311/items/369eecea3456dbcbe26e/edit"><span class="fa fa-fw fa-send"></span><span>Edit request</span></a></div><div class="it-Footer_stock"><button><span class="fa fa-folder-open"></span><span class="it-Footer_stockLabel">Stock</span></button></div><div class="it-Footer_like"><button><span class="fa fa-fw fa-thumbs-up"></span><span>Like</span></button><a class="it-Footer_likeCount" href="/non0311/items/369eecea3456dbcbe26e/likers">2</a></div></div><div class="it-Footer_social"><div class="it-Footer_shareButton it-Footer_shareButton-webshare"><span class="fa fa-share-alt"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-twitter"><span class="fa fa-twitter"></span></div><div class="it-Footer_shareButton it-Footer_shareButton-facebook"><span class="fa fa-facebook"></span></div></div></div><div class="it-AuthorInfo" itemprop="author" itemscope="" itemtype="http://schema.org/Person"><a href="/non0311"><img class="it-AuthorInfo_image" itemprop="image" alt="non0311" src="https://qiita-image-store.s3.amazonaws.com/0/117024/profile-images/1516206793" /></a><div class="it-AuthorInfo_body"><div class="it-AuthorInfo_header"><a class="it-AuthorInfo_urlname" itemprop="name" href="/non0311">non0311</a></div><div class="it-AuthorInfo_description">東日本大震災から7年
+Cakephp3 / Github / Vagrant / AWS</div></div></div></div></div><div class="p-items_options"></div><div class="p-items_toc"><div class="it-Toc"><div class="it-Toc_nav"><ul>
+<li>
+<a href="#1%E5%88%9D%E7%B4%9A%E7%B7%A8-%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%94%A8%E8%AA%9E%E3%81%A8%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">1.初級編 基本的な用語とコマンド</a>
+<ul>
+<li>
+<a href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E8%AA%9E">基本用語</a>
+</li>
+<li>
+<a href="#%E5%9F%BA%E6%9C%AC%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">基本コマンド</a>
+<ul>
+<li>
+<a href="#git-clone-gitgithubcom-or-httpsgithubcom">git clone git@github.com:〜 or https://github.com/〜</a>
+</li>
+<li>
+<a href="#git-checkout-%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D">git checkout 存在しているブランチ名</a>
+</li>
+<li>
+<a href="#git-checkout--b-%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D">git checkout -b 新しいブランチ名</a>
+</li>
+<li>
+<a href="#git-add-%E4%BD%9C%E6%A5%AD%E3%83%91%E3%82%B9%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">git add 作業パス(変更したファイル)</a>
+</li>
+<li>
+<a href="#git-commit">git commit</a>
+</li>
+<li>
+<a href="#git-push-origin-hogepush%E3%81%97%E3%81%9F%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D">git push origin hoge(pushしたいブランチ名)</a>
+</li>
+<li>
+<a href="#git-status">git status</a>
+</li>
+<li>
+<a href="#git-revert-%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E7%95%AA%E5%8F%B7">git revert コミット番号</a>
+</li>
+<li>
+<a href="#git-pull-origin-%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E5%90%8D">git pull origin ローカルブランチ名</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#origin-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B">origin とは何か</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#2%E4%B8%AD%E7%B4%9A%E7%B7%A8-%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%81%8B%E3%82%89%E9%80%86%E5%BC%95%E3%81%8D">2.中級編 やりたいことから逆引き</a>
+<ul>
+<li>
+<a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8B%E6%96%B9%E6%B3%95">リモートで特定のブランチをクローンしてくる方法</a>
+</li>
+<li>
+<a href="#%E5%BC%B7%E5%88%B6%E7%9A%84%E3%81%AB%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B">強制的にローカルブランチをリモートブランチに合わせる</a>
+</li>
+<li>
+<a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B">リモートブランチを持ってくる</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#3%E4%B8%8A%E7%B4%9A%E7%B7%A8">3.上級編</a>
+<ul>
+<li>
+<a href="#%E6%97%A2%E5%AD%98%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AF%E6%AE%8B%E3%81%97%E3%81%A4%E3%81%A4%E5%85%A8%E3%81%8F%E6%96%B0%E3%81%97%E3%81%8F0%E3%81%8B%E3%82%89%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E3%82%8B">既存ブランチは残しつつ、全く新しく0からのブランチを作る</a>
+<ul>
+<li>
+<a href="#%E3%81%BE%E3%81%9A%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E6%88%90">まずはローカルにディレクトリを作成</a>
+</li>
+<li>
+<a href="#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E5%86%85%E3%81%A7init%E3%81%97%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B">作成したディレクトリ内でinitし、リモートのレポジトリを持ってくる</a>
+</li>
+<li>
+<a href="#%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%8B%E3%82%89%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E5%88%87%E3%81%A3%E3%81%A6%E6%96%B0%E3%81%97%E3%81%84%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97">マスターからブランチを切って新しいブランチを作成し、</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#%E7%95%B0%E3%81%AA%E3%82%8B%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E5%B7%AE%E5%88%86%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E6%8C%81%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B">異なるレポジトリから差分をコピーして持ってくる</a>
+<ul>
+<li>
+<a href="#%E3%81%BE%E3%81%9A%E3%81%AFaaa%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B">まずはAAAレポジトリをクローンする</a>
+</li>
+<li>
+<a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B">確認する</a>
+</li>
+<li>
+<a href="#%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F%E3%81%84bbb%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B">コピーしてきたいBBBのレポジトリを登録する</a>
+</li>
+<li>
+<a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-1">確認する</a>
+</li>
+<li>
+<a href="#bbb%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97">BBBレポジトリのブランチ情報を取得</a>
+</li>
+<li>
+<a href="#%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B-2">確認する</a>
+</li>
+<li>
+<a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6aaa%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AB%E3%83%9E%E3%83%BC%E3%82%B8%E3%81%99%E3%82%8B">リモートのレポジトリを指定して、AAAのローカルブランチにマージする</a>
+</li>
+<li>
+<a href="#%E4%BA%8C%E5%9B%9E%E7%9B%AE%E4%BB%A5%E9%99%8D%E3%81%AB%E4%B8%8A%E8%A8%98%E4%BD%9C%E6%A5%AD%E3%82%92%E8%A1%8C%E3%81%86%E3%82%B1%E3%83%BC%E3%82%B9">二回目以降に上記作業を行うケース</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></div></div></div><div class="p-items_wrapper p-items_wrapper-white"><div class="p-items_container"><div class="p-items_leftDummy"></div><div class="p-items_main"></div><div class="p-items_rightDummy"></div></div></div></article></div><footer id="globalFooter" class="st-Footer px-2 px-1@s pt-1 pt-3@s pb-2"><div class="st-Footer_container"><ul class="st-Footer_start"><li class="st-Footer_link"><a class="st-Footer_copyright" href="https://increments.co.jp">© 2011-2018 Increments Inc.</a></li><li class="st-Footer_link"><a href="/terms">Terms</a></li><li class="st-Footer_link"><a href="/privacy">Privacy</a></li><li class="st-Footer_link"><a href="https://help.qiita.com">Help</a></li><li class="st-Footer_link"><a href="https://increments.zendesk.com/hc/ja/requests/new">Contact</a></li></ul><ul class="st-Footer_end"><li class="st-Footer_link"><a href="/about">About</a></li><li class="st-Footer_link"><a href="/users">Users</a></li><li class="st-Footer_link"><a href="/tags">Tags</a></li><li class="st-Footer_link"><a href="/items">Items</a></li><li class="st-Footer_link"><a href="http://blog.qiita.com">Blog</a></li><li class="st-Footer_link"><a href="/api/v2/docs">API</a></li><li class="st-Footer_link"><a href="https://teams.qiita.com">Qiita:Team</a></li></ul></div></footer></div><div class="p-messages"><div data-hyperapp-app="Message" data-hyperapp-props="{&quot;messages&quot;:[]}"></div></div><div id="dataContainer" style="display: none;" data-config="{&quot;actionPath&quot;:&quot;public/items#show&quot;,&quot;settings&quot;:{&quot;analyticsTrackingId&quot;:&quot;UA-24675221-12&quot;,&quot;mixpanelToken&quot;:&quot;17d24b448ca579c365d2d1057f3a1791&quot;,&quot;assetsMap&quot;:{},&quot;csrfToken&quot;:&quot;h0kdwdGQTm1QaOLgNYGbVYvUP3LQhcTlIhrwMCMIiIc9Xvx/nsP/aS4kOJ9C+Ffj3VkPl1Rc2EQrWpq0k7rIgA==&quot;,&quot;locale&quot;:&quot;en&quot;},&quot;currentUser&quot;:null}" /></body></html>
